@@ -1,8 +1,5 @@
 using UnityEngine;
 
-/*
- System spawnujący przeciwników wokół gracza
-*/
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -27,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if(timer >= spawnRate)
+        if (timer >= spawnRate)
         {
             SpawnEnemy();
             timer = 0;

@@ -5,6 +5,7 @@ public class AutoShooter : MonoBehaviour
     public GameObject bulletPrefab;
     public float fireRate = 1f;
     public float range = 10f;
+    public float extraBulletSpeed = 0f;
     float fireTimer;
 
     void Update()
@@ -58,15 +59,30 @@ public class AutoShooter : MonoBehaviour
             return;
         }
 
+        if (extraBulletSpeed > 0f)
+        {
+            bulletScript.IncreaseSpeed(extraBulletSpeed);
+        }
+
         bulletScript.SetTarget(closestEnemy.transform);
+    }
+
+    public void IncreaseBulletSpeed(float amount)
+    {
+        extraBulletSpeed += amount;
     }
 
     public void IncreaseAttackSpeed(float amount)
     {
         fireRate -= amount;
-        
+
         // Zabezpieczenie, żeby gra strzelała poprawnie - nie chcemy ujemnych ani 0 wartśoci
         if (fireRate < 0.1f)
             fireRate = 0.1f;
+    }
+
+    public void IncreaseAttackRange(float amount)
+    {
+        range += amount;
     }
 }

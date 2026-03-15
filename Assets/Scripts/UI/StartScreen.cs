@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StartScreen : MonoBehaviour
 {
-    public GameObject startPanel; // przeciągnij tutaj Panel z Hierarchy
+    public GameObject startPanel;
     public GameObject startButton;
 
     public GameObject healthBar;
@@ -12,7 +12,7 @@ public class StartScreen : MonoBehaviour
     {
         if (startPanel != null && startButton != null)
         {
-            startPanel.SetActive(false); // ukrywa panel
+            startPanel.SetActive(false);
             startButton.SetActive(false);
             healthBar.SetActive(true);
             expBar.SetActive(true);
@@ -20,7 +20,6 @@ public class StartScreen : MonoBehaviour
         else
             Debug.LogError("Start Panel nie jest przypisany!");
 
-        // Dalszy start gry, np. włączenie AI / spawnera
-        GameManager.instance.StartGame(); // jeśli masz GameManager
+        GameManager.instance.StartGame();
     }
 }

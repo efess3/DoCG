@@ -27,7 +27,7 @@ public class PlayerLevel : MonoBehaviour
 
         currentXP -= xpToNextLevel;
 
-        xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * 1.5f);
+        xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * 1.1f);
 
         slider.maxValue = xpToNextLevel;
 

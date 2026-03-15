@@ -7,7 +7,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // prędkość pocisku
-    public float speed = 10f;
+    public float speed = 5f;
 
     // obrażenia
     public int damage = 1;
@@ -15,33 +15,52 @@ public class Bullet : MonoBehaviour
     // cel
     private Transform target;
 
+    // Zapamiętany, ostatni kierunek lotu
+    private Vector2 lastDirection;
+
+    void Start()
+    {
+        // Niszczymy pocisk z automatu po 5 sekundach lotu, 
+        // by nie leciały w nieskończoność i nie zmniejszały pamięci (optymalizacja)
+        Destroy(gameObject, 5f);
+    }
+
     /*
      ustawienie celu pocisku
     */
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
+
+        // Obliczamy wejściowy kierunek od razu, po przypisaniu celu
+        if (target != null)
+        {
+            lastDirection = (target.position - transform.position).normalized;
+        }
     }
 
     void Update()
     {
-        if (target == null)
+        if (target != null)
         {
-            Destroy(gameObject);
-            return;
+            // Aktualizujemy kierunek ciągle w stronę celu tak długo, jak cel istnieje (zachowanie namierzające)
+            lastDirection = (target.position - transform.position).normalized;
         }
 
-        // kierunek do celu
-        Vector2 direction = (target.position - transform.position).normalized;
-
-        // ruch pocisku
-        transform.position += (Vector3)direction * speed * Time.deltaTime;
-
-        // obrót w stronę, w którą leci pocisk
-        if (direction != Vector2.zero)
+        // Jeśli kierunek jest przypisany, lecimy
+        if (lastDirection != Vector2.zero)
         {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            // ruch pocisku w oparciu o zapamiętany kierunek
+            transform.position += (Vector3)lastDirection * speed * Time.deltaTime;
+
+            // obrót w stronę, w którą leci pocisk
+            float angle = Mathf.Atan2(lastDirection.y, lastDirection.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+        else
+        {
+            // W rzadkim przypadku stworzenia bez celu
+            Destroy(gameObject);
         }
     }
 
@@ -59,4 +78,8 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    public void IncreaseSpeed(float amount)
+    {
+        speed += amount;
+    }
 }
