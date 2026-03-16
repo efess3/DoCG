@@ -4,8 +4,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    public float minX, maxX, minY, maxY; // granice mapy
-
     private Rigidbody2D rb;
     private Vector2 movement;
 
@@ -31,10 +29,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 newPos = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
-
-        // ograniczenie pozycji w obrębie mapy
-        newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
-        newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
 
         rb.MovePosition(newPos);
     }

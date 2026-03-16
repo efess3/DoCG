@@ -54,7 +54,7 @@ public class UpgradeManager : MonoBehaviour
                     upgradeButtons[buttonIndex].onClick.AddListener(() => ApplyUpgrade(0));
                     break;
                 case 1:
-                    upgradeTexts[buttonIndex].text = "ATTACK SPEED\n(-0.1s)";
+                    upgradeTexts[buttonIndex].text = "ATTACK SPEED\n(-0.1)s";
                     upgradeButtons[buttonIndex].onClick.AddListener(() => ApplyUpgrade(1));
                     break;
                 case 2:

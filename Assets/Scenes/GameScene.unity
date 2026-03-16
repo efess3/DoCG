@@ -2542,7 +2542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1506058be1b56641bb1f9e93857a2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMagnet
-  magnetRadius: 5
+  magnetRadius: 2
 --- !u!1 &1682033185
 GameObject:
   m_ObjectHideFlags: 0
