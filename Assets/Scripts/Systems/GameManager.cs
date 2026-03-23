@@ -1,15 +1,11 @@
 using UnityEngine;
 
-/*
- Zarządza stanem gry
-*/
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public bool isGameActive = false;
 
-    [Header("Game Stats")]
+    [Header("Stats")]
     public float gameTime = 0f;
     public int killCount = 0;
 
@@ -18,7 +14,8 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    public void StartGame() {
+    void Start()
+    {
         isGameActive = true;
     }
 
