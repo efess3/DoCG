@@ -4,6 +4,7 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 10;
     public int currentHealth;
+    public bool isPlayer = false;
     private Animator animator;
     private bool isDead = false;
 
@@ -31,9 +32,22 @@ public class Health : MonoBehaviour
 
         animator.SetTrigger("Death");
 
-        GetComponent<Collider2D>().enabled = false;
+        if (isPlayer)
+        {
+            GetComponent<Collider2D>().enabled = false;
+            animator.SetTrigger("Death");
+            Invoke(nameof(TriggerGameOver), 1f);
+        }
+        else
+        {
+            animator.SetTrigger("Death");
+            Destroy(gameObject, 1f);
+        }
+    }
 
-        Destroy(gameObject, 1f);
+    void TriggerGameOver()
+    {
+        GameManager.instance.GameOver();
     }
 
     public void IncreaseMaxHealth(int amount)

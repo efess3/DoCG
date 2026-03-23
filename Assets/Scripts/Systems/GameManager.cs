@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Stats")]
     public float gameTime = 0f;
     public int killCount = 0;
+    public GameObject GameOverPanel;
 
     void Awake()
     {
@@ -30,5 +31,15 @@ public class GameManager : MonoBehaviour
     public void AddKill()
     {
         killCount++;
+    }
+
+
+    public void GameOver()
+    {
+        isGameActive = false;
+
+        GameOverPanel.SetActive(true);
+
+        Time.timeScale = 0f;
     }
 }
