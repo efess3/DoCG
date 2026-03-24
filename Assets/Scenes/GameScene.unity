@@ -17131,12 +17131,12 @@ PrefabInstance:
     - target: {fileID: 665588646738980443, guid: 635efacf48b16a94ba1c417721321538,
         type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 665588646738980443, guid: 635efacf48b16a94ba1c417721321538,
         type: 3}
       propertyPath: currentHealth
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 970821979397920631, guid: 635efacf48b16a94ba1c417721321538,
         type: 3}
@@ -17201,7 +17201,7 @@ PrefabInstance:
     - target: {fileID: 6100555857208624138, guid: 635efacf48b16a94ba1c417721321538,
         type: 3}
       propertyPath: xpToNextLevel
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7540905875669835258, guid: 635efacf48b16a94ba1c417721321538,
         type: 3}
