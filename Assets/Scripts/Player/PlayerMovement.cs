@@ -8,12 +8,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private Health playerHealth;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerHealth = GetComponent<Health>();
     }
 
     void Update()
@@ -27,11 +29,12 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = true; // patrzy w lewo
         }
         
-        if (GameManager.instance != null && !GameManager.instance.isGameActive)
+        if ((GameManager.instance != null && !GameManager.instance.isGameActive) || (playerHealth != null && playerHealth.currentHealth <= 0))
         {
             movement = Vector2.zero;
+            rb.velocity = Vector2.zero;
             animator.SetBool("isRunning", false);
-            return;
+            return; 
         }
 
         // input
@@ -40,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         movement = movement.normalized;
 
         bool isMoving = movement.magnitude > 0;
-        Debug.Log("isRunning: " + (movement.magnitude > 0));
         animator.SetBool("isRunning", isMoving);
 
     }

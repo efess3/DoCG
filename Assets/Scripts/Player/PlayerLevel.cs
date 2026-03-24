@@ -11,13 +11,30 @@ public class PlayerLevel : MonoBehaviour
 
     public Slider slider;
 
+    private Animator animator;
+
+    public void Start()
+    {
+        animator = GetComponent<Animator>();
+        if (HealthSystem.Instance != null)
+        {
+
+            HealthSystem.Instance.maxManaPoint = xpToNextLevel;
+            HealthSystem.Instance.manaPoint = currentXP;
+            
+            HealthSystem.Instance.UpdateGraphics();
+        }
+    }
     public void AddXP(int amount)
     {
         currentXP += amount;
+        HealthSystem.Instance.RestoreMana(amount);
 
         if (currentXP >= xpToNextLevel)
         {
             LevelUp();
+            HealthSystem.Instance.manaPoint = 0f;
+            HealthSystem.Instance.UpdateGraphics();
         }
     }
 

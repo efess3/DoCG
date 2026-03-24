@@ -116,7 +116,7 @@ public class HealthSystem : MonoBehaviour
 
 		UpdateGraphics();
 
-		StartCoroutine(PlayerHurts());
+	//	StartCoroutine(PlayerHurts());
 	}
 
 	public void HealDamage(float Heal)
@@ -140,8 +140,8 @@ public class HealthSystem : MonoBehaviour
 	private void UpdateManaBar()
 	{
 		float ratio = manaPoint / maxManaPoint;
-		currentManaBar.rectTransform.localPosition = new Vector3(currentManaBar.rectTransform.rect.width * ratio - currentManaBar.rectTransform.rect.width, 0, 0);
-		manaText.text = manaPoint.ToString ("0") + "/" + maxManaPoint.ToString ("0");
+	//	currentManaBar.rectTransform.localPosition = new Vector3(currentManaBar.rectTransform.rect.width * ratio - currentManaBar.rectTransform.rect.width, 0, 0);
+		currentManaBar.rectTransform.localPosition = new Vector3(currentManaBar.rectTransform.rect.width * (1 - ratio), 0, 0);
 	}
 
 	private void UpdateManaGlobe()
@@ -154,7 +154,7 @@ public class HealthSystem : MonoBehaviour
 	public void UseMana(float Mana)
 	{
 		manaPoint -= Mana;
-		if (manaPoint < 1) // Mana is Zero!!
+		if (manaPoint < 1)
 			manaPoint = 0;
 
 		UpdateGraphics();
@@ -178,7 +178,7 @@ public class HealthSystem : MonoBehaviour
 	//==============================================================
 	// Update all Bars & Globes UI graphics
 	//==============================================================
-	private void UpdateGraphics()
+	public void UpdateGraphics()
 	{
 		UpdateHealthBar();
 		UpdateHealthGlobe();
@@ -186,7 +186,7 @@ public class HealthSystem : MonoBehaviour
 		UpdateManaGlobe();
 	}
 
-	//==============================================================
+	/* //==============================================================
 	// Coroutine Player Hurts
 	//==============================================================
 	IEnumerator PlayerHurts()
@@ -213,5 +213,5 @@ public class HealthSystem : MonoBehaviour
 		PopupText.Instance.Popup("You have died!", 1f, 1f); // Demo stuff!
 
 		yield return null;
-	}
+	} */
 }

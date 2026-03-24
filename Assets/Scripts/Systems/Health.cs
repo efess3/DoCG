@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 10;
-    public int currentHealth;
+    [Header("Stats")]
+    public float maxHealth = 100f;
+    public float currentHealth;
+    
+    [Header("Settings")]
     public bool isPlayer = false;
+    
     private Animator animator;
     private bool isDead = false;
 
@@ -12,13 +16,27 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+
+        if (isPlayer && HealthSystem.Instance != null)
+        {
+
+            HealthSystem.Instance.maxHitPoint = maxHealth;
+            HealthSystem.Instance.hitPoint = currentHealth;
+            
+            HealthSystem.Instance.UpdateGraphics();
+        }
     }
 
     public void TakeDamage(int damage)
     {
         if (isDead) return;
 
-        currentHealth -= damage;
+        currentHealth -= (float)damage;
+
+        if (isPlayer && HealthSystem.Instance != null)
+        {
+            HealthSystem.Instance.TakeDamage((float)damage);
+        }
 
         if (currentHealth <= 0)
         {
@@ -26,6 +44,18 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void IncreaseMaxHealth(float amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount;
+
+        if (isPlayer && HealthSystem.Instance != null)
+        {
+            HealthSystem.Instance.maxHitPoint = maxHealth;
+            HealthSystem.Instance.hitPoint = currentHealth;
+            HealthSystem.Instance.UpdateGraphics();
+        }
+    }
     void Die()
     {
         isDead = true;
@@ -48,11 +78,5 @@ public class Health : MonoBehaviour
     void TriggerGameOver()
     {
         GameManager.instance.GameOver();
-    }
-
-    public void IncreaseMaxHealth(int amount)
-    {
-        maxHealth += amount;
-        currentHealth += amount;
     }
 }
