@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         if ((GameManager.instance != null && !GameManager.instance.isGameActive) || (playerHealth != null && playerHealth.currentHealth <= 0))
         {
             movement = Vector2.zero;
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             animator.SetBool("isRunning", false);
             return; 
         }
