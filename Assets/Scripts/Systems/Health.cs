@@ -8,6 +8,9 @@ public class Health : MonoBehaviour
     
     [Header("Settings")]
     public bool isPlayer = false;
+    [Header("I-Frames (Nieśmiertelność)")]
+    public float invincibilityDuration = 0.5f;
+    private float invincibilityTimer;
     
     private Animator animator;
     private bool isDead = false;
@@ -27,20 +30,30 @@ public class Health : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (invincibilityTimer > 0)
+        {
+            invincibilityTimer -= Time.deltaTime;
+        }
+    }
+
     public void TakeDamage(int damage)
     {
-        if (isDead) return;
+        if (isDead || invincibilityTimer > 0) return;
 
         currentHealth -= (float)damage;
-
-        if (isPlayer && HealthSystem.Instance != null)
-        {
-            HealthSystem.Instance.TakeDamage((float)damage);
-        }
 
         if (currentHealth <= 0)
         {
             Die();
+        }
+        else if (isPlayer && HealthSystem.Instance != null)
+        {
+            animator.SetTrigger("GetHit");
+            HealthSystem.Instance.TakeDamage((float)damage);
+            
+            invincibilityTimer = invincibilityDuration;
         }
     }
 
@@ -59,8 +72,6 @@ public class Health : MonoBehaviour
     void Die()
     {
         isDead = true;
-
-        animator.SetTrigger("Death");
 
         if (isPlayer)
         {
