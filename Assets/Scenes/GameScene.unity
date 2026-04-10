@@ -1787,13 +1787,13 @@ MonoBehaviour:
     type: 3}
   bossPrefab: {fileID: 1342680609566150503, guid: cafd4f265c0c42244965fd85fbf1a9b1,
     type: 3}
-  minSpawnDistance: 25
-  maxSpawnDistance: 30
+  minSpawnDistance: 15
+  maxSpawnDistance: 25
   baseSpawnRate: 2
   minimumSpawnRate: 0.5
-  waveInterval: 5
+  waveInterval: 15
   enemiesPerWave: 10
-  bossInterval: 2
+  bossInterval: 60
 --- !u!4 &884405447
 Transform:
   m_ObjectHideFlags: 0
@@ -4058,6 +4058,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0771fc540585c5048a1b6d57f99a2364, type: 2}
+    - target: {fileID: 9162151870232319161, guid: 635efacf48b16a94ba1c417721321538,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
