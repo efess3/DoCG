@@ -1787,8 +1787,8 @@ MonoBehaviour:
     type: 3}
   bossPrefab: {fileID: 1342680609566150503, guid: cafd4f265c0c42244965fd85fbf1a9b1,
     type: 3}
-  minSpawnDistance: 15
-  maxSpawnDistance: 25
+  minSpawnDistance: 7
+  maxSpawnDistance: 18
   baseSpawnRate: 2
   minimumSpawnRate: 0.5
   waveInterval: 15
