@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: FireBreathData
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
   abilityName: Fire Breath
-  cooldown: 2
+  cooldown: 0
   damage: 10
-  effectPrefab: {fileID: 0}
-  previewPrefab: {fileID: 0}
+  effectPrefab: {fileID: 2375342442887015772, guid: f13b19d9b0188724eac0b39ea1ba5e8a,
+    type: 3}
+  previewPrefab: {fileID: 8340790379754858739, guid: ebc66fa3cc7749246a0a276ebc1a0dbf,
+    type: 3}
