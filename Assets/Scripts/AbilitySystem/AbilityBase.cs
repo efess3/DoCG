@@ -7,7 +7,21 @@ public abstract class AbilityBase : MonoBehaviour
     protected float lastUseTime;
     protected bool isAiming;
 
+    protected PlayerMovement playerMovement;
     protected GameObject previewInstance;
+
+    // =========================
+    // INIT
+    // =========================
+
+    protected virtual void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
+
+    // =========================
+    // AIM START
+    // =========================
 
     public virtual void StartAiming()
     {
@@ -15,17 +29,27 @@ public abstract class AbilityBase : MonoBehaviour
 
         isAiming = true;
 
-        if (data.previewPrefab != null)
-            previewInstance = Instantiate(data.previewPrefab);
+        CreatePreview();
     }
+
+    // =========================
+    // AIM UPDATE
+    // =========================
 
     public virtual void UpdateAiming(Vector2 targetPos)
     {
         if (!isAiming) return;
 
-        if (previewInstance != null)
-            previewInstance.transform.position = targetPos;
+        Vector2 dir = targetPos - (Vector2)transform.position;
+
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        previewInstance.transform.localRotation = Quaternion.Euler(0, 0, angle);
     }
+
+    // =========================
+    // RELEASE / CAST
+    // =========================
 
     public virtual void Release(Vector2 targetPos)
     {
@@ -33,17 +57,26 @@ public abstract class AbilityBase : MonoBehaviour
 
         isAiming = false;
 
-        if (previewInstance != null)
-            Destroy(previewInstance);
+        DestroyPreview();
 
         if (!CanUse()) return;
 
         lastUseTime = Time.time;
 
         Activate(targetPos);
+
+        LockPlayer();
     }
 
+    // =========================
+    // CORE ABILITY LOGIC
+    // =========================
+
     protected abstract void Activate(Vector2 targetPos);
+
+    // =========================
+    // COOLDOWN
+    // =========================
 
     protected bool CanUse()
     {
@@ -53,5 +86,34 @@ public abstract class AbilityBase : MonoBehaviour
     public float GetCooldownRemaining()
     {
         return Mathf.Max(0, (lastUseTime + data.cooldown) - Time.time);
+    }
+
+    // =========================
+    // PREVIEW
+    // =========================
+
+    protected virtual void CreatePreview()
+    {
+        if (data.previewPrefab == null) return;
+        
+        previewInstance = Instantiate(data.previewPrefab, transform);
+        previewInstance.transform.localPosition = data.previewOffset;
+    }
+
+    protected virtual void DestroyPreview()
+    {
+        if (previewInstance != null)
+            Destroy(previewInstance);
+    }
+
+    // =========================
+    // PLAYER LOCK
+    // =========================
+
+    protected void LockPlayer()
+    {
+        if (playerMovement == null) return;
+
+        playerMovement.LockMovement(data.castTimeLock);
     }
 }

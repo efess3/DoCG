@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -5,10 +6,13 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
 
     private Rigidbody2D rb;
-    private Vector2 movement;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Health playerHealth;
+
+    private Vector2 movement;
+
+    public bool canMove = true;
 
     void Start()
     {
@@ -20,37 +24,81 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (movement.x > 0)
-        {
-            spriteRenderer.flipX = false; // patrzy w prawo
-        }
-        else if (movement.x < 0)
-        {
-            spriteRenderer.flipX = true; // patrzy w lewo
-        }
-        
-        if ((GameManager.instance != null && !GameManager.instance.isGameActive) || (playerHealth != null && playerHealth.currentHealth <= 0))
+        HandleInput();
+        HandleAnimationAndFlip();
+    }
+
+    void HandleInput()
+    {
+        // global block (game + death)
+        if (GameManager.instance != null && !GameManager.instance.isGameActive)
         {
             movement = Vector2.zero;
-            rb.linearVelocity = Vector2.zero;
-            animator.SetBool("isRunning", false);
-            return; 
+            return;
         }
 
-        // input
+        if (playerHealth != null && playerHealth.currentHealth <= 0)
+        {
+            movement = Vector2.zero;
+            return;
+        }
+
+        // movement lock
+        if (!canMove)
+        {
+            movement = Vector2.zero;
+            animator.SetBool("isRunning", false);
+            return;
+        }
+
+        // INPUT
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement = movement.normalized;
 
-        bool isMoving = movement.magnitude > 0;
-        animator.SetBool("isRunning", isMoving);
+        animator.SetBool("isRunning", movement.magnitude > 0);
+    }
 
+    void HandleAnimationAndFlip()
+    {
+        if (movement.x > 0)
+            spriteRenderer.flipX = false;
+        else if (movement.x < 0)
+            spriteRenderer.flipX = true;
     }
 
     void FixedUpdate()
     {
+        if (!canMove)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         Vector2 newPos = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(newPos);
+    }
+
+    // =========================
+    // PUBLIC API (dla skilli)
+    // =========================
+
+    public void LockMovement(float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(LockRoutine(duration));
+    }
+
+    private IEnumerator LockRoutine(float duration)
+    {
+        canMove = false;
+
+        rb.linearVelocity = Vector2.zero;
+        movement = Vector2.zero;
+
+        yield return new WaitForSeconds(duration);
+
+        canMove = true;
     }
 
     public void IncreaseMovementSpeed(float amount)

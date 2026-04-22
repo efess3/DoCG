@@ -4,10 +4,16 @@ public class FireBreathAbility : AbilityBase
 {
     protected override void Activate(Vector2 targetPos)
     {
+        if (previewInstance != null)
+        {
+            Destroy(previewInstance);
+        }
+        previewInstance = Instantiate(data.previewPrefab);
+        previewInstance.transform.SetParent(transform);
+        previewInstance.transform.localPosition = new Vector3(0, 0.3f, 0);
+        Destroy(previewInstance);
         Vector2 direction = (targetPos - (Vector2)transform.position).normalized;
         
-        Debug.Log("Spawning ability");
-
         GameObject effect = Instantiate(
             data.effectPrefab,
             transform.position,
@@ -21,7 +27,6 @@ public class FireBreathAbility : AbilityBase
         var effectScript = effect.GetComponent<AbilityEffectBase>();
         effectScript?.Init(data.damage);
 
-        Debug.Log("Spawning ability");
-
+        
     }
 }
