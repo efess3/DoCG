@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - ManaSprite
+  - HealthSprite
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -25,12 +28,12 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Map
   - Player
   - Enemy
   - Bullet
-  - 
-  - 
+  - Effect
+  - UI
   - 
   - 
   - 
@@ -39,16 +42,19 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Map
+    uniqueID: 2251549781
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Layer 1
+  - name: Player
     uniqueID: 2425651459
     locked: 0
-  - name: Layer 2
+  - name: Effect
     uniqueID: 4250941897
     locked: 0
-  - name: Layer 3
+  - name: UI
     uniqueID: 4189426099
     locked: 0
   m_RenderingLayers:
