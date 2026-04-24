@@ -7,6 +7,7 @@ public class AbilitySlotUI : MonoBehaviour
     [Header("UI Elements")]
     public Image iconImage;
     public Image cooldownOverlay;
+    public Image lockImage;
     public TextMeshProUGUI cooldownText;
 
     private AbilityBase ability;
@@ -32,6 +33,22 @@ public class AbilitySlotUI : MonoBehaviour
     void Update()
     {
         if (ability == null) return;
+
+        bool unlocked = ability.isUnlocked;
+
+        // Handle Lock UI
+        if (lockImage != null)
+        {
+            lockImage.gameObject.SetActive(!unlocked);
+        }
+
+        if (!unlocked)
+        {
+            if (cooldownOverlay != null) cooldownOverlay.fillAmount = 0;
+            if (cooldownText != null) cooldownText.text = "";
+            if (iconImage != null) iconImage.color = new Color(0.2f, 0.2f, 0.2f, 1f);
+            return;
+        }
 
         float cdRemaining = ability.GetCooldownRemaining();
         float cdNormalized = ability.GetCooldownNormalized();
