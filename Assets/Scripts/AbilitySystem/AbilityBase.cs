@@ -88,6 +88,12 @@ public abstract class AbilityBase : MonoBehaviour
         return Mathf.Max(0, (lastUseTime + data.cooldown) - Time.time);
     }
 
+    public float GetCooldownNormalized()
+    {
+        if (data.cooldown <= 0) return 0;
+        return GetCooldownRemaining() / data.cooldown;
+    }
+
     // =========================
     // PREVIEW
     // =========================
