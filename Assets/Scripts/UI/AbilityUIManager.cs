@@ -34,6 +34,8 @@ public class AbilityUIManager : MonoBehaviour
 
         for (int i = 0; i < slots.Length; i++)
         {
+            if (slots[i] == null) continue;
+
             if (i < playerAbilities.abilities.Length)
             {
                 slots[i].Setup(playerAbilities.abilities[i]);
