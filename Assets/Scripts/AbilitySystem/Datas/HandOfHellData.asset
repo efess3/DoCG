@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityName: Hand Of Hell
   icon: {fileID: 21300000, guid: 621e7117a580fbf47836413cccb3052a, type: 3}
   cooldown: 2
-  damage: 10
+  damage: 15
   castTimeLock: 0.5
   previewOffset: {x: 0, y: 0}
   effectPrefab: {fileID: 8812897106668747737, guid: 7595e3e1d2da9a94b9b1230984b59771,

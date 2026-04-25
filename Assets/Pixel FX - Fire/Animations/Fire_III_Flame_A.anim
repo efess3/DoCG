@@ -26,16 +26,16 @@ AnimationClip:
     - time: 0.083333336
       value: {fileID: -6125570968653715395, guid: e1acfedae04a8bf4c81b56d4b7f27e06,
         type: 3}
-    - time: 0.16666667
+    - time: 0.25
       value: {fileID: 1590823869770701816, guid: e1acfedae04a8bf4c81b56d4b7f27e06,
         type: 3}
-    - time: 0.25
+    - time: 0.33333334
       value: {fileID: -9140561620760799515, guid: e1acfedae04a8bf4c81b56d4b7f27e06,
         type: 3}
-    - time: 0.33333334
+    - time: 0.5
       value: {fileID: 4568810652360748957, guid: e1acfedae04a8bf4c81b56d4b7f27e06,
         type: 3}
-    - time: 0.41666666
+    - time: 0.5833333
       value: {fileID: 2905449334188801530, guid: e1acfedae04a8bf4c81b56d4b7f27e06,
         type: 3}
     attribute: m_Sprite
@@ -71,7 +71,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -91,7 +91,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5
+  - time: 0.6666667
     functionName: DestroySelf
     data: 
     objectReferenceParameter: {fileID: 0}
