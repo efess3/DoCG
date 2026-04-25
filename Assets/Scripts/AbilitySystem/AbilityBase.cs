@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class AbilityBase : MonoBehaviour
 {
     public AbilityData data;
+    public bool isUnlocked = true;
 
     protected float lastUseTime;
     protected bool isAiming;
@@ -80,12 +81,19 @@ public abstract class AbilityBase : MonoBehaviour
 
     protected bool CanUse()
     {
+        if (!isUnlocked) return false;
         return Time.time >= lastUseTime + data.cooldown;
     }
 
     public float GetCooldownRemaining()
     {
         return Mathf.Max(0, (lastUseTime + data.cooldown) - Time.time);
+    }
+
+    public float GetCooldownNormalized()
+    {
+        if (data.cooldown <= 0) return 0;
+        return GetCooldownRemaining() / data.cooldown;
     }
 
     // =========================
