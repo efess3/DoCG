@@ -94,9 +94,20 @@ public class MenuButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerEx
         if (clickSound != null && audioSource != null)
             audioSource.PlayOneShot(clickSound, 0.7f);
             
-        // Reset to hover state instead of original state if mouse is still over
         StopActiveCoroutine();
-        activeCoroutine = StartCoroutine(AnimateButton(originalScale * hoverScale, highlightColor, textHighlightColor, 1f));
+
+        // Check if object is still active before starting coroutine
+        if (gameObject.activeInHierarchy)
+        {
+            activeCoroutine = StartCoroutine(AnimateButton(originalScale * hoverScale, highlightColor, textHighlightColor, 1f));
+        }
+        else
+        {
+            // Reset instantly if object is being disabled
+            transform.localScale = originalScale;
+            if (buttonImage != null) buttonImage.color = originalColor;
+            if (buttonText != null) buttonText.color = originalTextColor;
+        }
     }
 
     private void StopActiveCoroutine() { if (activeCoroutine != null) StopCoroutine(activeCoroutine); }

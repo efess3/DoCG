@@ -15,7 +15,11 @@ public class MainMenuManager : MonoBehaviour
 
     public void OpenSettings()
     {
-        if (settingsPanel != null)
+        if (SettingsPopupManager.Instance != null)
+        {
+            SettingsPopupManager.Instance.OpenSettings();
+        }
+        else if (settingsPanel != null)
         {
             settingsPanel.SetActive(true);
             if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
