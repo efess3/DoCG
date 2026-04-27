@@ -241,7 +241,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 434263980}
     - target: {fileID: 4830363547899894360, guid: a26c731fba9c1c54ca57d86a4184d5af,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 434263976}
   - component: {fileID: 434263975}
   - component: {fileID: 434263979}
+  - component: {fileID: 434263980}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -551,6 +552,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UICanvasAutoScaler
   referenceResolution: {x: 1920, y: 1080}
   matchWidthOrHeight: 0.5
+--- !u!114 &434263980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434263974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9776dcfa66ea87e45bdcd38b8a27ecf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsPopupManager
+  settingsPanel: {fileID: 1041643832}
 --- !u!1 &771028785
 GameObject:
   m_ObjectHideFlags: 0
