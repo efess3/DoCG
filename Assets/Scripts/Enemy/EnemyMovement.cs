@@ -20,8 +20,8 @@ public class EnemyMovement : MonoBehaviour
             Health playerHealth = other.GetComponent<Health>();
             if (playerHealth != null)
             {
-                Debug.LogError("damage taken");
-                playerHealth.TakeDamage(1); // np. 1 dmg
+                Debug.Log("damage taken");
+                playerHealth.TakeDamage(1);
             }
         }
     }
