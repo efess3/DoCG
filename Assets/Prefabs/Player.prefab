@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
+  canMove: 1
 --- !u!114 &6852976567354691183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilities
   abilities:
   - {fileID: -8363305966766542947}
+  - {fileID: 0}
 --- !u!114 &-8363305966766542947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,3 +299,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireBreathAbility
   data: {fileID: 11400000, guid: 4811afedcd063224599aef7ca0bcb4d6, type: 2}
+  isUnlocked: 1
