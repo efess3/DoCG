@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: ac93d617ef3169349bdebbb9446cf1a4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -704950298178542605
+    second: menu_ui_elements-nobg_0
+  - first:
+      213: -9109011307742502268
+    second: menu_ui_elements-nobg_1
+  - first:
+      213: -2309060087351122861
+    second: menu_ui_elements-nobg_2
+  - first:
+      213: 4452405525843648954
+    second: menu_ui_elements-nobg_3
+  - first:
+      213: -4414174225596690701
+    second: menu_ui_elements-nobg_4
+  - first:
+      213: 8975665335230569302
+    second: menu_ui_elements-nobg_5
+  - first:
+      213: -2019339388545378976
+    second: menu_ui_elements-nobg_6
+  - first:
+      213: -5361996414143256638
+    second: menu_ui_elements-nobg_7
+  - first:
+      213: 1340062892249611641
+    second: menu_ui_elements-nobg_8
+  - first:
+      213: -5884448454521217027
+    second: menu_ui_elements-nobg_9
+  - first:
+      213: 7211532110972489164
+    second: menu_ui_elements-nobg_10
+  - first:
+      213: 8594021766131816433
+    second: menu_ui_elements-nobg_11
+  - first:
+      213: 7223390066224576399
+    second: menu_ui_elements-nobg_12
+  - first:
+      213: 944787229035080238
+    second: menu_ui_elements-nobg_13
+  - first:
+      213: -222985525917135990
+    second: menu_ui_elements-nobg_14
+  - first:
+      213: -5486488884001734612
+    second: menu_ui_elements-nobg_15
+  - first:
+      213: -53442358668251235
+    second: menu_ui_elements-nobg_16
+  - first:
+      213: -9049928192433971139
+    second: menu_ui_elements-nobg_17
+  - first:
+      213: 1372691416950586468
+    second: menu_ui_elements-nobg_18
+  - first:
+      213: -8965809451367651697
+    second: menu_ui_elements-nobg_19
+  - first:
+      213: -8917596325252239396
+    second: menu_ui_elements-nobg_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_0
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 807
+        width: 541
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f323c450738736f0800000000000000
+      internalID: -704950298178542605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_1
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 809
+        width: 142
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 482edfa2a7a469180800000000000000
+      internalID: -9109011307742502268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_2
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 809
+        width: 141
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3546760a51294ffd0800000000000000
+      internalID: -2309060087351122861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_3
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 809
+        width: 142
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab1a5e36c3f1acd30800000000000000
+      internalID: 4452405525843648954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_4
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 809
+        width: 143
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fecf9adde3bdb2c0800000000000000
+      internalID: -4414174225596690701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_5
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 655
+        width: 543
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65b94393118ff8c70800000000000000
+      internalID: 8975665335230569302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_6
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 623
+        width: 307
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0655cc8668dd9f3e0800000000000000
+      internalID: -2019339388545378976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_7
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 623
+        width: 313
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c7a210abac5695b0800000000000000
+      internalID: -5361996414143256638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_8
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 506
+        width: 543
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d783db91cd89210800000000000000
+      internalID: 1340062892249611641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_9
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 454
+        width: 307
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff9a29ce4d365ea0800000000000000
+      internalID: -5884448454521217027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_10
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 454
+        width: 312
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd86d02f32841460800000000000000
+      internalID: 7211532110972489164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_11
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 358
+        width: 543
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f713426349144770800000000000000
+      internalID: 8594021766131816433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_12
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 290
+        width: 307
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f87b66b7ef2ae3460800000000000000
+      internalID: 7223390066224576399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_13
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 290
+        width: 312
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2a26f6aafe8c1d00800000000000000
+      internalID: 944787229035080238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_14
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 211
+        width: 543
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8bc7a978dbc7ecf0800000000000000
+      internalID: -222985525917135990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_15
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 88
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2082fcbd631cd3b0800000000000000
+      internalID: -5486488884001734612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_16
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 88
+        width: 141
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9fae9b3572224ff0800000000000000
+      internalID: -53442358668251235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_17
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 88
+        width: 139
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d302e2fe142386280800000000000000
+      internalID: -9049928192433971139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_18
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 88
+        width: 140
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c31952297cc0310800000000000000
+      internalID: 1372691416950586468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_19
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 88
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f86246f8ecb039380800000000000000
+      internalID: -8965809451367651697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_ui_elements-nobg_20
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 64
+        width: 541
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdfe20fb3655e3480800000000000000
+      internalID: -8917596325252239396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0ac4061f821d96944948f8ea1d5325ee
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      menu_ui_elements-nobg_0: -704950298178542605
+      menu_ui_elements-nobg_1: -9109011307742502268
+      menu_ui_elements-nobg_10: 7211532110972489164
+      menu_ui_elements-nobg_11: 8594021766131816433
+      menu_ui_elements-nobg_12: 7223390066224576399
+      menu_ui_elements-nobg_13: 944787229035080238
+      menu_ui_elements-nobg_14: -222985525917135990
+      menu_ui_elements-nobg_15: -5486488884001734612
+      menu_ui_elements-nobg_16: -53442358668251235
+      menu_ui_elements-nobg_17: -9049928192433971139
+      menu_ui_elements-nobg_18: 1372691416950586468
+      menu_ui_elements-nobg_19: -8965809451367651697
+      menu_ui_elements-nobg_2: -2309060087351122861
+      menu_ui_elements-nobg_20: -8917596325252239396
+      menu_ui_elements-nobg_3: 4452405525843648954
+      menu_ui_elements-nobg_4: -4414174225596690701
+      menu_ui_elements-nobg_5: 8975665335230569302
+      menu_ui_elements-nobg_6: -2019339388545378976
+      menu_ui_elements-nobg_7: -5361996414143256638
+      menu_ui_elements-nobg_8: 1340062892249611641
+      menu_ui_elements-nobg_9: -5884448454521217027
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
