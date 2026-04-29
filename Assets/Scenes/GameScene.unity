@@ -831,6 +831,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333660138}
   m_CullTransparentMesh: 1
+--- !u!1 &387799268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2598156097588771811, guid: 635efacf48b16a94ba1c417721321538,
+    type: 3}
+  m_PrefabInstance: {fileID: 8570080102177582756}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &413195456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,7 +1820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db439f8cbfa800545a1fe4211c35a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilitySlotUI
-  iconImage: {fileID: 0}
+  iconImage: {fileID: 909484423}
   cooldownOverlay: {fileID: 2086773060}
   lockImage: {fileID: 1303306036}
   cooldownText: {fileID: 1015587880}
@@ -1838,7 +1844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 621e7117a580fbf47836413cccb3052a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2448,7 +2454,6 @@ RectTransform:
   m_Children:
   - {fileID: 1155861094}
   - {fileID: 1739997393}
-  - {fileID: 1680584713}
   - {fileID: 1479441210}
   - {fileID: 561298638}
   - {fileID: 1471174573}
@@ -2780,8 +2785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbilityUIManager
   slots:
   - {fileID: 1471174574}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 909484422}
 --- !u!4 &1451652958
 Transform:
   m_ObjectHideFlags: 0
@@ -4627,6 +4631,16 @@ PrefabInstance:
       propertyPath: xpToNextLevel
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7433908873640032323, guid: 635efacf48b16a94ba1c417721321538,
+        type: 3}
+      propertyPath: abilities.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433908873640032323, guid: 635efacf48b16a94ba1c417721321538,
+        type: 3}
+      propertyPath: 'abilities.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6710361525609669816}
     - target: {fileID: 7540905875669835258, guid: 635efacf48b16a94ba1c417721321538,
         type: 3}
       propertyPath: m_Controller
@@ -4640,7 +4654,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2598156097588771811, guid: 635efacf48b16a94ba1c417721321538,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6710361525609669816}
   m_SourcePrefab: {fileID: 100100000, guid: 635efacf48b16a94ba1c417721321538, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
