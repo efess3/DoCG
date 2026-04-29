@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 6100555857208624138}
   - component: {fileID: 7748069743439799432}
   - component: {fileID: 7540905875669835258}
+  - component: {fileID: 7433908873640032323}
+  - component: {fileID: -8363305966766542947}
   m_Layer: 20
   m_Name: Player
   m_TagString: Player
@@ -85,9 +87,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1214402316, guid: 4a350331c4bf2fd4bb8994072e7c1c85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -186,6 +188,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 10
   currentHealth: 0
+  isPlayer: 0
+  invincibilityDuration: 0.5
 --- !u!114 &9162151870232319161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +235,6 @@ MonoBehaviour:
   level: 1
   currentXP: 0
   xpToNextLevel: 10
-  slider: {fileID: 0}
 --- !u!114 &7748069743439799432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,3 +270,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7433908873640032323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2598156097588771811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c3dffb7516f334e9ee3eb934122d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilities
+  abilities:
+  - {fileID: -8363305966766542947}
+--- !u!114 &-8363305966766542947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2598156097588771811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703d1dd5c8e61604e9b8bf560e3ada01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireBreathAbility
+  data: {fileID: 11400000, guid: 4811afedcd063224599aef7ca0bcb4d6, type: 2}
