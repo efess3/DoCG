@@ -47,18 +47,23 @@ public class Health : MonoBehaviour
         if (isDead || invincibilityTimer > 0) return;
 
         currentHealth -= (float)damage;
+        invincibilityTimer = invincibilityDuration;
         PlayTakingDamageSound();
 
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             Die();
         }
-        else if (isPlayer && HealthSystem.Instance != null)
+        else if (isPlayer)
         {
-            animator.SetTrigger("GetHit");
-            HealthSystem.Instance.TakeDamage((float)damage);
+            if(animator != null) animator.SetTrigger("GetHit");
             
-            invincibilityTimer = invincibilityDuration;
+            if (HealthSystem.Instance != null)
+            {
+                HealthSystem.Instance.hitPoint = currentHealth;
+                HealthSystem.Instance.UpdateGraphics();
+            }
         }
     }
 

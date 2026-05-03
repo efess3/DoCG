@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
   abilityName: Fire Breath
   icon: {fileID: 21300000, guid: 0bf25d75d80684a4b9f8a266a84bae2b, type: 3}
-  cooldown: 10
+  cooldown: 2
   damage: 5
   castTimeLock: 0.5
   previewOffset: {x: 0, y: 0}
