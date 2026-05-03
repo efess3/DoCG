@@ -6,7 +6,19 @@ public class AutoShooter : MonoBehaviour
     public float fireRate = 1f;
     public float range = 10f;
     public float extraBulletSpeed = 0f;
+
+    private AudioClip[] attackSounds;
+    private AudioSource attackAudioSource;
     float fireTimer;
+
+    void Awake()
+    {
+        attackSounds = Resources.LoadAll<AudioClip>("Sounds/Attack");
+        attackAudioSource = gameObject.AddComponent<AudioSource>();
+        attackAudioSource.playOnAwake = false;
+        attackAudioSource.spatialBlend = 0f;
+        attackAudioSource.volume = 0.1f;
+    }
 
     void Update()
     {
@@ -64,7 +76,16 @@ public class AutoShooter : MonoBehaviour
             bulletScript.IncreaseSpeed(extraBulletSpeed);
         }
 
+        PlayAttackSound();
         bulletScript.SetTarget(closestEnemy.transform);
+    }
+
+    private void PlayAttackSound()
+    {
+        if (attackSounds == null || attackSounds.Length == 0) return;
+
+        AudioClip clip = attackSounds[Random.Range(0, attackSounds.Length)];
+        attackAudioSource.PlayOneShot(clip);
     }
 
     public void IncreaseBulletSpeed(float amount)
