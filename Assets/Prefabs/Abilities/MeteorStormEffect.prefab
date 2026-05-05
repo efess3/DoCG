@@ -152,8 +152,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.014761806, y: -0.057519853}
-  m_Radius: 0.15185559
+  m_Offset: {x: 0.0035688877, y: -0.017366886}
+  m_Radius: 0.22605127
 --- !u!50 &775531980842463729
 Rigidbody2D:
   serializedVersion: 5
@@ -194,3 +194,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeteorStormEffect
   fallSpeed: 10
+  spriteRotationOffset: 45

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerLevel : MonoBehaviour
 {
@@ -8,10 +9,15 @@ public class PlayerLevel : MonoBehaviour
     public int xpToNextLevel = 10;
     private Animator animator;
 
+    [Header("UI")]
+    [Tooltip("Drag a TextMeshPro UI Text here to display the current level.")]
+    public TextMeshProUGUI levelText;
+
     public void Start()
     {
         animator = GetComponent<Animator>();
         SyncXPWithUI();
+        UpdateLevelText();
     }
 
     public void AddXP(int amount)
@@ -39,6 +45,12 @@ public class PlayerLevel : MonoBehaviour
 
         Debug.Log("LEVEL UP: " + level);
 
+        UpdateLevelText();
+
+        // Refresh unlock state for all abilities on this GameObject
+        foreach (var ability in GetComponents<AbilityBase>())
+            ability.RefreshUnlockState();
+
         if (UpgradeManager.instance != null)
         {
             UpgradeManager.instance.ShowUpgrades();
@@ -54,5 +66,11 @@ public class PlayerLevel : MonoBehaviour
             HealthSystem.Instance.manaPoint = currentXP;
             HealthSystem.Instance.UpdateGraphics(); 
         }
+    }
+
+    private void UpdateLevelText()
+    {
+        if (levelText != null)
+            levelText.text = "LVL " + level;
     }
 }

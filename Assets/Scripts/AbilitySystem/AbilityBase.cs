@@ -3,7 +3,11 @@ using UnityEngine;
 public abstract class AbilityBase : MonoBehaviour
 {
     public AbilityData data;
-    public bool isUnlocked = true;
+
+    [Header("Level Requirement")]
+    [Tooltip("Player must reach this level to unlock this ability.")]
+    public int requiredLevel = 1;
+    public bool isUnlocked = false;
 
     protected float lastUseTime;
     protected bool isAiming;
@@ -18,6 +22,17 @@ public abstract class AbilityBase : MonoBehaviour
     protected virtual void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        RefreshUnlockState();
+    }
+
+    /// <summary>
+    /// Call this whenever the player levels up to re-evaluate whether this ability should unlock.
+    /// </summary>
+    public void RefreshUnlockState()
+    {
+        PlayerLevel playerLevel = FindObjectOfType<PlayerLevel>();
+        if (playerLevel != null)
+            isUnlocked = playerLevel.level >= requiredLevel;
     }
 
     // =========================

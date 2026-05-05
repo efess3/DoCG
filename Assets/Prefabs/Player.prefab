@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireBreathAbility
   data: {fileID: 11400000, guid: 4811afedcd063224599aef7ca0bcb4d6, type: 2}
+  requiredLevel: 1
   isUnlocked: 1
 --- !u!114 &3021738827550264287
 MonoBehaviour:
@@ -316,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandOfHellAbility
   data: {fileID: 11400000, guid: 1eb2a768ee4d10542a22813f3c613e48, type: 2}
+  requiredLevel: 2
   isUnlocked: 1
 --- !u!114 &3864572976406275097
 MonoBehaviour:
@@ -330,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeteorStormAbility
   data: {fileID: 11400000, guid: 1095048a17cc09e4ca3fb35ef6831284, type: 2}
+  requiredLevel: 3
   isUnlocked: 1
   meteorCount: 50
   spawnRadius: 5
