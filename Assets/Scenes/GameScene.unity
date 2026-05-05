@@ -4524,30 +4524,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a26c731fba9c1c54ca57d86a4184d5af, type: 3}
---- !u!114 &3846691890403200577 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6100555857208624138, guid: 635efacf48b16a94ba1c417721321538,
-    type: 3}
-  m_PrefabInstance: {fileID: 8570080102177582756}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387799268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3db66c4f4b4383640a6e90da7ff650fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerLevel
---- !u!114 &6710361525609669806 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 665588646738980443, guid: 635efacf48b16a94ba1c417721321538,
-    type: 3}
-  m_PrefabInstance: {fileID: 8570080102177582756}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387799268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db7ee3beb22e61e48be2982f65292465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
 --- !u!114 &6710361525609669816
 MonoBehaviour:
   m_ObjectHideFlags: 0
