@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b73af11906aabf409228d18daf98c8f, type: 3}
   m_Name: MeteorStormData
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
-  abilityName: 
-  icon: {fileID: 0}
-  cooldown: 2
+  abilityName: Meteor Storm
+  icon: {fileID: 21300000, guid: ceda207ea115fdf41b053ae3c0da611a, type: 3}
+  cooldown: 30
   damage: 10
   castTimeLock: 0.3
   previewOffset: {x: 0, y: 0}
-  effectPrefab: {fileID: 0}
-  previewPrefab: {fileID: 8141151257928379456, guid: 21807fc9601581546931766c23bc4248,
+  effectPrefab: {fileID: 2004722261912065021, guid: 9c74017786da00b4aa6b201372d38079,
+    type: 3}
+  previewPrefab: {fileID: 8813206420821825931, guid: 21807fc9601581546931766c23bc4248,
     type: 3}

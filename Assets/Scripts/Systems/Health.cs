@@ -53,6 +53,14 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+
+            // Update the health bar UI to show 0 before dying
+            if (isPlayer && HealthSystem.Instance != null)
+            {
+                HealthSystem.Instance.hitPoint = 0;
+                HealthSystem.Instance.UpdateGraphics();
+            }
+
             Die();
         }
         else if (isPlayer)

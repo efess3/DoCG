@@ -1,9 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
+
+[System.Serializable]
+public class EnemySpawnEntry
+{
+    public GameObject enemyPrefab;
+    [Min(0f)]
+    public float probability = 1f;
+}
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Prefabs")]
-    public GameObject enemyPrefab;
+    public List<EnemySpawnEntry> enemyTypes;
     public GameObject bossPrefab;
 
     [Header("Spawn Settings")]
@@ -49,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (timer >= currentSpawnRate)
         {
-            SpawnEntity(enemyPrefab);
+            SpawnEntity(GetRandomEnemyPrefab());
             timer = 0;
         }
 
@@ -72,8 +81,33 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            SpawnEntity(enemyPrefab);
+            SpawnEntity(GetRandomEnemyPrefab());
         }
+    }
+
+    GameObject GetRandomEnemyPrefab()
+    {
+        if (enemyTypes == null || enemyTypes.Count == 0) return null;
+
+        float totalProbability = 0f;
+        foreach (var entry in enemyTypes)
+        {
+            totalProbability += entry.probability;
+        }
+
+        float randomValue = Random.Range(0f, totalProbability);
+        float currentSum = 0f;
+
+        foreach (var entry in enemyTypes)
+        {
+            currentSum += entry.probability;
+            if (randomValue <= currentSum)
+            {
+                return entry.enemyPrefab;
+            }
+        }
+
+        return enemyTypes[0].enemyPrefab;
     }
 
     void SpawnEntity(GameObject prefabToSpawn)
