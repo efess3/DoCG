@@ -45,7 +45,7 @@ public class GameUIManager : MonoBehaviour
     {
         if (killsText != null)
         {
-            killsText.text = "💀 " + GameManager.instance.killCount.ToString();
+            killsText.text = "\u2694 "  + GameManager.instance.killCount.ToString();
         }
     }
 }
