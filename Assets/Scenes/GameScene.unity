@@ -2226,7 +2226,7 @@ MonoBehaviour:
   enemyTypes:
   - enemyPrefab: {fileID: 7852002134476750867, guid: a932780ee77c0644dba6c46cac5b53fe,
       type: 3}
-    probability: 16
+    probability: 10
   - enemyPrefab: {fileID: 7852002134476750867, guid: b783d18d30b570849a9deb430c2f3971,
       type: 3}
     probability: 5
@@ -2259,10 +2259,12 @@ MonoBehaviour:
   minSpawnDistance: 7
   maxSpawnDistance: 18
   baseSpawnRate: 2
-  minimumSpawnRate: 0.5
+  minimumSpawnRate: 0.3
   waveInterval: 15
   enemiesPerWave: 10
   bossInterval: 60
+  initialBossCount: 1
+  bossIncreaseInterval: 2
 --- !u!4 &884405447
 Transform:
   m_ObjectHideFlags: 0
