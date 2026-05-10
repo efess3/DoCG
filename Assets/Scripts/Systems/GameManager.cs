@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int killCount = 0;
     public GameObject GameOverPanel;
 
+    private string sessionStartTime;
+
     void Awake()
     {
         instance = this;
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         isGameActive = true;
+        Debug.Log("Game started");
+        sessionStartTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         BackgroundMusicManager.PlayGameplayMusic();
     }
 
@@ -38,6 +42,20 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameActive = false;
+
+        // Save to leaderboard
+        if (LeaderboardManager.instance != null)
+        {
+            int playerLevel = 1;
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+            {
+                PlayerLevel pl = player.GetComponent<PlayerLevel>();
+                if (pl != null) playerLevel = pl.level;
+            }
+
+            LeaderboardManager.instance.AddEntry(playerLevel, killCount, gameTime, sessionStartTime);
+        }
 
         GameOverPanel.SetActive(true);
 

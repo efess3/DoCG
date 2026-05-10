@@ -21,7 +21,7 @@ public class ScreenManager : MonoBehaviour
 
     public void NewGame()
     {
-    Time.timeScale = 1f;
-    SceneManager.LoadScene("GameScene");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
 }

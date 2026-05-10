@@ -4,7 +4,7 @@ public class MainMenuManager : MonoBehaviour
 {
     [Header("Panels")]
     [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private GameObject upgradesPanel;
+    [SerializeField] private GameObject leaderboardPanel;
     [SerializeField] private GameObject mainMenuPanel;
 
     private void Start()
@@ -23,16 +23,15 @@ public class MainMenuManager : MonoBehaviour
         {
             settingsPanel.SetActive(true);
             if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
-            if (upgradesPanel != null) upgradesPanel.SetActive(false);
+            if (leaderboardPanel != null) leaderboardPanel.SetActive(false);
         }
     }
 
-    public void OpenUpgrades()
+    public void OpenLeaderboard()
     {
-        if (upgradesPanel != null)
+        if (leaderboardPanel != null)
         {
-            upgradesPanel.SetActive(true);
-            if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
+            leaderboardPanel.SetActive(true);
             if (settingsPanel != null) settingsPanel.SetActive(false);
         }
     }
@@ -41,7 +40,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
         if (settingsPanel != null) settingsPanel.SetActive(false);
-        if (upgradesPanel != null) upgradesPanel.SetActive(false);
+        if (leaderboardPanel != null) leaderboardPanel.SetActive(false);
     }
 
     public void CloseAllPanels()
