@@ -9,13 +9,17 @@ public class MobHealth : MonoBehaviour
     public int currentHealth;
     public GameObject expCrystalPrefab;
 
+    public System.Action OnMobDeath;
+
     [Tooltip("Ile krysztalow wypadnie po zabiciu Bossa")]
     public int bossCrystalDropCount = 15;
 
     private AudioClip[] hitSounds;
+    Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         currentHealth = maxHealth;
 
         switch (tag)
@@ -40,6 +44,10 @@ public class MobHealth : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            animator.SetTrigger("OnDamage");
+        }
     }
 
     private static AudioClip[] LoadHitSounds(string path)
@@ -57,6 +65,8 @@ public class MobHealth : MonoBehaviour
 
     void Die()
     {
+        OnMobDeath?.Invoke();
+
         if (expCrystalPrefab != null)
         {
             int crystalsToDrop = gameObject.CompareTag("Boss") ? bossCrystalDropCount : 1;

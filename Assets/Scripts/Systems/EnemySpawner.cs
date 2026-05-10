@@ -33,11 +33,16 @@ public class EnemySpawner : MonoBehaviour
     
     [Tooltip("Co ile sekund respi się boss (domyślnie 180s = 3 minuty)")]
     public float bossInterval = 180f;
+    [Tooltip("Ile bossów na start")]
+    public int initialBossCount = 1;
+    [Tooltip("Co ile fal bossów zwiększamy ich liczbę")]
+    public int bossIncreaseInterval = 2;
 
     private Transform player;
     private float timer;
     private float waveTimer;
     private float bossTimer;
+    private int bossWavesPassed = 0;
 
     void Start()
     {
@@ -72,7 +77,14 @@ public class EnemySpawner : MonoBehaviour
         // Boss (co określoną liczbę sekund)
         if (bossTimer >= bossInterval && bossPrefab != null)
         {
-            SpawnEntity(bossPrefab);
+            int currentBossCount = initialBossCount + (bossWavesPassed / bossIncreaseInterval);
+            
+            for (int i = 0; i < currentBossCount; i++)
+            {
+                SpawnEntity(bossPrefab);
+            }
+
+            bossWavesPassed++;
             bossTimer = 0;
         }
     }

@@ -1,4 +1,14 @@
 {
+    "dotnet.defaultSolution": "DoCG.sln",
+    "dotnet.dotnetPath": "/usr/bin/dotnet",
+    "dotrush.roslyn.dotnetSdkDirectory": "/usr/lib64/dotnet/sdk/9.0.107",
+    "dotrush.msbuildProperties": {
+        "DefineConstants": "UNITY_EDITOR"
+    },
+    "dotrush.roslyn.projectOrSolutionFiles": [
+        "/home/staszek/Projects/Uni/DoCG/DoCG.sln"
+    ],
+    "dotrush.roslyn.restoreProjectsBeforeLoading": false,
     "files.exclude": {
         "**/.DS_Store": true,
         "**/.git": true,
@@ -55,17 +65,5 @@
         "UserSettings/": true,
         "temp/": true,
         "Temp/": true
-    },
-    "files.associations": {
-        "*.asset": "yaml",
-        "*.meta": "yaml",
-        "*.prefab": "yaml",
-        "*.unity": "yaml",
-    },
-    "explorer.fileNesting.enabled": true,
-    "explorer.fileNesting.patterns": {
-        "*.sln": "*.csproj",
-        "*.slnx": "*.csproj"
-    },
-    "dotnet.defaultSolution": "DoCG.slnx"
+    }
 }
