@@ -1557,6 +1557,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MainMenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4530500743702280928, guid: 85afb618bfcf4cd64b8b79713599ebe3,
+        type: 3}
+      propertyPath: maxEntries
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1539406561260076422, guid: 85afb618bfcf4cd64b8b79713599ebe3, type: 3}
