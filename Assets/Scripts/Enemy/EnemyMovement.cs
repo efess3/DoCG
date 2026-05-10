@@ -30,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
     {
         // znajdujemy gracza w scenie
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        GetComponent<Animator>().SetFloat("Speed", speed);
     }
 
     void Update()

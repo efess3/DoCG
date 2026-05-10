@@ -1,61 +1,34 @@
 using UnityEngine;
 
+[RequireComponent(typeof(MobHealth))]
 public class EnemySpliter : MonoBehaviour
 {
     [Header("Split Settings")]
-    [Tooltip("Czas w sekundach do podziału przeciwnika")]
-    public float timeToSplit = 3f;
     [Tooltip("Prefab mniejszego przeciwnika, który się pojawi")]
     public GameObject smallerEnemyPrefab;
     [Tooltip("Ile mniejszych przeciwników ma się pojawić")]
     public int spawnCount = 2;
 
-    [Header("Pulse Effect")]
-    [Tooltip("Referencja do SpriteRenderer, który będzie pulsował")]
-    public SpriteRenderer spriteRenderer;
-    [Tooltip("Kolor do którego dąży puls (np. czerwony ostrzegawczy)")]
-    public Color pulseColor = Color.red;
+    private MobHealth mobHealth;
 
-    private Color originalColor;
-    private float timer;
-    private float pulsePhase;
-
-    void Start()
+    void Awake()
     {
-        // Jeśli nie przypisano w inspektorze, spróbuj znaleźć na tym samym obiekcie
-        if (spriteRenderer == null)
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
+        mobHealth = GetComponent<MobHealth>();
+    }
 
-        if (spriteRenderer != null)
+    void OnEnable()
+    {
+        if (mobHealth != null)
         {
-            originalColor = spriteRenderer.color;
+            mobHealth.OnMobDeath += Split;
         }
     }
 
-    void Update()
+    void OnDisable()
     {
-        timer += Time.deltaTime;
-        float progress = timer / timeToSplit;
-
-        // Efekt pulsowania
-        if (spriteRenderer != null)
+        if (mobHealth != null)
         {
-            // Przyspieszanie częstotliwości pulsu wraz ze zbliżaniem się do czasu podziału
-            float currentFrequency = Mathf.Lerp(5f, 40f, progress);
-            pulsePhase += currentFrequency * Time.deltaTime;
-
-            // Wartość od 0 do 1
-            float pulse = (Mathf.Sin(pulsePhase) + 1f) / 2f;
-            
-            spriteRenderer.color = Color.Lerp(originalColor, pulseColor, pulse);
-        }
-
-        // Kiedy czas minie, wywołaj podział
-        if (timer >= timeToSplit)
-        {
-            Split();
+            mobHealth.OnMobDeath -= Split;
         }
     }
 
@@ -72,8 +45,5 @@ public class EnemySpliter : MonoBehaviour
                 Instantiate(smallerEnemyPrefab, spawnPos, Quaternion.identity);
             }
         }
-
-        // Zniszczenie obecnego przeciwnika
-        Destroy(gameObject);
     }
 }

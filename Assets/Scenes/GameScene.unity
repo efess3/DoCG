@@ -2226,13 +2226,34 @@ MonoBehaviour:
   enemyTypes:
   - enemyPrefab: {fileID: 7852002134476750867, guid: a932780ee77c0644dba6c46cac5b53fe,
       type: 3}
+    probability: 16
+  - enemyPrefab: {fileID: 7852002134476750867, guid: b783d18d30b570849a9deb430c2f3971,
+      type: 3}
+    probability: 5
+  - enemyPrefab: {fileID: 7852002134476750867, guid: b98bb63a8acf17268b111a53dd70f40f,
+      type: 3}
+    probability: 2
+  - enemyPrefab: {fileID: 7852002134476750867, guid: f7539d47631357c38ad57cf86661f79c,
+      type: 3}
     probability: 4
-  - enemyPrefab: {fileID: 7852002134476750867, guid: 03f1917d32973b54a904a918c6df8db5,
+  - enemyPrefab: {fileID: 7852002134476750867, guid: 3003187d87abf9ab7a4b1bd74daa6777,
+      type: 3}
+    probability: 2
+  - enemyPrefab: {fileID: 7852002134476750867, guid: 42112f336386a095ca1adeb53d23c9e5,
       type: 3}
     probability: 1
-  - enemyPrefab: {fileID: 7852002134476750867, guid: 1dc9fd3d97469d04d9c4644fe7719cbd,
+  - enemyPrefab: {fileID: 7852002134476750867, guid: 922853e66975d3045b4ce372fd86ba0a,
       type: 3}
     probability: 1
+  - enemyPrefab: {fileID: 7852002134476750867, guid: 8bd39260cf11814498dae9175bc81ab2,
+      type: 3}
+    probability: 0.5
+  - enemyPrefab: {fileID: 7852002134476750867, guid: 4ac179390f2c5f436910c4161166ee0b,
+      type: 3}
+    probability: 1
+  - enemyPrefab: {fileID: 7852002134476750867, guid: b048978f30d3d6e1c8b1e3bbf7a03d46,
+      type: 3}
+    probability: 0.5
   bossPrefab: {fileID: 1342680609566150503, guid: cafd4f265c0c42244965fd85fbf1a9b1,
     type: 3}
   minSpawnDistance: 7

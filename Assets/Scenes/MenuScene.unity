@@ -804,6 +804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1337892002}
   - component: {fileID: 1337892001}
+  - component: {fileID: 1337892003}
   m_Layer: 0
   m_Name: UI_Manager
   m_TagString: Untagged
@@ -841,6 +842,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1337892003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337892000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1801e057eb891680821438748de535d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeaderboardManager
 --- !u!1 &1384505295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,7 +1546,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 434263980}
+      objectReference: {fileID: 1337892001}
+    - target: {fileID: 3167895986804445709, guid: 85afb618bfcf4cd64b8b79713599ebe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseAllPanels
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167895986804445709, guid: 85afb618bfcf4cd64b8b79713599ebe3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1539406561260076422, guid: 85afb618bfcf4cd64b8b79713599ebe3, type: 3}
