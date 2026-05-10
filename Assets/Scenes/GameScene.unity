@@ -1397,6 +1397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 499747508}
   - component: {fileID: 499747507}
+  - component: {fileID: 499747509}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1433,6 +1434,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &499747509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499747506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9776dcfa66ea87e45bdcd38b8a27ecf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsPopupManager
+  settingsPanel: {fileID: 468292570}
 --- !u!1 &561298637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,7 +2226,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1191950771}
+      objectReference: {fileID: 499747509}
     - target: {fileID: 2761387283051859247, guid: 0ef57d1461c187a4f80e9f072094d765,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3040,7 +3054,6 @@ GameObject:
   - component: {fileID: 1191950769}
   - component: {fileID: 1191950768}
   - component: {fileID: 1191950767}
-  - component: {fileID: 1191950771}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3141,19 +3154,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1191950771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191950766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9776dcfa66ea87e45bdcd38b8a27ecf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SettingsPopupManager
-  settingsPanel: {fileID: 468292570}
 --- !u!1 &1218336625
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 
 namespace DoCG.UI
 {
@@ -23,30 +24,48 @@ namespace DoCG.UI
         [Header("Events")]
         public UnityEvent<bool> OnSettingChanged;
 
+        /// <summary>
+        /// Static event fired whenever ANY SettingsToggle changes.
+        /// Subscribe to this in code to avoid needing Inspector references.
+        /// Parameters: (settingKey, newValue)
+        /// </summary>
+        public static event Action<string, bool> OnAnySettingChanged;
+
         private bool currentState;
+
+        private bool listenersRegistered = false;
 
         private void Awake()
         {
             // Auto-fill if attached to one of the buttons
             if (onButton == null) onButton = GetComponent<Button>();
+
+            // Register listeners once in Awake to avoid double-registration
+            // when the panel is deactivated and re-activated
+            if (!listenersRegistered)
+            {
+                if (onButton != null)
+                    onButton.onClick.AddListener(() => SetState(true));
+                if (offButton != null)
+                    offButton.onClick.AddListener(() => SetState(false));
+                listenersRegistered = true;
+            }
         }
 
         private void Start()
         {
-            // Load state from PlayerPrefs (1 = true, 0 = false)
-            currentState = PlayerPrefs.GetInt(settingKey, defaultValue ? 1 : 0) == 1;
-            
-            // Add listeners to buttons
-            if (onButton != null)
-                onButton.onClick.AddListener(() => SetState(true));
-            
-            if (offButton != null)
-                offButton.onClick.AddListener(() => SetState(false));
+            Refresh();
+        }
 
-            // Initial visual update
+        /// <summary>
+        /// Reloads state from PlayerPrefs and updates visuals.
+        /// Call this when opening the settings panel to ensure UI is in sync.
+        /// </summary>
+        public void Refresh()
+        {
+            currentState = PlayerPrefs.GetInt(settingKey, defaultValue ? 1 : 0) == 1;
             UpdateVisuals();
-            
-            // Initial event trigger to sync other systems
+            // Notify listeners so game systems (audio, etc.) apply the saved state
             OnSettingChanged?.Invoke(currentState);
         }
 
@@ -64,10 +83,13 @@ namespace DoCG.UI
             PlayerPrefs.Save();
             
             UpdateVisuals();
-            
-            // Notify listeners
+
+            // Notify Inspector-connected listeners
             OnSettingChanged?.Invoke(isOn);
-            
+
+            // Notify code-connected listeners (e.g. BackgroundMusicManager)
+            OnAnySettingChanged?.Invoke(settingKey, isOn);
+
             Debug.Log($"Setting [{settingKey}] changed to: {(isOn ? "ON" : "OFF")}");
         }
 
