@@ -10,12 +10,12 @@ public class MenuButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerEx
     [SerializeField] private float hoverScale = 1.05f;
     [SerializeField] private float clickScale = 0.95f;
     [SerializeField] private float animationDuration = 0.15f;
-    
+
     [Header("Visual Effects")]
     [SerializeField] private bool useColorHighlight = true;
     [SerializeField] private Color highlightColor = new Color(1.2f, 1.2f, 1.2f, 1f);
     [SerializeField] private GameObject glowOverlay;
-    
+
     [Header("Text Effects")]
     [SerializeField] private bool highlightText = true;
     [SerializeField] private Color textHighlightColor = Color.white;
@@ -26,7 +26,7 @@ public class MenuButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerEx
     [SerializeField] private AudioClip hoverSound;
     [SerializeField] private AudioClip clickSound;
     private AudioSource audioSource;
-    
+
     private Image buttonImage;
     private Image glowImage;
     private Vector3 originalScale;
@@ -38,8 +38,8 @@ public class MenuButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerEx
         buttonImage = GetComponent<Image>();
         buttonText = GetComponentInChildren<TextMeshProUGUI>();
         originalScale = transform.localScale;
-        
-        if (buttonImage != null) 
+
+        if (buttonImage != null)
             originalColor = buttonImage.color;
 
         if (buttonText != null)
@@ -70,9 +70,9 @@ public class MenuButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         StopActiveCoroutine();
         if (glowOverlay != null) glowOverlay.SetActive(true);
-        
+
         if (hoverSound != null && audioSource != null)
-            audioSource.PlayOneShot(hoverSound, 0.5f);
+            audioSource.PlayOneShot(hoverSound, 0.5f * SFXManager.Volume);
 
         activeCoroutine = StartCoroutine(AnimateButton(originalScale * hoverScale, highlightColor, textHighlightColor, 1f));
     }
@@ -86,14 +86,16 @@ public class MenuButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void OnPointerDown(PointerEventData eventData)
     {
         StopActiveCoroutine();
-        activeCoroutine = StartCoroutine(AnimateButton(originalScale * clickScale, highlightColor * 0.8f, textHighlightColor, 0.5f));
+        // Darken RGB but keep original Alpha from highlightColor
+        Color clickColor = new Color(highlightColor.r * 0.8f, highlightColor.g * 0.8f, highlightColor.b * 0.8f, highlightColor.a);
+        activeCoroutine = StartCoroutine(AnimateButton(originalScale * clickScale, clickColor, textHighlightColor, 1f));
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if (clickSound != null && audioSource != null)
-            audioSource.PlayOneShot(clickSound, 0.7f);
-            
+            audioSource.PlayOneShot(clickSound, 0.7f * SFXManager.Volume);
+
         StopActiveCoroutine();
 
         // Check if object is still active before starting coroutine
@@ -124,9 +126,9 @@ public class MenuButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerEx
         {
             elapsed += Time.unscaledDeltaTime;
             float t = Mathf.SmoothStep(0, 1, elapsed / animationDuration);
-            
+
             transform.localScale = Vector3.Lerp(startScale, targetScale, t);
-            
+
             if (buttonImage != null && useColorHighlight)
                 buttonImage.color = Color.Lerp(startColor, targetColor, t);
 
@@ -147,7 +149,7 @@ public class MenuButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerEx
         transform.localScale = targetScale;
         if (buttonImage != null && useColorHighlight) buttonImage.color = targetColor;
         if (buttonText != null && highlightText) buttonText.color = targetTextColor;
-        
+
         if (targetGlowAlpha <= 0 && glowOverlay != null) glowOverlay.SetActive(false);
     }
 }

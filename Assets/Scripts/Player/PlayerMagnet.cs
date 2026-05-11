@@ -14,7 +14,7 @@ public class PlayerMagnet : MonoBehaviour
 
             if (crystal != null)
             {
-                crystal.StartMoving();
+                crystal.StartMoving(magnetRadius);
             }
         }
     }

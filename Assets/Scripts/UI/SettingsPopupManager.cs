@@ -63,6 +63,11 @@ public class SettingsPopupManager : MonoBehaviour
         if (settingsPanel == null) return;
 
         settingsPanel.SetActive(true);
+        
+        // Force all toggles to re-read from PlayerPrefs
+        // This is critical for cross-scene sync
+        RefreshAllSettingsUI();
+
         if (!isMenuScene) PauseGame();
     }
 
@@ -72,6 +77,19 @@ public class SettingsPopupManager : MonoBehaviour
 
         settingsPanel.SetActive(false);
         if (!isMenuScene) ResumeGame();
+    }
+
+    private void RefreshAllSettingsUI()
+    {
+        if (settingsPanel == null) return;
+
+        var toggles = settingsPanel.GetComponentsInChildren<DoCG.UI.SettingsToggle>(true);
+        foreach (var toggle in toggles)
+            toggle.Refresh();
+
+        var volumes = settingsPanel.GetComponentsInChildren<DoCG.UI.VolumeControl>(true);
+        foreach (var vol in volumes)
+            vol.Refresh();
     }
 
     private void PauseGame()
