@@ -72,7 +72,7 @@ public class MenuButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerEx
         if (glowOverlay != null) glowOverlay.SetActive(true);
 
         if (hoverSound != null && audioSource != null)
-            audioSource.PlayOneShot(hoverSound, 0.5f);
+            audioSource.PlayOneShot(hoverSound, 0.5f * SFXManager.Volume);
 
         activeCoroutine = StartCoroutine(AnimateButton(originalScale * hoverScale, highlightColor, textHighlightColor, 1f));
     }
@@ -94,7 +94,7 @@ public class MenuButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void OnPointerClick(PointerEventData eventData)
     {
         if (clickSound != null && audioSource != null)
-            audioSource.PlayOneShot(clickSound, 0.7f);
+            audioSource.PlayOneShot(clickSound, 0.7f * SFXManager.Volume);
 
         StopActiveCoroutine();
 

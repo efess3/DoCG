@@ -17,7 +17,6 @@ public class AutoShooter : MonoBehaviour
         attackAudioSource = gameObject.AddComponent<AudioSource>();
         attackAudioSource.playOnAwake = false;
         attackAudioSource.spatialBlend = 0f;
-        attackAudioSource.volume = 0.1f;
     }
 
     void Update()
@@ -85,7 +84,8 @@ public class AutoShooter : MonoBehaviour
         if (attackSounds == null || attackSounds.Length == 0) return;
 
         AudioClip clip = attackSounds[Random.Range(0, attackSounds.Length)];
-        attackAudioSource.PlayOneShot(clip);
+        // Use SFXManager so that volume respects the SFX slider setting
+        SFXManager.Play(attackAudioSource, clip);
     }
 
     public void IncreaseBulletSpeed(float amount)
