@@ -7,6 +7,11 @@ public class AutoShooter : MonoBehaviour
     public float range = 10f;
     public float extraBulletSpeed = 0f;
 
+    // ── Manual / Auto-aim ─────────────────────────────────────────────────────
+    /// <summary>When true, Shoot() aims at manualAimTarget instead of nearest enemy.</summary>
+    public bool UseManualAim { get; set; } = false;
+    private Vector3 manualAimTarget;
+
     private AudioClip[] attackSounds;
     private AudioSource attackAudioSource;
     float fireTimer;
@@ -30,6 +35,9 @@ public class AutoShooter : MonoBehaviour
         }
     }
 
+    /// <summary>Called by AutoAimController every frame when manual aim is active.</summary>
+    public void SetManualAimTarget(Vector3 worldPosition) => manualAimTarget = worldPosition;
+
     void Shoot()
     {
         if (bulletPrefab == null)
@@ -38,10 +46,22 @@ public class AutoShooter : MonoBehaviour
             return;
         }
 
-        EnemyMovement[] enemies = FindObjectsOfType<EnemyMovement>();
+        if (UseManualAim)
+        {
+            ShootAtPosition(manualAimTarget);
+        }
+        else
+        {
+            ShootAtNearestEnemy();
+        }
+    }
 
-        if (enemies.Length == 0)
-            return;
+    // ── Targeting modes ───────────────────────────────────────────────────────
+
+    private void ShootAtNearestEnemy()
+    {
+        EnemyMovement[] enemies = FindObjectsOfType<EnemyMovement>();
+        if (enemies.Length == 0) return;
 
         EnemyMovement closestEnemy = null;
         float minDistance = range;
@@ -49,7 +69,6 @@ public class AutoShooter : MonoBehaviour
         foreach (EnemyMovement enemy in enemies)
         {
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
-
             if (distance < minDistance)
             {
                 minDistance = distance;
@@ -57,11 +76,25 @@ public class AutoShooter : MonoBehaviour
             }
         }
 
-        if (closestEnemy == null)
-            return;
+        if (closestEnemy == null) return;
 
+        SpawnBullet(closestEnemy.transform);
+    }
+
+    private void ShootAtPosition(Vector3 targetWorld)
+    {
+        // Create a temporary aim transform at the mouse position
+        GameObject aimProxy = new GameObject("_AimProxy");
+        aimProxy.transform.position = new Vector3(targetWorld.x, targetWorld.y, transform.position.z);
+
+        SpawnBullet(aimProxy.transform);
+
+        Destroy(aimProxy);
+    }
+
+    private void SpawnBullet(Transform target)
+    {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-
         Bullet bulletScript = bullet.GetComponent<Bullet>();
 
         if (bulletScript == null)
@@ -71,12 +104,10 @@ public class AutoShooter : MonoBehaviour
         }
 
         if (extraBulletSpeed > 0f)
-        {
             bulletScript.IncreaseSpeed(extraBulletSpeed);
-        }
 
         PlayAttackSound();
-        bulletScript.SetTarget(closestEnemy.transform);
+        bulletScript.SetTarget(target);
     }
 
     private void PlayAttackSound()

@@ -5608,6 +5608,36 @@ PrefabInstance:
       propertyPath: requiredLevel
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
+        type: 3}
+      propertyPath: segments
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
+        type: 3}
+      propertyPath: lineWidth
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
+        type: 3}
+      propertyPath: circleColor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
+        type: 3}
+      propertyPath: circleColor.b
+      value: 0.8290317
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
+        type: 3}
+      propertyPath: circleColor.g
+      value: 0.8290317
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
+        type: 3}
+      propertyPath: circleColor.r
+      value: 0.8490566
+      objectReference: {fileID: 0}
     - target: {fileID: 3798141782799716440, guid: 2a011d0fa5786d94498d1114468a5e36,
         type: 3}
       propertyPath: requiredLevel
