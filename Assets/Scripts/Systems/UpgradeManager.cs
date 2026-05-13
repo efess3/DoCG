@@ -3,6 +3,27 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 using System.Linq;
+
+public enum UpgradeType
+{
+    MaxHP,
+    AttackSpeed,
+    MovementSpeed,
+    MagnetRange,
+    AttackRange,
+    BulletSpeed
+}
+
+[System.Serializable]
+public struct UpgradeData
+{
+    public UpgradeType type;
+    public string title;
+    [TextArea]
+    public string description;
+    public Sprite icon;
+}
+
 public class UpgradeManager : MonoBehaviour
 {
     public static UpgradeManager instance;
@@ -10,7 +31,12 @@ public class UpgradeManager : MonoBehaviour
     [Header("UI Elements")]
     public GameObject upgradePanel;
     public Button[] upgradeButtons;
-    public TextMeshProUGUI[] upgradeTexts;
+    public Image[] upgradeIcons;
+    public TextMeshProUGUI[] upgradeTitles;
+    public TextMeshProUGUI[] upgradeDescriptions;
+
+    [Header("Upgrade Database")]
+    public List<UpgradeData> allUpgrades;
 
     private void Awake()
     {
@@ -33,80 +59,68 @@ public class UpgradeManager : MonoBehaviour
         if (upgradePanel != null)
             upgradePanel.SetActive(true);
 
-        List<int> availableUpgrades = Enumerable.Range(0, 6).ToList();
-        for (int i = 0; i < 3; i++)
+        if (allUpgrades == null || allUpgrades.Count == 0)
         {
-            if (i >= upgradeButtons.Length || i >= upgradeTexts.Length) break;
+            Debug.LogWarning("No upgrades defined in UpgradeManager!");
+            return;
+        }
+
+        // Randomize indices from available upgrades
+        List<int> availableIndices = Enumerable.Range(0, allUpgrades.Count).ToList();
+        
+        for (int i = 0; i < upgradeButtons.Length; i++)
+        {
+            if (availableIndices.Count == 0) break;
 
             // Losowanie bez powtórzeń
-            int randomIndex = Random.Range(0, availableUpgrades.Count);
-            int upgradeType = availableUpgrades[randomIndex];
-            availableUpgrades.RemoveAt(randomIndex);
+            int randomIndex = Random.Range(0, availableIndices.Count);
+            int upgradeIndex = availableIndices[randomIndex];
+            availableIndices.RemoveAt(randomIndex);
 
+            UpgradeData data = allUpgrades[upgradeIndex];
             int buttonIndex = i;
 
             upgradeButtons[buttonIndex].onClick.RemoveAllListeners();
+            
+            // Set UI elements
+            if (i < upgradeTitles.Length) upgradeTitles[buttonIndex].text = data.title;
+            if (i < upgradeDescriptions.Length) upgradeDescriptions[buttonIndex].text = data.description;
+            if (i < upgradeIcons.Length) upgradeIcons[buttonIndex].sprite = data.icon;
 
-            switch (upgradeType)
-            {
-                case 0:
-                    upgradeTexts[buttonIndex].text = "MAX HP\n(+5)";
-                    upgradeButtons[buttonIndex].onClick.AddListener(() => ApplyUpgrade(0));
-                    break;
-                case 1:
-                    upgradeTexts[buttonIndex].text = "ATTACK SPEED\n(-0.1)s";
-                    upgradeButtons[buttonIndex].onClick.AddListener(() => ApplyUpgrade(1));
-                    break;
-                case 2:
-                    upgradeTexts[buttonIndex].text = "MOVEMENT SPEED\n(+1)";
-                    upgradeButtons[buttonIndex].onClick.AddListener(() => ApplyUpgrade(2));
-                    break;
-                case 3:
-                    upgradeTexts[buttonIndex].text = "MAGNET RANGE\n(+1.5)";
-                    upgradeButtons[buttonIndex].onClick.AddListener(() => ApplyUpgrade(3));
-                    break;
-                case 4:
-                    upgradeTexts[buttonIndex].text = "ATTACK RANGE\n(+1)";
-                    upgradeButtons[buttonIndex].onClick.AddListener(() => ApplyUpgrade(4));
-                    break;
-                case 5:
-                    upgradeTexts[buttonIndex].text = "BULLET SPEED\n(+1)";
-                    upgradeButtons[buttonIndex].onClick.AddListener(() => ApplyUpgrade(5));
-                    break;
-            }
+            upgradeButtons[buttonIndex].onClick.AddListener(() => ApplyUpgrade(data.type));
         }
     }
 
-    private void ApplyUpgrade(int upgradeType)
+    private void ApplyUpgrade(UpgradeType type)
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
         {
-            switch (upgradeType)
+            switch (type)
             {
-                case 0:
+                case UpgradeType.MaxHP:
                     Health health = player.GetComponent<Health>();
                     if (health != null) health.IncreaseMaxHealth(5);
                     break;
-                case 1:
+                case UpgradeType.AttackSpeed:
                     AutoShooter shooter = player.GetComponentInChildren<AutoShooter>();
                     if (shooter == null) shooter = player.GetComponent<AutoShooter>();
                     if (shooter != null) shooter.IncreaseAttackSpeed(0.1f);
                     break;
-                case 2:
+                case UpgradeType.MovementSpeed:
                     PlayerMovement movement = player.GetComponent<PlayerMovement>();
                     if (movement != null) movement.IncreaseMovementSpeed(1f);
                     break;
-                case 3:
+                case UpgradeType.MagnetRange:
                     PlayerMagnet magnet = player.GetComponent<PlayerMagnet>();
                     if (magnet != null) magnet.IncreaseMagnetRadius(1.5f);
                     break;
-                case 4:
+                case UpgradeType.AttackRange:
                     AutoShooter range = player.GetComponentInChildren<AutoShooter>();
                     if (range != null) range.IncreaseAttackRange(1f);
                     break;
-                case 5:
+                case UpgradeType.BulletSpeed:
                     AutoShooter autoShooter = player.GetComponentInChildren<AutoShooter>();
                     if (autoShooter == null) autoShooter = player.GetComponent<AutoShooter>();
                     if (autoShooter != null) autoShooter.IncreaseBulletSpeed(1f);
@@ -120,3 +134,4 @@ public class UpgradeManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 }
+
