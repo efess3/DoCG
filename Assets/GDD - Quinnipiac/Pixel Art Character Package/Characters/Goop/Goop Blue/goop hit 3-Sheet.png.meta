@@ -1,5 +1,13 @@
 fileFormatVersion: 2
 guid: 0be12889f96db9c43a61e136e489bdc2
+AssetOrigin:
+  serializedVersion: 1
+  productId: 312497
+  packageName: Pixel Art Character Package
+  packageVersion: 1.0
+  assetPath: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop
+    Blue/goop hit 3-Sheet.png
+  uploadId: 746928
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -220,11 +228,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 312497
-  packageName: Pixel Art Character Package
-  packageVersion: 1.0
-  assetPath: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop
-    Blue/goop hit 3-Sheet.png
-  uploadId: 746928
