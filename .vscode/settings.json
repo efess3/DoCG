@@ -1,12 +1,10 @@
 {
-    "dotnet.defaultSolution": "DoCG.sln",
-    "dotnet.dotnetPath": "/usr/bin/dotnet",
-    "dotrush.roslyn.dotnetSdkDirectory": "/usr/lib64/dotnet/sdk/9.0.107",
+    "dotnet.defaultSolution": "DoCG.slnx",
     "dotrush.msbuildProperties": {
         "DefineConstants": "UNITY_EDITOR"
     },
     "dotrush.roslyn.projectOrSolutionFiles": [
-        "/home/staszek/Projects/Uni/DoCG/DoCG.sln"
+        "C:/Users/Kayned/Documents/GitHub/DoCG/DoCG.sln"
     ],
     "dotrush.roslyn.restoreProjectsBeforeLoading": false,
     "files.exclude": {
