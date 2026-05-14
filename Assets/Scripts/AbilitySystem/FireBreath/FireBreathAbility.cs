@@ -8,6 +8,7 @@ public class FireBreathAbility : AbilityBase
         {
             Destroy(previewInstance);
         }
+
         previewInstance = Instantiate(data.previewPrefab);
         previewInstance.transform.SetParent(transform);
         previewInstance.transform.localPosition = new Vector3(0, 0.3f, 0);
