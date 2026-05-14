@@ -11,10 +11,16 @@ public class PlayerMagnet : MonoBehaviour
         foreach (Collider2D c in crystals)
         {
             ExpCrystal crystal = c.GetComponent<ExpCrystal>();
+            HeartPickup heartPickup = c.GetComponent<HeartPickup>();
 
             if (crystal != null)
             {
                 crystal.StartMoving(magnetRadius);
+            }
+
+            if (heartPickup != null)
+            {
+                heartPickup.StartMoving(magnetRadius);
             }
         }
     }

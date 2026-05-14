@@ -6,12 +6,12 @@ using System.Linq;
 
 public enum UpgradeType
 {
-    MaxHP,
+    Health,
     AttackSpeed,
-    MovementSpeed,
-    MagnetRange,
-    AttackRange,
-    BulletSpeed
+    AttackPower,
+    Speed,
+    Radius,
+    Cooldowns
 }
 
 [System.Serializable]
@@ -26,6 +26,14 @@ public struct UpgradeData
 
 public class UpgradeManager : MonoBehaviour
 {
+    private const float HeartDropChancePerUpgrade = 0.05f;
+    private const float MaxHeartDropChance = 0.50f;
+    private const float AttackSpeedMultiplierPerUpgrade = 1.25f;
+    private const float SpeedIncreasePerUpgrade = 1f;
+    private const float InvincibilityDurationIncreasePerUpgrade = 0.1f;
+    private const float AbilityRadiusIncreasePerUpgrade = 0.10f;
+    private const float AttackAndMagnetRangeIncreasePerUpgrade = 0.25f;
+
     public static UpgradeManager instance;
 
     [Header("UI Elements")]
@@ -36,7 +44,10 @@ public class UpgradeManager : MonoBehaviour
     public TextMeshProUGUI[] upgradeDescriptions;
 
     [Header("Upgrade Database")]
+    public Sprite heartPickupSprite;
     public List<UpgradeData> allUpgrades;
+
+    private float heartDropChanceBonus;
 
     private void Awake()
     {
@@ -99,31 +110,51 @@ public class UpgradeManager : MonoBehaviour
         {
             switch (type)
             {
-                case UpgradeType.MaxHP:
+                case UpgradeType.Health:
                     Health health = player.GetComponent<Health>();
-                    if (health != null) health.IncreaseMaxHealth(5);
+                    if (health != null) health.IncreaseMaxHealth(2f);
+                    IncreaseHeartDropChance(HeartDropChancePerUpgrade);
                     break;
                 case UpgradeType.AttackSpeed:
-                    AutoShooter shooter = player.GetComponentInChildren<AutoShooter>();
-                    if (shooter == null) shooter = player.GetComponent<AutoShooter>();
-                    if (shooter != null) shooter.IncreaseAttackSpeed(0.1f);
+                    AutoShooter shooter = FindAutoShooter(player);
+                    if (shooter != null) 
+                    {
+                        shooter.IncreaseAttackSpeed(AttackSpeedMultiplierPerUpgrade);
+                        shooter.IncreaseBulletSpeed(1.2f);
+                    }
                     break;
-                case UpgradeType.MovementSpeed:
+                case UpgradeType.AttackPower:
+                    AutoShooter powerShooter = FindAutoShooter(player);
+                    if (powerShooter != null)
+                    {
+                        powerShooter.IncreaseBulletDamage(0.5f);
+                        powerShooter.IncreaseBulletSize(1.2f);
+                    }
+                    break;
+                case UpgradeType.Speed:
                     PlayerMovement movement = player.GetComponent<PlayerMovement>();
-                    if (movement != null) movement.IncreaseMovementSpeed(1f);
+                    if (movement != null) movement.IncreaseMovementSpeed(SpeedIncreasePerUpgrade);
+
+                    Health speedHealth = player.GetComponent<Health>();
+                    if (speedHealth != null) speedHealth.IncreaseInvincibilityDuration(InvincibilityDurationIncreasePerUpgrade);
                     break;
-                case UpgradeType.MagnetRange:
+                case UpgradeType.Radius:
+                    foreach (AbilityBase ability in GetPlayerAbilities(player))
+                    {
+                        ability.IncreaseAbilityRadius(AbilityRadiusIncreasePerUpgrade);
+                    }
+
                     PlayerMagnet magnet = player.GetComponent<PlayerMagnet>();
-                    if (magnet != null) magnet.IncreaseMagnetRadius(1.5f);
+                    if (magnet != null) magnet.IncreaseMagnetRadius(AttackAndMagnetRangeIncreasePerUpgrade);
+
+                    AutoShooter radiusShooter = FindAutoShooter(player);
+                    if (radiusShooter != null) radiusShooter.IncreaseAttackRange(AttackAndMagnetRangeIncreasePerUpgrade);
                     break;
-                case UpgradeType.AttackRange:
-                    AutoShooter range = player.GetComponentInChildren<AutoShooter>();
-                    if (range != null) range.IncreaseAttackRange(1f);
-                    break;
-                case UpgradeType.BulletSpeed:
-                    AutoShooter autoShooter = player.GetComponentInChildren<AutoShooter>();
-                    if (autoShooter == null) autoShooter = player.GetComponent<AutoShooter>();
-                    if (autoShooter != null) autoShooter.IncreaseBulletSpeed(1f);
+                case UpgradeType.Cooldowns:
+                    foreach (AbilityBase ability in GetPlayerAbilities(player))
+                    {
+                        ability.ReduceCooldowns(0.10f);
+                    }
                     break;
             }
         }
@@ -132,6 +163,41 @@ public class UpgradeManager : MonoBehaviour
             upgradePanel.SetActive(false);
 
         Time.timeScale = 1f;
+    }
+
+    public float GetHeartDropChance()
+    {
+        return Mathf.Min(heartDropChanceBonus, MaxHeartDropChance);
+    }
+
+    public Sprite GetUpgradeIcon(UpgradeType type)
+    {
+        UpgradeData upgrade = allUpgrades.FirstOrDefault(data => data.type == type);
+        return upgrade.icon;
+    }
+
+    public Sprite GetHeartPickupSprite()
+    {
+        return heartPickupSprite;
+    }
+
+    private void IncreaseHeartDropChance(float amount)
+    {
+        heartDropChanceBonus = Mathf.Min(heartDropChanceBonus + amount, MaxHeartDropChance);
+    }
+
+    private static AutoShooter FindAutoShooter(GameObject player)
+    {
+        AutoShooter shooter = player.GetComponentInChildren<AutoShooter>();
+        if (shooter == null)
+            shooter = player.GetComponent<AutoShooter>();
+
+        return shooter;
+    }
+
+    private static AbilityBase[] GetPlayerAbilities(GameObject player)
+    {
+        return player.GetComponentsInChildren<AbilityBase>(true);
     }
 }
 

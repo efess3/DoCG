@@ -193,7 +193,7 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 10
   isPlayer: 1
-  invincibilityDuration: 0.5
+  invincibilityDuration: 0.2
 --- !u!114 &5147643222337461963
 MonoBehaviour:
   m_ObjectHideFlags: 0

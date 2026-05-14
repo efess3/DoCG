@@ -1802,34 +1802,31 @@ MonoBehaviour:
   - {fileID: 814634804}
   - {fileID: 1141316021}
   - {fileID: 1722964554}
+  heartPickupSprite: {fileID: -205270267638800340, guid: 121a4fddebd729b4ab09386633af3d02, type: 3}
   allUpgrades:
   - type: 0
-    title: MAX HP
-    description: +5
+    title: Health
+    description: "+2 Max HP\n+5% heart drop"
     icon: {fileID: -8207269594943757716, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
   - type: 1
     title: Attack Speed
-    description: -0.1s
+    description: "+25% fire rate\n+20% bullet speed"
     icon: {fileID: 5034633885727289779, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
   - type: 2
-    title: Movement Speed
-    description: +1
+    title: Attack Power
+    description: "+0.5 damage\n+20% bullet size"
     icon: {fileID: 2814553902964073781, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
   - type: 3
-    title: Magnet Range
-    description: +1.5
+    title: Speed
+    description: "+1 move speed\n+0.1s i-frame"
     icon: {fileID: -5507456651015475916, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
   - type: 4
-    title: Attack Range
-    description: '+1
-
-'
+    title: Radius
+    description: "+10% ability radius\n+0.25 atk/magnet range"
     icon: {fileID: -1484425469778233244, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
   - type: 5
-    title: Bullet Speed
-    description: '+1
-
-'
+    title: Cooldowns
+    description: '-10% all ability cooldowns'
     icon: {fileID: -3747481678213112001, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
 --- !u!4 &720138408
 Transform:
@@ -2461,12 +2458,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 80
+  m_fontSize: 56
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 56
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -3421,12 +3418,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 80
+  m_fontSize: 56
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 56
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -5064,12 +5061,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 80
+  m_fontSize: 56
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 56
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
