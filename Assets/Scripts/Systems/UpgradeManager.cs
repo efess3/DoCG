@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 using System.Linq;
+using System.Text;
 
 public enum UpgradeType
 {
@@ -191,6 +192,51 @@ public class UpgradeManager : MonoBehaviour
         return Mathf.Min(heartDropChanceBonus, MaxHeartDropChance);
     }
 
+    public string GetPauseStatsText()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            return "PLAYER STATS\nPlayer not found.";
+        }
+
+        Health health = player.GetComponent<Health>();
+        AutoShooter shooter = FindAutoShooter(player);
+        PlayerMovement movement = player.GetComponent<PlayerMovement>();
+        PlayerMagnet magnet = player.GetComponent<PlayerMagnet>();
+        AbilityBase[] abilities = GetPlayerAbilities(player);
+        AbilityBase representativeAbility = abilities.FirstOrDefault();
+        Bullet bulletPrefab = shooter != null && shooter.BulletPrefab != null
+            ? shooter.BulletPrefab.GetComponent<Bullet>()
+            : null;
+
+        float shotsPerSecond = shooter != null && shooter.FireInterval > 0f ? 1f / shooter.FireInterval : 0f;
+        float bulletSpeed = bulletPrefab != null && shooter != null
+            ? bulletPrefab.speed * shooter.BulletSpeedMultiplier
+            : 0f;
+        float bulletDamage = bulletPrefab != null && shooter != null
+            ? bulletPrefab.damage + shooter.BulletDamageBonus
+            : 0f;
+        int addergulCount = FindObjectsOfType<AddergulMinion>().Length;
+
+        StringBuilder builder = new StringBuilder(512);
+        builder.AppendLine("PLAYER STATS");
+        AppendStatLine(builder, "Max HP", FormatValue(health != null ? health.maxHealth : (float?)null));
+        AppendStatLine(builder, "Heart drop rate", FormatPercent(GetHeartDropChance()));
+        AppendStatLine(builder, "Fire rate", shooter != null ? $"{FormatValue(shotsPerSecond)} shots/s" : "-");
+        AppendStatLine(builder, "Bullet speed", FormatValue(bulletSpeed, shooter != null && bulletPrefab != null));
+        AppendStatLine(builder, "Damage", FormatValue(bulletDamage, shooter != null && bulletPrefab != null));
+        AppendStatLine(builder, "Bullet size", shooter != null ? FormatMultiplier(shooter.BulletSizeMultiplier) : "-");
+        AppendStatLine(builder, "Move speed", FormatValue(movement != null ? movement.MoveSpeed : (float?)null));
+        AppendStatLine(builder, "Invincibility", health != null ? $"{FormatValue(health.invincibilityDuration)} s" : "-");
+        AppendStatLine(builder, "Ability radius", representativeAbility != null ? FormatMultiplier(representativeAbility.AbilityRadiusMultiplier) : "-");
+        AppendStatLine(builder, "Pickup range", FormatValue(magnet != null ? magnet.magnetRadius : (float?)null));
+        AppendStatLine(builder, "Attack range", FormatValue(shooter != null ? shooter.AttackRange : (float?)null));
+        AppendStatLine(builder, "Ability cooldowns", representativeAbility != null ? FormatMultiplier(representativeAbility.CooldownMultiplier) : "-");
+        AppendStatLine(builder, "Addergul minions", addergulCount.ToString());
+        return builder.ToString().TrimEnd();
+    }
+
     public Sprite GetUpgradeIcon(UpgradeType type)
     {
         UpgradeData upgrade = allUpgrades.FirstOrDefault(data => data.type == type);
@@ -205,6 +251,28 @@ public class UpgradeManager : MonoBehaviour
     private void IncreaseHeartDropChance(float amount)
     {
         heartDropChanceBonus = Mathf.Min(heartDropChanceBonus + amount, MaxHeartDropChance);
+    }
+
+    private static void AppendStatLine(StringBuilder builder, string label, string value)
+    {
+        builder.Append(label);
+        builder.Append(": ");
+        builder.AppendLine(value);
+    }
+
+    private static string FormatMultiplier(float value)
+    {
+        return $"x{value:0.##}";
+    }
+
+    private static string FormatPercent(float value)
+    {
+        return $"{value * 100f:0.#}%";
+    }
+
+    private static string FormatValue(float? value, bool hasValue = true)
+    {
+        return hasValue && value.HasValue ? value.Value.ToString("0.##") : "-";
     }
 
     private static AutoShooter FindAutoShooter(GameObject player)

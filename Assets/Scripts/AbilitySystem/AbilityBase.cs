@@ -163,6 +163,14 @@ public abstract class AbilityBase : MonoBehaviour
         return abilityRadiusMultiplier;
     }
 
+    public float CooldownMultiplier => cooldownMultiplier;
+
+    public float AbilityRadiusMultiplier => abilityRadiusMultiplier;
+
+    public float BaseCooldown => data != null ? data.cooldown : 0f;
+
+    public float CurrentCooldown => BaseCooldown * cooldownMultiplier;
+
     protected void ApplyAbilityRadius(Transform target)
     {
         ApplyAbilityRadius(target, abilityRadiusMultiplier);
