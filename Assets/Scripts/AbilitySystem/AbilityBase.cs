@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class AbilityBase : MonoBehaviour
 {
+    private const float StartingCooldownMultiplier = 1.5f;
+
     public AbilityData data;
 
     [Header("Level Requirement")]
@@ -11,6 +13,8 @@ public abstract class AbilityBase : MonoBehaviour
 
     protected float lastUseTime;
     protected bool isAiming;
+    protected float cooldownMultiplier = StartingCooldownMultiplier;
+    protected float abilityRadiusMultiplier = 0.5f;
 
     protected PlayerMovement playerMovement;
     protected GameObject previewInstance;
@@ -97,18 +101,19 @@ public abstract class AbilityBase : MonoBehaviour
     protected bool CanUse()
     {
         if (!isUnlocked) return false;
-        return Time.time >= lastUseTime + data.cooldown;
+        return Time.time >= lastUseTime + GetCurrentCooldown();
     }
 
     public float GetCooldownRemaining()
     {
-        return Mathf.Max(0, (lastUseTime + data.cooldown) - Time.time);
+        return Mathf.Max(0, (lastUseTime + GetCurrentCooldown()) - Time.time);
     }
 
     public float GetCooldownNormalized()
     {
-        if (data.cooldown <= 0) return 0;
-        return GetCooldownRemaining() / data.cooldown;
+        float currentCooldown = GetCurrentCooldown();
+        if (currentCooldown <= 0) return 0;
+        return GetCooldownRemaining() / currentCooldown;
     }
 
     // =========================
@@ -121,6 +126,7 @@ public abstract class AbilityBase : MonoBehaviour
         
         previewInstance = Instantiate(data.previewPrefab, transform);
         previewInstance.transform.localPosition = data.previewOffset;
+        ApplyAbilityRadius(previewInstance.transform);
     }
 
     protected virtual void DestroyPreview()
@@ -138,5 +144,53 @@ public abstract class AbilityBase : MonoBehaviour
         if (playerMovement == null) return;
 
         playerMovement.LockMovement(data.castTimeLock);
+    }
+
+    public void ReduceCooldowns(float percentage)
+    {
+        cooldownMultiplier *= Mathf.Max(0.05f, 1f - percentage);
+    }
+
+    public void IncreaseAbilityRadius(float percentage)
+    {
+        float upgradeMultiplier = 1f + percentage;
+        abilityRadiusMultiplier *= upgradeMultiplier;
+
+        if (previewInstance != null)
+            ApplyAbilityRadius(previewInstance.transform, upgradeMultiplier);
+    }
+
+    protected float GetAbilityRadiusMultiplier()
+    {
+        return abilityRadiusMultiplier;
+    }
+
+    public float CooldownMultiplier => cooldownMultiplier;
+
+    public float AbilityRadiusMultiplier => abilityRadiusMultiplier;
+
+    public float BaseCooldown => data != null ? data.cooldown : 0f;
+
+    public float CurrentCooldown => BaseCooldown * cooldownMultiplier;
+
+    protected void ApplyAbilityRadius(Transform target)
+    {
+        ApplyAbilityRadius(target, abilityRadiusMultiplier);
+    }
+
+    protected void ApplyAbilityRadius(Transform target, float scaleMultiplier)
+    {
+        if (target == null) return;
+
+        target.localScale = new Vector3(
+            target.localScale.x * scaleMultiplier,
+            target.localScale.y * scaleMultiplier,
+            target.localScale.z
+        );
+    }
+
+    private float GetCurrentCooldown()
+    {
+        return data.cooldown * cooldownMultiplier;
     }
 }

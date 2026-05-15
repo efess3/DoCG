@@ -14,6 +14,7 @@ public class MeteorStormAbility : AbilityBase
     {
         if (data.previewPrefab == null) return;
         previewInstance = Instantiate(data.previewPrefab);
+        ApplyAbilityRadius(previewInstance.transform);
     }
 
     public override void UpdateAiming(Vector2 targetPos)
@@ -35,13 +36,14 @@ public class MeteorStormAbility : AbilityBase
         for (int i = 0; i < meteorCount; i++)
         {
             // Calculate a random offset around the target position
-            Vector2 randomOffset = Random.insideUnitCircle * spawnRadius;
+            Vector2 randomOffset = Random.insideUnitCircle * (spawnRadius * GetAbilityRadiusMultiplier());
             Vector2 finalTargetPos = targetPos + randomOffset;
             
             // Spawn high up and slightly to the left, to create a falling effect towards bottom-right
             Vector2 spawnPos = finalTargetPos + new Vector2(spawnOffsetX, spawnHeight);
 
             GameObject meteor = Instantiate(data.effectPrefab, spawnPos, Quaternion.identity);
+            ApplyAbilityRadius(meteor.transform);
             
             var effectScript = meteor.GetComponent<MeteorStormEffect>();
             if (effectScript != null)

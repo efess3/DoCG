@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class AutoShooter : MonoBehaviour
 {
+    private const float AttackSoundVolumeMultiplier = 0.1f;
+    private const float StartingBulletSizeMultiplier = 0.5f;
+    private const float MaxBulletSizeMultiplier = 2f;
+
     public GameObject bulletPrefab;
     public float fireRate = 1f;
     public float range = 10f;
-    public float extraBulletSpeed = 0f;
+    public float bulletSpeedMultiplier = 1f;
+    public float bulletDamageBonus = 0f;
+    public float bulletSizeMultiplier = StartingBulletSizeMultiplier;
 
     // ── Manual / Auto-aim ─────────────────────────────────────────────────────
     /// <summary>When true, Shoot() aims at manualAimTarget instead of nearest enemy.</summary>
@@ -103,8 +109,11 @@ public class AutoShooter : MonoBehaviour
             return;
         }
 
-        if (extraBulletSpeed > 0f)
-            bulletScript.IncreaseSpeed(extraBulletSpeed);
+        if (bulletSpeedMultiplier > 1f)
+            bulletScript.IncreaseSpeed(bulletSpeedMultiplier);
+
+        bulletScript.SetDamage(bulletScript.damage + bulletDamageBonus);
+        bulletScript.SetScaleMultiplier(bulletSizeMultiplier);
 
         PlayAttackSound();
         bulletScript.SetTarget(target);
@@ -115,26 +124,51 @@ public class AutoShooter : MonoBehaviour
         if (attackSounds == null || attackSounds.Length == 0) return;
 
         AudioClip clip = attackSounds[Random.Range(0, attackSounds.Length)];
-        // Use SFXManager so that volume respects the SFX slider setting
-        SFXManager.Play(attackAudioSource, clip);
+        // Keep attack SFX much quieter while still respecting the global SFX slider.
+        SFXManager.Play(attackAudioSource, clip, AttackSoundVolumeMultiplier);
     }
+
+    public GameObject BulletPrefab => bulletPrefab;
+
+    public float FireInterval => fireRate;
+
+    public float AttackRange => range;
+
+    public float BulletSpeedMultiplier => bulletSpeedMultiplier;
+
+    public float BulletDamageBonus => bulletDamageBonus;
+
+    public float BulletSizeMultiplier => bulletSizeMultiplier;
 
     public void IncreaseBulletSpeed(float amount)
     {
-        extraBulletSpeed += amount;
+        bulletSpeedMultiplier *= amount;
+        if(bulletSpeedMultiplier > 4)
+        bulletSpeedMultiplier = 4;
     }
 
     public void IncreaseAttackSpeed(float amount)
     {
-        fireRate -= amount;
+        fireRate /= amount;
 
-        // Zabezpieczenie, żeby gra strzelała poprawnie - nie chcemy ujemnych ani 0 wartśoci
-        if (fireRate < 0.1f)
-            fireRate = 0.1f;
+        if (fireRate < 0.01f)
+            fireRate = 0.01f;
     }
 
     public void IncreaseAttackRange(float amount)
     {
         range += amount;
+    }
+
+    public void IncreaseBulletDamage(float amount)
+    {
+        bulletDamageBonus += amount;
+    }
+
+    public void IncreaseBulletSize(float amount)
+    {
+        bulletSizeMultiplier *= amount;
+        if (bulletSizeMultiplier > MaxBulletSizeMultiplier)
+            bulletSizeMultiplier = MaxBulletSizeMultiplier;
     }
 }

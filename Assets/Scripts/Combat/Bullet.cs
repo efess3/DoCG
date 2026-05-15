@@ -10,13 +10,21 @@ public class Bullet : MonoBehaviour
     public float speed = 5f;
 
     // obrażenia
-    public int damage = 1;
+    public float damage = 1f;
 
     // cel
     private Transform target;
 
     // Zapamiętany, ostatni kierunek lotu
     private Vector2 lastDirection;
+    private Vector3 baseScale;
+    private SpriteRenderer spriteRenderer;
+
+    void Awake()
+    {
+        baseScale = transform.localScale;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void Start()
     {
@@ -80,6 +88,24 @@ public class Bullet : MonoBehaviour
 
     public void IncreaseSpeed(float amount)
     {
-        speed += amount;
+        speed *= amount;
+    }
+
+    public void SetDamage(float amount)
+    {
+        damage = amount;
+    }
+
+    public void SetScaleMultiplier(float multiplier)
+    {
+        transform.localScale = new Vector3(baseScale.x * multiplier, baseScale.y * multiplier, baseScale.z);
+    }
+
+    public void SetTint(Color color)
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = color;
+        }
     }
 }

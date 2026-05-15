@@ -69,6 +69,14 @@ public class SFXManager : MonoBehaviour
         source.PlayOneShot(clip);
     }
 
+    /// <summary>Plays a clip at the correct SFX volume with an extra per-sound multiplier.</summary>
+    public static void Play(AudioSource source, AudioClip clip, float volumeMultiplier)
+    {
+        if (source == null || clip == null) return;
+        source.volume = Mathf.Clamp01(Volume * volumeMultiplier);
+        source.PlayOneShot(clip);
+    }
+
     /// <summary>Plays a clip at a position in world space.</summary>
     public static void PlayAtPoint(AudioClip clip, Vector3 position)
     {

@@ -20,6 +20,7 @@ public class FireBreathAbility : AbilityBase
             transform.position,
             Quaternion.identity
         );
+        ApplyAbilityRadius(effect.transform);
 
         Debug.Log(effect);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

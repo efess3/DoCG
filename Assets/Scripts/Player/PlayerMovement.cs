@@ -105,4 +105,8 @@ public class PlayerMovement : MonoBehaviour
     {
         moveSpeed += amount;
     }
+
+    public float MoveSpeed => moveSpeed;
+
+    public bool IsMoving => canMove && movement.sqrMagnitude > 0.001f;
 }

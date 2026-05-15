@@ -4,10 +4,13 @@ public class MobHealth : MonoBehaviour
 {
     private const string SmallEnemyHitSoundPath = "Sounds/Hit/Ling";
     private const string BossHitSoundPath = "Sounds/Hit/Boss";
+    private const float HeartDropOffsetMin = 0.35f;
+    private const float HeartDropOffsetMax = 0.8f;
 
-    public int maxHealth = 5;
-    public int currentHealth;
+    public float maxHealth = 5f;
+    public float currentHealth;
     public GameObject expCrystalPrefab;
+    public float heartHealAmount = 1f;
 
     public System.Action OnMobDeath;
 
@@ -15,6 +18,7 @@ public class MobHealth : MonoBehaviour
     public int bossCrystalDropCount = 15;
 
     private AudioClip[] hitSounds;
+    private bool isDead;
     Animator animator;
 
     void Start()
@@ -35,10 +39,11 @@ public class MobHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
+        if (isDead) return;
+
         currentHealth -= damage;
-        PlayRandomHitSound();
 
         if (currentHealth <= 0)
         {
@@ -46,7 +51,7 @@ public class MobHealth : MonoBehaviour
         }
         else
         {
-            animator.SetTrigger("OnDamage");
+            animator?.SetTrigger("OnDamage");
         }
     }
 
@@ -65,6 +70,10 @@ public class MobHealth : MonoBehaviour
 
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
+        PlayRandomHitSound();
         OnMobDeath?.Invoke();
 
         if (expCrystalPrefab != null)
@@ -89,6 +98,29 @@ public class MobHealth : MonoBehaviour
             GameManager.instance.AddKill();
         }
 
+        TryDropHeart();
+
         Destroy(gameObject);
+    }
+
+    private void TryDropHeart()
+    {
+        if (UpgradeManager.instance == null) return;
+
+        float heartDropChance = UpgradeManager.instance.GetHeartDropChance();
+        if (heartDropChance <= 0f || Random.value > heartDropChance) return;
+
+        HeartPickup.Spawn(GetHeartDropPosition(), heartHealAmount);
+    }
+
+    private Vector3 GetHeartDropPosition()
+    {
+        Vector2 offsetDirection = Random.insideUnitCircle;
+        if (offsetDirection == Vector2.zero)
+            offsetDirection = Vector2.right;
+
+        float offsetDistance = Random.Range(HeartDropOffsetMin, HeartDropOffsetMax);
+        Vector2 offset = offsetDirection.normalized * offsetDistance;
+        return transform.position + (Vector3)offset;
     }
 }

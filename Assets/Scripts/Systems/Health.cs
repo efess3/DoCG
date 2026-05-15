@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     [Header("Settings")]
     public bool isPlayer = false;
     [Header("I-Frames (Nieśmiertelność)")]
-    public float invincibilityDuration = 0.5f;
+    public float invincibilityDuration = 0.2f;
     private float invincibilityTimer;
     
     private Animator animator;
@@ -95,6 +95,26 @@ public class Health : MonoBehaviour
             HealthSystem.Instance.UpdateGraphics();
         }
     }
+
+    public void Heal(float amount)
+    {
+        if (isDead || amount <= 0f) return;
+
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+
+        if (isPlayer && HealthSystem.Instance != null)
+        {
+            HealthSystem.Instance.hitPoint = currentHealth;
+            HealthSystem.Instance.UpdateGraphics();
+        }
+    }
+
+    public void IncreaseInvincibilityDuration(float amount)
+    {
+        if (amount <= 0f) return;
+        invincibilityDuration += amount;
+    }
+
     void Die()
     {
         isDead = true;
