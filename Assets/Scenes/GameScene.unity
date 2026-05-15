@@ -1532,6 +1532,10 @@ MonoBehaviour:
   - {fileID: 1141316021}
   - {fileID: 1722964554}
   heartPickupSprite: {fileID: -205270267638800340, guid: 121a4fddebd729b4ab09386633af3d02, type: 3}
+  addergulDarkBluePrefab: {fileID: 6214500318462001001, guid: e5a70e6a24754d948348b6fbc0423b9f, type: 3}
+  addergulOrangePrefab: {fileID: 6214500318462002001, guid: 875f99d053ec40bf825211a9c56924f9, type: 3}
+  addergulPinkPrefab: {fileID: 6214500318462003001, guid: 172cfefaf1134fc4b350e4f4f82c8127, type: 3}
+  addergulWhitePrefab: {fileID: 6214500318462004001, guid: 059f19b24a9943e2bb1fdbf11b0fbd40, type: 3}
   allUpgrades:
   - type: 0
     title: Health
@@ -1557,6 +1561,10 @@ MonoBehaviour:
     title: Cooldowns
     description: '-10% all ability cooldowns'
     icon: {fileID: -3747481678213112001, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
+  - type: 6
+    title: Summon Addergul
+    description: '+1 Minion with 50% attack Speed and Power'
+    icon: {fileID: 2310594634936908321, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
 --- !u!4 &720138408
 Transform:
   m_ObjectHideFlags: 0

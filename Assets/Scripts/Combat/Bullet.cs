@@ -18,10 +18,12 @@ public class Bullet : MonoBehaviour
     // Zapamiętany, ostatni kierunek lotu
     private Vector2 lastDirection;
     private Vector3 baseScale;
+    private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
         baseScale = transform.localScale;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -97,5 +99,13 @@ public class Bullet : MonoBehaviour
     public void SetScaleMultiplier(float multiplier)
     {
         transform.localScale = new Vector3(baseScale.x * multiplier, baseScale.y * multiplier, baseScale.z);
+    }
+
+    public void SetTint(Color color)
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = color;
+        }
     }
 }

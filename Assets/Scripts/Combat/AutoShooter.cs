@@ -126,6 +126,18 @@ public class AutoShooter : MonoBehaviour
         SFXManager.Play(attackAudioSource, clip, AttackSoundVolumeMultiplier);
     }
 
+    public GameObject BulletPrefab => bulletPrefab;
+
+    public float FireInterval => fireRate;
+
+    public float AttackRange => range;
+
+    public float BulletSpeedMultiplier => bulletSpeedMultiplier;
+
+    public float BulletDamageBonus => bulletDamageBonus;
+
+    public float BulletSizeMultiplier => bulletSizeMultiplier;
+
     public void IncreaseBulletSpeed(float amount)
     {
         bulletSpeedMultiplier *= amount;

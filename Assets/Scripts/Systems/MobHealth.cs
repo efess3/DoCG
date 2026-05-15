@@ -18,6 +18,7 @@ public class MobHealth : MonoBehaviour
     public int bossCrystalDropCount = 15;
 
     private AudioClip[] hitSounds;
+    private bool isDead;
     Animator animator;
 
     void Start()
@@ -40,8 +41,9 @@ public class MobHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (isDead) return;
+
         currentHealth -= damage;
-        PlayRandomHitSound();
 
         if (currentHealth <= 0)
         {
@@ -49,7 +51,7 @@ public class MobHealth : MonoBehaviour
         }
         else
         {
-            animator.SetTrigger("OnDamage");
+            animator?.SetTrigger("OnDamage");
         }
     }
 
@@ -68,6 +70,10 @@ public class MobHealth : MonoBehaviour
 
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
+        PlayRandomHitSound();
         OnMobDeath?.Invoke();
 
         if (expCrystalPrefab != null)

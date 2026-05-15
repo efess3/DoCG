@@ -11,7 +11,8 @@ public enum UpgradeType
     AttackPower,
     Speed,
     Radius,
-    Cooldowns
+    Cooldowns,
+    SummonAddergul
 }
 
 [System.Serializable]
@@ -33,6 +34,7 @@ public class UpgradeManager : MonoBehaviour
     private const float InvincibilityDurationIncreasePerUpgrade = 0.1f;
     private const float AbilityRadiusIncreasePerUpgrade = 0.10f;
     private const float AttackAndMagnetRangeIncreasePerUpgrade = 0.25f;
+    private const float AddergulScaleMultiplier = 0.75f;
 
     public static UpgradeManager instance;
 
@@ -45,9 +47,25 @@ public class UpgradeManager : MonoBehaviour
 
     [Header("Upgrade Database")]
     public Sprite heartPickupSprite;
+    public GameObject addergulDarkBluePrefab;
+    public GameObject addergulOrangePrefab;
+    public GameObject addergulPinkPrefab;
+    public GameObject addergulWhitePrefab;
     public List<UpgradeData> allUpgrades;
 
     private float heartDropChanceBonus;
+
+    private readonly struct AddergulData
+    {
+        public AddergulData(GameObject prefab, Color bulletTint)
+        {
+            Prefab = prefab;
+            BulletTint = bulletTint;
+        }
+
+        public GameObject Prefab { get; }
+        public Color BulletTint { get; }
+    }
 
     private void Awake()
     {
@@ -156,6 +174,9 @@ public class UpgradeManager : MonoBehaviour
                         ability.ReduceCooldowns(0.10f);
                     }
                     break;
+                case UpgradeType.SummonAddergul:
+                    SummonAddergul(player);
+                    break;
             }
         }
 
@@ -198,6 +219,140 @@ public class UpgradeManager : MonoBehaviour
     private static AbilityBase[] GetPlayerAbilities(GameObject player)
     {
         return player.GetComponentsInChildren<AbilityBase>(true);
+    }
+
+    private void SummonAddergul(GameObject player)
+    {
+        if (!TryGetAddergulOwner(player, out AutoShooter shooter, out PlayerMovement movement, out SpriteRenderer playerSpriteRenderer))
+        {
+            Debug.LogWarning("Cannot summon Addergul without PlayerMovement and AutoShooter on the player.");
+            return;
+        }
+
+        AddergulVariant variant = (AddergulVariant)Random.Range(0, 4);
+        AddergulData addergulData = GetAddergulData(variant);
+        if (addergulData.Prefab == null)
+        {
+            Debug.LogWarning($"Missing prefab for summoned Addergul variant: {variant}");
+            return;
+        }
+
+        GameObject minionObject = CreateAddergulMinionFromTemplate(
+            addergulData.Prefab,
+            $"Addergul Minion ({variant})",
+            player.transform.position + (Vector3)GetAddergulSpawnOffset(),
+            player.transform.localScale * AddergulScaleMultiplier);
+
+        if (minionObject == null)
+        {
+            Debug.LogWarning($"Failed to create summoned Addergul from template: {addergulData.Prefab.name}");
+            return;
+        }
+
+        SpriteRenderer minionSpriteRenderer = minionObject.GetComponent<SpriteRenderer>();
+        if (playerSpriteRenderer != null && minionSpriteRenderer != null)
+        {
+            ApplyPlayerSorting(playerSpriteRenderer, minionSpriteRenderer);
+        }
+
+        AddergulMinion minion = minionObject.GetComponent<AddergulMinion>();
+        if (minion == null)
+        {
+            Debug.LogWarning($"Summoned Addergul prefab is missing {nameof(AddergulMinion)}: {addergulData.Prefab.name}");
+            Destroy(minionObject);
+            return;
+        }
+
+        minion.Initialize(
+            player.transform,
+            movement,
+            shooter,
+            addergulData.BulletTint);
+    }
+
+    private static GameObject CreateAddergulMinionFromTemplate(GameObject template, string objectName, Vector3 spawnPosition, Vector3 spawnScale)
+    {
+        if (template == null)
+        {
+            return null;
+        }
+
+        SpriteRenderer templateRenderer = template.GetComponent<SpriteRenderer>();
+
+        if (templateRenderer == null)
+        {
+            return null;
+        }
+
+        GameObject minionObject = new GameObject(objectName);
+        minionObject.layer = template.layer;
+        minionObject.transform.position = spawnPosition;
+        minionObject.transform.localScale = spawnScale;
+
+        SpriteRenderer spriteRenderer = minionObject.AddComponent<SpriteRenderer>();
+        spriteRenderer.sprite = templateRenderer.sprite;
+        spriteRenderer.color = templateRenderer.color;
+        spriteRenderer.flipX = templateRenderer.flipX;
+        spriteRenderer.flipY = templateRenderer.flipY;
+        spriteRenderer.drawMode = templateRenderer.drawMode;
+        spriteRenderer.size = templateRenderer.size;
+        spriteRenderer.maskInteraction = templateRenderer.maskInteraction;
+        spriteRenderer.sortingLayerID = templateRenderer.sortingLayerID;
+        spriteRenderer.sortingOrder = templateRenderer.sortingOrder;
+        spriteRenderer.enabled = true;
+
+        minionObject.AddComponent<AddergulMinion>();
+        return minionObject;
+    }
+
+    private static void ApplyPlayerSorting(SpriteRenderer playerSpriteRenderer, SpriteRenderer minionSpriteRenderer)
+    {
+        minionSpriteRenderer.sortingLayerID = playerSpriteRenderer.sortingLayerID;
+        minionSpriteRenderer.sortingOrder = playerSpriteRenderer.sortingOrder + 1;
+    }
+
+    private bool TryGetAddergulOwner(
+        GameObject player,
+        out AutoShooter shooter,
+        out PlayerMovement movement,
+        out SpriteRenderer playerSpriteRenderer)
+    {
+        shooter = FindAutoShooter(player);
+        movement = player.GetComponent<PlayerMovement>();
+        playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
+
+        return shooter != null && movement != null;
+    }
+
+    private AddergulData GetAddergulData(AddergulVariant variant)
+    {
+        switch (variant)
+        {
+            case AddergulVariant.DarkBlue:
+                return new AddergulData(addergulDarkBluePrefab, new Color(0.36f, 0.67f, 1f, 1f));
+            case AddergulVariant.Orange:
+                return new AddergulData(addergulOrangePrefab, new Color(1f, 0.55f, 0.18f, 1f));
+            case AddergulVariant.Pink:
+                return new AddergulData(addergulPinkPrefab, new Color(1f, 0.47f, 0.78f, 1f));
+            case AddergulVariant.White:
+                return new AddergulData(addergulWhitePrefab, new Color(0.95f, 0.98f, 1f, 1f));
+            default:
+                return new AddergulData(null, Color.white);
+        }
+    }
+
+    private static Vector2 GetAddergulSpawnOffset()
+    {
+        Vector2 spawnOffset = Random.insideUnitCircle.normalized * 1.5f;
+        return spawnOffset == Vector2.zero ? Vector2.right * 1.5f : spawnOffset;
+    }
+
+    private enum AddergulVariant
+    {
+        DarkBlue,
+        Orange,
+        Pink,
+        White
     }
 }
 

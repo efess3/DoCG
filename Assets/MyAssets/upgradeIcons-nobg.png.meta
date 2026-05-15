@@ -175,8 +175,8 @@ TextureImporter:
       name: upgradeIcons-nobg_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 1195
+        x: 24
+        y: 1452
         width: 211
         height: 217
       alignment: 0
@@ -197,8 +197,8 @@ TextureImporter:
       name: upgradeIcons-nobg_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 952
+        x: 24
+        y: 1209
         width: 213
         height: 217
       alignment: 0
@@ -219,8 +219,8 @@ TextureImporter:
       name: upgradeIcons-nobg_2
       rect:
         serializedVersion: 2
-        x: 37
-        y: 714
+        x: 26
+        y: 971
         width: 218
         height: 216
       alignment: 0
@@ -241,8 +241,8 @@ TextureImporter:
       name: upgradeIcons-nobg_3
       rect:
         serializedVersion: 2
-        x: 41
-        y: 478
+        x: 30
+        y: 735
         width: 216
         height: 217
       alignment: 0
@@ -263,8 +263,8 @@ TextureImporter:
       name: upgradeIcons-nobg_4
       rect:
         serializedVersion: 2
-        x: 44
-        y: 244
+        x: 33
+        y: 501
         width: 215
         height: 217
       alignment: 0
@@ -285,8 +285,8 @@ TextureImporter:
       name: upgradeIcons-nobg_5
       rect:
         serializedVersion: 2
-        x: 43
-        y: 15
+        x: 32
+        y: 272
         width: 214
         height: 215
       alignment: 0
@@ -307,10 +307,10 @@ TextureImporter:
       name: upgradeIcons-nobg_6
       rect:
         serializedVersion: 2
-        x: 91
-        y: 692
-        width: 113
-        height: 40
+        x: 35
+        y: 34
+        width: 214
+        height: 215
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
