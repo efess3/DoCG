@@ -346,30 +346,20 @@ public class UpgradeManager : MonoBehaviour
         }
 
         SpriteRenderer templateRenderer = template.GetComponent<SpriteRenderer>();
-
         if (templateRenderer == null)
         {
             return null;
         }
 
-        GameObject minionObject = new GameObject(objectName);
-        minionObject.layer = template.layer;
-        minionObject.transform.position = spawnPosition;
+        GameObject minionObject = Instantiate(template, spawnPosition, Quaternion.identity);
+        minionObject.name = objectName;
         minionObject.transform.localScale = spawnScale;
 
-        SpriteRenderer spriteRenderer = minionObject.AddComponent<SpriteRenderer>();
-        spriteRenderer.sprite = templateRenderer.sprite;
-        spriteRenderer.color = templateRenderer.color;
-        spriteRenderer.flipX = templateRenderer.flipX;
-        spriteRenderer.flipY = templateRenderer.flipY;
-        spriteRenderer.drawMode = templateRenderer.drawMode;
-        spriteRenderer.size = templateRenderer.size;
-        spriteRenderer.maskInteraction = templateRenderer.maskInteraction;
-        spriteRenderer.sortingLayerID = templateRenderer.sortingLayerID;
-        spriteRenderer.sortingOrder = templateRenderer.sortingOrder;
-        spriteRenderer.enabled = true;
+        if (minionObject.GetComponent<AddergulMinion>() == null)
+        {
+            minionObject.AddComponent<AddergulMinion>();
+        }
 
-        minionObject.AddComponent<AddergulMinion>();
         return minionObject;
     }
 
