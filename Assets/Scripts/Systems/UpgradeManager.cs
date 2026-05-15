@@ -35,6 +35,7 @@ public class UpgradeManager : MonoBehaviour
     private const float InvincibilityDurationIncreasePerUpgrade = 0.1f;
     private const float AbilityRadiusIncreasePerUpgrade = 0.10f;
     private const float AttackAndMagnetRangeIncreasePerUpgrade = 0.25f;
+    private const float CooldownReductionPerUpgrade = 0.08f;
     private const float AddergulScaleMultiplier = 0.75f;
 
     public static UpgradeManager instance;
@@ -147,7 +148,7 @@ public class UpgradeManager : MonoBehaviour
                     if (powerShooter != null)
                     {
                         powerShooter.IncreaseBulletDamage(0.5f);
-                        powerShooter.IncreaseBulletSize(1.2f);
+                        powerShooter.IncreaseBulletSize(1.1f);
                     }
                     break;
                 case UpgradeType.Speed:
@@ -172,7 +173,7 @@ public class UpgradeManager : MonoBehaviour
                 case UpgradeType.Cooldowns:
                     foreach (AbilityBase ability in GetPlayerAbilities(player))
                     {
-                        ability.ReduceCooldowns(0.10f);
+                        ability.ReduceCooldowns(CooldownReductionPerUpgrade);
                     }
                     break;
                 case UpgradeType.SummonAddergul:

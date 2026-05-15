@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class AbilityBase : MonoBehaviour
 {
+    private const float StartingCooldownMultiplier = 1.5f;
+
     public AbilityData data;
 
     [Header("Level Requirement")]
@@ -11,7 +13,7 @@ public abstract class AbilityBase : MonoBehaviour
 
     protected float lastUseTime;
     protected bool isAiming;
-    protected float cooldownMultiplier = 1f;
+    protected float cooldownMultiplier = StartingCooldownMultiplier;
     protected float abilityRadiusMultiplier = 0.5f;
 
     protected PlayerMovement playerMovement;

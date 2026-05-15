@@ -3,13 +3,15 @@ using UnityEngine;
 public class AutoShooter : MonoBehaviour
 {
     private const float AttackSoundVolumeMultiplier = 0.1f;
+    private const float StartingBulletSizeMultiplier = 0.5f;
+    private const float MaxBulletSizeMultiplier = 2f;
 
     public GameObject bulletPrefab;
     public float fireRate = 1f;
     public float range = 10f;
     public float bulletSpeedMultiplier = 1f;
     public float bulletDamageBonus = 0f;
-    public float bulletSizeMultiplier = 1f;
+    public float bulletSizeMultiplier = StartingBulletSizeMultiplier;
 
     // ── Manual / Auto-aim ─────────────────────────────────────────────────────
     /// <summary>When true, Shoot() aims at manualAimTarget instead of nearest enemy.</summary>
@@ -166,7 +168,7 @@ public class AutoShooter : MonoBehaviour
     public void IncreaseBulletSize(float amount)
     {
         bulletSizeMultiplier *= amount;
-        if (bulletSizeMultiplier > 4f)
-            bulletSizeMultiplier = 4f;
+        if (bulletSizeMultiplier > MaxBulletSizeMultiplier)
+            bulletSizeMultiplier = MaxBulletSizeMultiplier;
     }
 }

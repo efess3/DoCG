@@ -224,7 +224,9 @@ MonoBehaviour:
     type: 3}
   fireRate: 1
   range: 5
-  extraBulletSpeed: 0
+  bulletSpeedMultiplier: 1
+  bulletDamageBonus: 0
+  bulletSizeMultiplier: 0.5
 --- !u!114 &7893108907358918279
 MonoBehaviour:
   m_ObjectHideFlags: 0

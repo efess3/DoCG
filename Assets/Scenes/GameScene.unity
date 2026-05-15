@@ -1558,7 +1558,7 @@ MonoBehaviour:
     title: Attack Power
     description: '+0.5 damage
 
-      +20% bullet size'
+      +10% bullet size'
     icon: {fileID: 2814553902964073781, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
   - type: 3
     title: Speed
@@ -1574,7 +1574,7 @@ MonoBehaviour:
     icon: {fileID: -1484425469778233244, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
   - type: 5
     title: Cooldowns
-    description: -10% all ability cooldowns
+    description: -8% all ability cooldowns
     icon: {fileID: -3747481678213112001, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
   - type: 6
     title: Summon Addergul
