@@ -1546,11 +1546,11 @@ MonoBehaviour:
     title: Health
     description: '+2 Max HP
 
-      +5% heart drop'
+      +2% heart drop'
     icon: {fileID: -8207269594943757716, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
   - type: 1
     title: Attack Speed
-    description: '+25% fire rate
+    description: '+15% fire rate
 
       +20% bullet speed'
     icon: {fileID: 5034633885727289779, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
@@ -1562,7 +1562,7 @@ MonoBehaviour:
     icon: {fileID: 2814553902964073781, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
   - type: 3
     title: Speed
-    description: '+1 move speed
+    description: '+0.5 move speed
 
       +0.1s i-frame'
     icon: {fileID: -5507456651015475916, guid: c752fa46a60ef0f4498dcdf659dde5ea, type: 3}
