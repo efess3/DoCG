@@ -6,7 +6,7 @@ public class PlayerLevel : MonoBehaviour
 {
     public int level = 1;
     public int currentXP = 0;
-    public int xpToNextLevel = 10;
+    public int xpToNextLevel = 5;
     private Animator animator;
 
     [Header("UI")]
@@ -16,6 +16,7 @@ public class PlayerLevel : MonoBehaviour
     public void Start()
     {
         animator = GetComponent<Animator>();
+        xpToNextLevel = GetXPRequiredForLevel(level);
         SyncXPWithUI();
         UpdateLevelText();
     }
@@ -29,7 +30,7 @@ public class PlayerLevel : MonoBehaviour
             HealthSystem.Instance.RestoreMana(amount);
         }
 
-        if (currentXP >= xpToNextLevel)
+        while (currentXP >= xpToNextLevel)
         {
             LevelUp();
         }
@@ -40,7 +41,7 @@ public class PlayerLevel : MonoBehaviour
         level++;
         currentXP -= xpToNextLevel;
         
-        xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * 1.1f);
+        xpToNextLevel = GetXPRequiredForLevel(level);
         SyncXPWithUI();
 
         Debug.Log("LEVEL UP: " + level);
@@ -72,5 +73,10 @@ public class PlayerLevel : MonoBehaviour
     {
         if (levelText != null)
             levelText.text = "LVL " + level;
+    }
+
+    private static int GetXPRequiredForLevel(int currentLevel)
+    {
+        return Mathf.FloorToInt(Mathf.Pow(currentLevel, 1.5f) + (2 * currentLevel) + 2);
     }
 }

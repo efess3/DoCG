@@ -28,10 +28,10 @@ public struct UpgradeData
 
 public class UpgradeManager : MonoBehaviour
 {
-    private const float HeartDropChancePerUpgrade = 0.05f;
+    private const float HeartDropChancePerUpgrade = 0.02f;
     private const float MaxHeartDropChance = 0.50f;
-    private const float AttackSpeedMultiplierPerUpgrade = 1.25f;
-    private const float SpeedIncreasePerUpgrade = 1f;
+    private const float AttackSpeedMultiplierPerUpgrade = 1.15f;
+    private const float SpeedIncreasePerUpgrade = 0.5f;
     private const float InvincibilityDurationIncreasePerUpgrade = 0.1f;
     private const float AbilityRadiusIncreasePerUpgrade = 0.10f;
     private const float AttackAndMagnetRangeIncreasePerUpgrade = 0.25f;

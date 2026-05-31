@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     [Header("Settings")]
     public bool isPlayer = false;
     [Header("I-Frames (Nieśmiertelność)")]
-    public float invincibilityDuration = 0.2f;
+    public float invincibilityDuration = 0.5f;
     private float invincibilityTimer;
     
     private Animator animator;
