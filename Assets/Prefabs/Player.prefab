@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2257022284314831660}
   - component: {fileID: 7496038807216481863}
   - component: {fileID: 6708575261455340972}
+  - component: {fileID: 1568332677469009799}
   - component: {fileID: 8281290544845738395}
   - component: {fileID: 5147643222337461963}
   - component: {fileID: 6613097185157294640}
@@ -113,7 +114,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7210365927787590570}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -130,7 +131,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &6708575261455340972
 BoxCollider2D:
@@ -178,6 +179,43 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!70 &1568332677469009799
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210365927787590570}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2097152
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.26, y: 2.1}
+  m_Direction: 0
 --- !u!114 &8281290544845738395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLevel
   level: 1
   currentXP: 0
-  xpToNextLevel: 5
+  xpToNextLevel: 10
   levelText: {fileID: 0}
 --- !u!114 &4373413526851055586
 MonoBehaviour:
@@ -307,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireBreathAbility
   data: {fileID: 11400000, guid: 4811afedcd063224599aef7ca0bcb4d6, type: 2}
-  requiredLevel: 1
+  requiredLevel: 2
   isUnlocked: 1
 --- !u!114 &3021738827550264287
 MonoBehaviour:
@@ -322,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandOfHellAbility
   data: {fileID: 11400000, guid: 1eb2a768ee4d10542a22813f3c613e48, type: 2}
-  requiredLevel: 2
+  requiredLevel: 3
   isUnlocked: 1
 --- !u!114 &3864572976406275097
 MonoBehaviour:
@@ -337,10 +375,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeteorStormAbility
   data: {fileID: 11400000, guid: 1095048a17cc09e4ca3fb35ef6831284, type: 2}
-  requiredLevel: 3
+  requiredLevel: 4
   isUnlocked: 1
-  meteorCount: 50
-  spawnRadius: 5
+  meteorCount: 75
+  spawnRadius: 7
   spawnDelay: 0.1
   spawnHeight: 5
   spawnOffsetX: -5
@@ -372,6 +410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupRangeVisualizer
   circleMaterial: {fileID: 2100000, guid: 0e63a8d1be6a65140bdb21a947d716a0, type: 2}
-  lineWidth: 0.03
-  segments: 64
-  circleColor: {r: 0.9568628, g: 0.6431373, b: 0.3764706, a: 1}
+  lineWidth: 0.12
+  segments: 32
+  circleColor: {r: 1, g: 0.8705883, b: 0.6784314, a: 0.0627451}

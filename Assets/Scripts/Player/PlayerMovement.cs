@@ -75,8 +75,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        Vector2 newPos = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
-        rb.MovePosition(newPos);
+        rb.linearVelocity = movement * moveSpeed;
     }
 
     // =========================

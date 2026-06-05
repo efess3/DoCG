@@ -7,10 +7,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    // prędkość przeciwnika
     public float speed = 2f;
+    public float contactDamage = 1f;
 
-    // referencja do gracza
     private Transform player;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -21,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
             if (playerHealth != null)
             {
                 Debug.Log("damage taken");
-                playerHealth.TakeDamage(1);
+                playerHealth.TakeDamage(Mathf.RoundToInt(contactDamage));
             }
         }
     }

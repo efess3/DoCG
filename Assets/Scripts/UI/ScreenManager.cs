@@ -8,6 +8,12 @@ public class ScreenManager : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void LoadMap(string sceneName)
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -23,6 +29,6 @@ public class ScreenManager : MonoBehaviour
     public void NewGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 }

@@ -2416,9 +2416,9 @@ MonoBehaviour:
   lateBossPrefab: {fileID: 1342680609566150503, guid: 1c47273ed2dfb194ebb78339dae0d732,
     type: 3}
   lateBossStartTime: 300
-  healthMultiplier: 1
-  damageMultiplier: 1
-  spawnRateMultiplier: 1
+  healthMultiplier: 1.5
+  damageMultiplier: 1.3
+  spawnRateMultiplier: 0.75
 --- !u!4 &884405447
 Transform:
   m_ObjectHideFlags: 0
@@ -5258,6 +5258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964983220}
   - component: {fileID: 1964983219}
+  - component: {fileID: 1964983221}
   m_Layer: 19
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -5277,12 +5278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187f49c4933310540a68854f819d2928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
-  chunkPrefab: {fileID: 2860771653429823327, guid: ee8a6bde53d72894d87eecae1397b074,
+  chunkPrefab: {fileID: 2860771653429823327, guid: a0a860d8afb228f40a060c97f755bd85,
     type: 3}
   chunkSize: 20
   chunkVisibilityRadius: 1
   player: {fileID: 1134154371324702908}
-  obstacleSpawner: {fileID: 0}
+  obstacleSpawner: {fileID: 1964983221}
 --- !u!4 &1964983220
 Transform:
   m_ObjectHideFlags: 0
@@ -5298,6 +5299,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1964983221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964983218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a1909abfd6d1c4bac1249d264de8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleSpawner
+  obstaclePrefabs:
+  - {fileID: 963735719313830440, guid: 38b729e16e984f74787950c5cd06def3, type: 3}
+  - {fileID: 8956974129243370303, guid: 9590b55041ab39f43b7c5ebc3db2c3dc, type: 3}
+  - {fileID: 1047773304932310674, guid: ec053ced4b191e1428cd6580d3c6a886, type: 3}
+  - {fileID: 947364022471796615, guid: 5e2f5379b44616e47a318d2cb1af3457, type: 3}
+  obstacleChance: 1
+  minPerChunk: 1
+  maxPerChunk: 4
+  clearRadius: 3
 --- !u!1 &1973000407
 GameObject:
   m_ObjectHideFlags: 0
@@ -5772,61 +5794,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3021738827550264287, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: requiredLevel
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: segments
-      value: 32
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: lineWidth
-      value: 0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: circleColor.a
-      value: 0.0627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: circleColor.b
-      value: 0.6784314
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: circleColor.g
-      value: 0.8705883
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154023825986682073, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: circleColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798141782799716440, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: requiredLevel
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3864572976406275097, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: meteorCount
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3864572976406275097, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: spawnRadius
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3864572976406275097, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: requiredLevel
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7210365927787590570, guid: 2a011d0fa5786d94498d1114468a5e36,
         type: 3}
       propertyPath: m_Name
@@ -5837,21 +5804,6 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 242983037}
-    - target: {fileID: 7893108907358918279, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: xpToNextLevel
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382824130638572536, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382824130638572536, guid: 2a011d0fa5786d94498d1114468a5e36,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 8382824130638572536, guid: 2a011d0fa5786d94498d1114468a5e36,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5901,61 +5853,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8363305966766542947, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: isUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 500105881824697528, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 665588646738980443, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: isPlayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 665588646738980443, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 665588646738980443, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: currentHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6100555857208624138, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6100555857208624138, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: xpToNextLevel
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7433908873640032323, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: abilities.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7433908873640032323, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: 'abilities.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7540905875669835258, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0771fc540585c5048a1b6d57f99a2364, type: 2}
-    - target: {fileID: 9162151870232319161, guid: 635efacf48b16a94ba1c417721321538,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
