@@ -13,6 +13,7 @@ public class MapManager : MonoBehaviour
 
     [Header("References")]
     public Transform player;
+    [SerializeField] private ObstacleSpawner obstacleSpawner;
 
     private Dictionary<Vector2Int, GameObject> activeChunks = new Dictionary<Vector2Int, GameObject>();
     private List<Vector2Int> chunksToKeep = new List<Vector2Int>();
@@ -59,6 +60,7 @@ public class MapManager : MonoBehaviour
                     GameObject newChunk = Instantiate(chunkPrefab, spawnPosition, Quaternion.identity);
                     newChunk.transform.SetParent(this.transform); // Opcjonalnie: uporządkowanie hierarchii
                     activeChunks.Add(chunkCoord, newChunk);
+                    obstacleSpawner?.OnChunkSpawned(spawnPosition, chunkSize);
                 }
             }
         }

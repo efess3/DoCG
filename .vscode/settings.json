@@ -1,12 +1,11 @@
 {
     "dotnet.defaultSolution": "DoCG.sln",
-    "dotnet.dotnetPath": "/usr/bin/dotnet",
-    "dotrush.roslyn.dotnetSdkDirectory": "/usr/lib64/dotnet/sdk/9.0.107",
+    "dotrush.roslyn.dotnetSdkDirectory": "C:/Program Files/dotnet/sdk/9.0.309",
     "dotrush.msbuildProperties": {
         "DefineConstants": "UNITY_EDITOR"
     },
     "dotrush.roslyn.projectOrSolutionFiles": [
-        "/home/staszek/Projects/Uni/DoCG/DoCG.sln"
+        "C:/Users/Kamil/Desktop/Studia/semestr 6/Development of Computer Games/DoCG/DoCG.sln"
     ],
     "dotrush.roslyn.restoreProjectsBeforeLoading": false,
     "files.exclude": {

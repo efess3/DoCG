@@ -6,6 +6,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject leaderboardPanel;
     [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject mapSelectPanel;
 
     private void Start()
     {
@@ -39,6 +40,15 @@ public class MainMenuManager : MonoBehaviour
     public void ShowMainMenu()
     {
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (leaderboardPanel != null) leaderboardPanel.SetActive(false);
+        if (mapSelectPanel != null) mapSelectPanel.SetActive(false);
+    }
+
+    public void OpenMapSelect()
+    {
+        if (mapSelectPanel != null) mapSelectPanel.SetActive(true);
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
         if (settingsPanel != null) settingsPanel.SetActive(false);
         if (leaderboardPanel != null) leaderboardPanel.SetActive(false);
     }
