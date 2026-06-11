@@ -28,11 +28,13 @@ public class SettingsPopupManager : MonoBehaviour
     {
         isMenuScene = SceneManager.GetActiveScene().name == "MenuScene";
     }
-
     private void Start()
     {
         if (settingsPanel != null)
+        {
+            GameSettingsManager.InitializeSettingsPanel(settingsPanel);
             settingsPanel.SetActive(false);
+        }
 
         if (!isMenuScene)
             EnsurePauseStatsUI();
@@ -95,15 +97,10 @@ public class SettingsPopupManager : MonoBehaviour
 
     private void RefreshAllSettingsUI()
     {
-        if (settingsPanel == null) return;
-
-        var toggles = settingsPanel.GetComponentsInChildren<DoCG.UI.SettingsToggle>(true);
-        foreach (var toggle in toggles)
-            toggle.Refresh();
-
-        var volumes = settingsPanel.GetComponentsInChildren<DoCG.UI.VolumeControl>(true);
-        foreach (var vol in volumes)
-            vol.Refresh();
+        if (settingsPanel != null)
+        {
+            GameSettingsManager.InitializeSettingsPanel(settingsPanel);
+        }
     }
 
     private void PauseGame()
@@ -117,8 +114,26 @@ public class SettingsPopupManager : MonoBehaviour
 
     private void ResumeGame()
     {
-        Time.timeScale = 1f;
         isPaused = false;
+
+        bool shouldKeepPaused = false;
+        if (UpgradeManager.instance != null && UpgradeManager.instance.upgradePanel != null && UpgradeManager.instance.upgradePanel.activeSelf)
+        {
+            shouldKeepPaused = true;
+        }
+        else if (GameManager.instance != null && GameManager.instance.GameOverPanel != null && GameManager.instance.GameOverPanel.activeSelf)
+        {
+            shouldKeepPaused = true;
+        }
+
+        if (shouldKeepPaused)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
 
         // Only lock cursor if in game
         if (!isMenuScene)

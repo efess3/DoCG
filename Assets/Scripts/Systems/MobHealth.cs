@@ -43,7 +43,17 @@ public class MobHealth : MonoBehaviour
     {
         if (isDead) return;
 
-        currentHealth -= damage;
+        // 15% chance for a critical hit (deals 2x damage)
+        bool isCrit = Random.value < 0.15f;
+        float finalDamage = isCrit ? damage * 2f : damage;
+
+        currentHealth -= finalDamage;
+
+        // Show damage numbers if enabled in settings
+        if (GameSettingsManager.ShowDamageNumbers && DamageNumberManager.Instance != null)
+        {
+            DamageNumberManager.Instance.Show(finalDamage, transform.position, isCrit);
+        }
 
         if (currentHealth <= 0)
         {

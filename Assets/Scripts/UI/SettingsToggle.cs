@@ -113,5 +113,11 @@ namespace DoCG.UI
         
         // Helper to get current state from other scripts
         public bool IsOn() => currentState;
+
+        public void SetKeyAndDefault(string key, bool defaultValue)
+        {
+            this.settingKey = key;
+            this.defaultValue = defaultValue;
+        }
     }
 }

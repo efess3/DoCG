@@ -67,6 +67,11 @@ public class Health : MonoBehaviour
         {
             if(animator != null) animator.SetTrigger("GetHit");
             
+            if (CameraFollow.Instance != null)
+            {
+                CameraFollow.Instance.TriggerShake(0.18f, 0.25f);
+            }
+            
             if (HealthSystem.Instance != null)
             {
                 HealthSystem.Instance.hitPoint = currentHealth;

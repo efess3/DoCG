@@ -10,6 +10,10 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        if (settingsPanel != null)
+        {
+            GameSettingsManager.InitializeSettingsPanel(settingsPanel);
+        }
         // Ensure only main menu is visible at start
         ShowMainMenu();
     }
@@ -23,6 +27,7 @@ public class MainMenuManager : MonoBehaviour
         else if (settingsPanel != null)
         {
             settingsPanel.SetActive(true);
+            GameSettingsManager.InitializeSettingsPanel(settingsPanel);
             if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
             if (leaderboardPanel != null) leaderboardPanel.SetActive(false);
         }

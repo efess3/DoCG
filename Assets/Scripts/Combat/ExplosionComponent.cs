@@ -36,6 +36,12 @@ public class ExplosionComponent : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
 
+        // Trigger screen shake on explosion
+        if (CameraFollow.Instance != null)
+        {
+            CameraFollow.Instance.TriggerShake(0.25f, 0.3f);
+        }
+
         // Znajdujemy wszystkie collidery w zasięgu (używamy overlap bez potrzeby posiadania collidera na tym obiekcie)
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, worldRadius);
 
