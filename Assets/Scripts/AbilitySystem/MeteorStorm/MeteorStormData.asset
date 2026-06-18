@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MeteorStormData
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
   abilityName: Meteor Storm
-  icon: {fileID: 21300000, guid: ceda207ea115fdf41b053ae3c0da611a, type: 3}
+  icon: {fileID: 82651655, guid: 162bbcbc1ca44e047bba8a907693e6d3, type: 3}
   cooldown: 30
   damage: 10
   castTimeLock: 0.3
