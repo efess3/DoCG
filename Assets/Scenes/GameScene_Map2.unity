@@ -651,6 +651,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   player: {fileID: 1134154371324702908}
+--- !u!114 &1539367153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 37840304822781470, guid: 43c65f05b0944ca4989f5d82bf30c364,
+    type: 3}
+  m_PrefabInstance: {fileID: 1569456299}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1569456299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1008,7 +1020,7 @@ PrefabInstance:
         type: 3}
       propertyPath: levelText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1539367153}
     - target: {fileID: 8382824130638572536, guid: 2a011d0fa5786d94498d1114468a5e36,
         type: 3}
       propertyPath: m_LocalPosition.x

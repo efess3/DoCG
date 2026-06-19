@@ -119,6 +119,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &26899266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 37840304822781470, guid: 43c65f05b0944ca4989f5d82bf30c364,
+    type: 3}
+  m_PrefabInstance: {fileID: 2008517796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &523683454 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3138102663250552729, guid: 43c65f05b0944ca4989f5d82bf30c364,
@@ -1041,7 +1053,7 @@ PrefabInstance:
         type: 3}
       propertyPath: levelText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 26899266}
     - target: {fileID: 7893108907358918279, guid: 2a011d0fa5786d94498d1114468a5e36,
         type: 3}
       propertyPath: xpToNextLevel
