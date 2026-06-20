@@ -34,6 +34,31 @@ public class SettingsPopupManager : MonoBehaviour
         {
             GameSettingsManager.InitializeSettingsPanel(settingsPanel);
             settingsPanel.SetActive(false);
+
+            // Bind Back button click listener dynamically
+            Transform backBtnTransform = settingsPanel.transform.Find("Back");
+            if (backBtnTransform == null)
+            {
+                Button[] buttons = settingsPanel.GetComponentsInChildren<Button>(true);
+                foreach (Button btn in buttons)
+                {
+                    if (btn.gameObject.name == "Back")
+                    {
+                        backBtnTransform = btn.transform;
+                        break;
+                    }
+                }
+            }
+
+            if (backBtnTransform != null)
+            {
+                Button backBtn = backBtnTransform.GetComponent<Button>();
+                if (backBtn != null)
+                {
+                    backBtn.onClick.RemoveAllListeners();
+                    backBtn.onClick.AddListener(CloseSettings);
+                }
+            }
         }
 
         if (!isMenuScene)
@@ -68,6 +93,21 @@ public class SettingsPopupManager : MonoBehaviour
                 ResumeGame();
             }
         }
+        else
+        {
+            MainMenuManager mainMenu = FindObjectOfType<MainMenuManager>();
+            if (mainMenu != null)
+            {
+                if (newState)
+                {
+                    mainMenu.OpenSettings();
+                }
+                else
+                {
+                    mainMenu.ShowMainMenu();
+                }
+            }
+        }
     }
 
     public void OpenSettings()
@@ -92,7 +132,18 @@ public class SettingsPopupManager : MonoBehaviour
         if (settingsPanel == null) return;
 
         settingsPanel.SetActive(false);
-        if (!isMenuScene) ResumeGame();
+        if (!isMenuScene)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            MainMenuManager mainMenu = FindObjectOfType<MainMenuManager>();
+            if (mainMenu != null)
+            {
+                mainMenu.ShowMainMenu();
+            }
+        }
     }
 
     private void RefreshAllSettingsUI()

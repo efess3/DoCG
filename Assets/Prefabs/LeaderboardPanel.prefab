@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00096226, y: 417.5055}
-  m_SizeDelta: {x: 679.62, y: 128.4203}
+  m_AnchoredPosition: {x: 13.3, y: 419.9}
+  m_SizeDelta: {x: 359.3739, y: 74.921}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1726111166362829385
 CanvasRenderer:
@@ -187,8 +187,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.6875916, y: -118.410034}
-  m_SizeDelta: {x: -86.6058, y: -213.91}
+  m_AnchoredPosition: {x: 4.687561, y: -118.410034}
+  m_SizeDelta: {x: -86.6058, y: -287.8801}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &721507868311116292
 MonoBehaviour:
@@ -267,8 +267,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000012159, y: -410.8}
-  m_SizeDelta: {x: 250, y: 70}
+  m_AnchoredPosition: {x: -2.1516, y: -409}
+  m_SizeDelta: {x: 304.8638, y: 79.6819}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8008581078816890155
 CanvasRenderer:
@@ -424,8 +424,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.7731934, y: 0}
-  m_SizeDelta: {x: -909.687, y: -136.5901}
+  m_AnchoredPosition: {x: 40, y: 0}
+  m_SizeDelta: {x: -1084.3577, y: -136.5901}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7484504542816699637
 CanvasRenderer:
@@ -507,7 +507,7 @@ PrefabInstance:
     - target: {fileID: 292149492922083263, guid: b744d6b5e805586258e50dfe26981202,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 891.8894
+      value: 719.9515
       objectReference: {fileID: 0}
     - target: {fileID: 292149492922083263, guid: b744d6b5e805586258e50dfe26981202,
         type: 3}
@@ -578,6 +578,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeaderboardEntryUIPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775247541867404911, guid: b744d6b5e805586258e50dfe26981202,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 647.1534
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775247541867404911, guid: b744d6b5e805586258e50dfe26981202,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.6674
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775247541867404911, guid: b744d6b5e805586258e50dfe26981202,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.5366821
       objectReference: {fileID: 0}
     - target: {fileID: 8300972748632407489, guid: b744d6b5e805586258e50dfe26981202,
         type: 3}

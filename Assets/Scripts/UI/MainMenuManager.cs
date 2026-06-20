@@ -28,9 +28,9 @@ public class MainMenuManager : MonoBehaviour
         {
             settingsPanel.SetActive(true);
             GameSettingsManager.InitializeSettingsPanel(settingsPanel);
-            if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
-            if (leaderboardPanel != null) leaderboardPanel.SetActive(false);
         }
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
+        if (leaderboardPanel != null) leaderboardPanel.SetActive(false);
     }
 
     public void OpenLeaderboard()
