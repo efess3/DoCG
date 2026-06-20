@@ -667,6 +667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964983220}
   - component: {fileID: 1964983219}
+  - component: {fileID: 1964983221}
   m_Layer: 19
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -686,12 +687,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187f49c4933310540a68854f819d2928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
-  chunkPrefab: {fileID: 2860771653429823327, guid: ee8a6bde53d72894d87eecae1397b074,
-    type: 3}
+  chunkPrefabs:
+  - {fileID: 8050097090108172712, guid: 3ce0edb007cf3d54a8063f72b63aae7e, type: 3}
   chunkSize: 20
   chunkVisibilityRadius: 1
   player: {fileID: 1134154371324702908}
-  obstacleSpawner: {fileID: 0}
+  obstacleSpawner: {fileID: 1964983221}
 --- !u!4 &1964983220
 Transform:
   m_ObjectHideFlags: 0
@@ -707,6 +708,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1964983221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964983218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a1909abfd6d1c4bac1249d264de8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleSpawner
+  obstaclePrefabs:
+  - {fileID: 5042049909660679571, guid: 337db1c28e30a754192673fc7ec4b3e6, type: 3}
+  - {fileID: 8751649386469825432, guid: d3668f7890df4b547a78a8773a7fdc22, type: 3}
+  - {fileID: 3234652967888591108, guid: 1b70fd37ad21d8646bf3d2cc07fd3826, type: 3}
+  - {fileID: 5691237926094778620, guid: 1fa225e054deb40438bfe303e5c4fc2e, type: 3}
+  - {fileID: 8500690396436695800, guid: 78041abab512b214f89389379a9c0e58, type: 3}
+  - {fileID: 8142506007633897549, guid: d71fd3372117d0440a6f733b174f419a, type: 3}
+  - {fileID: 5354526236658232729, guid: d99a879ade554a8469fa86ac199c8907, type: 3}
+  - {fileID: 1936332940787820080, guid: 777cc1ff958494f4891fe5733a3d0e8a, type: 3}
+  obstacleChance: 1
+  minPerChunk: 1
+  maxPerChunk: 2
+  clearRadius: 10
+  checkObstacleRadius: 7
 --- !u!1001 &2008517796
 PrefabInstance:
   m_ObjectHideFlags: 0

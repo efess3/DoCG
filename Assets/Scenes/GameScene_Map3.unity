@@ -669,8 +669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187f49c4933310540a68854f819d2928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
-  chunkPrefab: {fileID: 2860771653429823327, guid: a59867a397a34e143beebced7ea7f649,
-    type: 3}
+  chunkPrefabs:
+  - {fileID: 8707226161706969081, guid: 762609b0f8707e1488526e7e614ed115, type: 3}
   chunkSize: 20
   chunkVisibilityRadius: 1
   player: {fileID: 1134154371324702908}
@@ -703,17 +703,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleSpawner
   obstaclePrefabs:
-  - {fileID: 963735719313830440, guid: 38b729e16e984f74787950c5cd06def3, type: 3}
-  - {fileID: 8956974129243370303, guid: 9590b55041ab39f43b7c5ebc3db2c3dc, type: 3}
-  - {fileID: 1047773304932310674, guid: ec053ced4b191e1428cd6580d3c6a886, type: 3}
-  - {fileID: 947364022471796615, guid: 5e2f5379b44616e47a318d2cb1af3457, type: 3}
-  - {fileID: 633937645006352834, guid: f892afc28db78ce42af4f57a8479e119, type: 3}
-  - {fileID: 444670543436980418, guid: ec950cc988f078748855554dc04dc78c, type: 3}
-  - {fileID: 2011309362084136928, guid: a187b557860cde846b28d8510e9516d2, type: 3}
+  - {fileID: 9087203280436740758, guid: 5fb57f15b1e74904f829a83bd7cb3276, type: 3}
+  - {fileID: 7274222826277740734, guid: ea66ad32a855cfb4abf34afd3cd12139, type: 3}
+  - {fileID: 8533201842470335868, guid: 64d814cd43a19134080ab49da86723b5, type: 3}
+  - {fileID: 6473805554685031975, guid: 927784cb24341434f96ced1dd3fd98ee, type: 3}
+  - {fileID: 7393328493941169352, guid: 6e5b0dd688f2704408d4960826907243, type: 3}
+  - {fileID: 1997778334183125032, guid: 2d0c3631e80af6545a2360924863480a, type: 3}
+  - {fileID: 8715044486282965422, guid: a6e34e370a40e4849b1e9ac757ac6c75, type: 3}
+  - {fileID: 2407721403580528172, guid: 7fbeca38fc6361b488542ad67df72030, type: 3}
+  - {fileID: 8915840211655406797, guid: b3d8cf61e6ed7404195338f61e454d4a, type: 3}
+  - {fileID: 8120223272154529919, guid: 32a8c2de7bb47bf45b896482acad65cf, type: 3}
+  - {fileID: 7115239667212909315, guid: 0d7eaae7541aeec4784216febf1867cb, type: 3}
+  - {fileID: 2241472479088272624, guid: 184b55d05616f6747816903cb629ad9a, type: 3}
   obstacleChance: 1
   minPerChunk: 3
-  maxPerChunk: 8
+  maxPerChunk: 7
   clearRadius: 3
+  checkObstacleRadius: 3
 --- !u!114 &453053054398138608 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4728088810757754379, guid: 43c65f05b0944ca4989f5d82bf30c364,
