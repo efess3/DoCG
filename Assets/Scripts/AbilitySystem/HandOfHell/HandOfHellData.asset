@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HandOfHellData
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
   abilityName: Hand Of Hell
-  icon: {fileID: 21300000, guid: 621e7117a580fbf47836413cccb3052a, type: 3}
+  icon: {fileID: -822308156, guid: 162bbcbc1ca44e047bba8a907693e6d3, type: 3}
   cooldown: 20
   damage: 15
   castTimeLock: 0.5

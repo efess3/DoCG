@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
@@ -10,8 +11,12 @@ public class ObstacleSpawner : MonoBehaviour
     public int maxPerChunk = 4;
     [Tooltip("Promień wokół środka chunka wolny od przeszkód (gdzie gracz może się spawnować)")]
     public float clearRadius = 3f;
+    
+    [Tooltip("Promień 'radaru' sprawdzającego, czy nie nakładamy się na inny collider")]
+    public float checkObstacleRadius = 1.5f;
 
-    public void OnChunkSpawned(Vector2 chunkCenter, float chunkSize)
+    // MODYFIKACJA: Dodaliśmy parametr Transform chunkParent
+    public void OnChunkSpawned(Vector2 chunkCenter, float chunkSize, Transform chunkParent)
     {
         if (obstaclePrefabs == null || obstaclePrefabs.Length == 0) return;
         if (Random.value > obstacleChance) return;
@@ -22,26 +27,48 @@ public class ObstacleSpawner : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Vector2 pos = GetRandomPosition(chunkCenter, half);
+            
             GameObject prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
-            Instantiate(prefab, pos, Quaternion.identity, transform);
+            
+            // MODYFIKACJA: Przekazujemy chunkParent do funkcji instancjonującej
+            Instabs(prefab, pos, chunkParent);
         }
+    }
+
+    // MODYFIKACJA: Funkcja przyjmuje teraz rodzica i przypisuje obiekt do chunka
+    private void Instabs(GameObject prefab, Vector2 pos, Transform chunkParent)
+    {
+        // Ostatni parametr definiuje rodzica w hierarchii Unity
+        Instantiate(prefab, pos, Quaternion.identity, chunkParent);
     }
 
     private Vector2 GetRandomPosition(Vector2 center, float half)
     {
-        for (int attempt = 0; attempt < 10; attempt++)
+        for (int attempt = 0; attempt < 40; attempt++)
         {
             Vector2 candidate = new Vector2(
                 center.x + Random.Range(-half, half),
                 center.y + Random.Range(-half, half)
             );
 
-            if (Vector2.Distance(candidate, center) >= clearRadius)
+            if (Vector2.Distance(candidate, center) < clearRadius)
+                continue;
+
+            Collider2D hitCollider = Physics2D.OverlapCircle(candidate, checkObstacleRadius);
+
+            if (hitCollider == null)
+            {
                 return candidate;
+            }
         }
 
-        // fallback: krawędź chunka
         Vector2 dir = Random.insideUnitCircle.normalized;
         return center + dir * (half * 0.8f);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, checkObstacleRadius);
     }
 }
