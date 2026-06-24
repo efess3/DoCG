@@ -4,6 +4,8 @@ public class EnemyProjectile : MonoBehaviour
 {
     public float speed = 4f;
     public float damage = 1f;
+    public Transform spinObject;
+    public float spinSpeed = 360f;
 
     private Vector2 direction;
 
@@ -25,6 +27,9 @@ public class EnemyProjectile : MonoBehaviour
         if (GameManager.instance != null && !GameManager.instance.isGameActive) return;
 
         transform.position += (Vector3)direction * speed * Time.deltaTime;
+
+        if (spinObject != null)
+            spinObject.Rotate(0f, 0f, spinSpeed * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)
