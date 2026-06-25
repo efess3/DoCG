@@ -14,8 +14,8 @@ public class MobHealth : MonoBehaviour
 
     public System.Action OnMobDeath;
 
-    [Tooltip("Ile krysztalow wypadnie po zabiciu Bossa")]
-    public int bossCrystalDropCount = 15;
+    [Tooltip("Ile krysztalow wypadnie po zabiciu")]
+    public int crystalDropCount = 1;
 
     private AudioClip[] hitSounds;
     private bool isDead;
@@ -88,13 +88,12 @@ public class MobHealth : MonoBehaviour
 
         if (expCrystalPrefab != null)
         {
-            int crystalsToDrop = gameObject.CompareTag("Boss") ? bossCrystalDropCount : 1;
 
-            for (int i = 0; i < crystalsToDrop; i++)
+            for (int i = 0; i < crystalDropCount; i++)
             {
                 Vector3 dropPos = transform.position;
 
-                if (crystalsToDrop > 1)
+                if (crystalDropCount > 1)
                 {
                     dropPos += new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0);
                 }

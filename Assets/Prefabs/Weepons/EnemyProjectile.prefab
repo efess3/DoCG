@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyProjectile
   speed: 4
-  damage: 1
+  damage: 4
   spinObject: {fileID: 6281119061697317541}
   spinSpeed: 1080
 --- !u!96 &8726982349719269042

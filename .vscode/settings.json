@@ -1,5 +1,5 @@
 {
-    "dotnet.defaultSolution": "DoCG.sln",
+    "dotnet.defaultSolution": "DoCG.slnx",
     "dotnet.dotnetPath": "/usr/bin/dotnet",
     "dotrush.roslyn.dotnetSdkDirectory": "/usr/lib64/dotnet/sdk/9.0.107",
     "dotrush.msbuildProperties": {
