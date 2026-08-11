@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   speed: 1.5
+  contactDamage: 1
 --- !u!95 &-5390101400541549894
 Animator:
   serializedVersion: 7
@@ -210,4 +211,6 @@ MonoBehaviour:
   currentHealth: 0
   expCrystalPrefab: {fileID: 3397198608789313487, guid: 3c4712803653fbb44b91f7c245ecca07,
     type: 3}
-  bossCrystalDropCount: 15
+  heartHealAmount: 1
+  lifeDuration: 300
+  crystalDropCount: 1

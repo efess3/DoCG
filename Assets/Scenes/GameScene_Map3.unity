@@ -307,10 +307,11 @@ MonoBehaviour:
     type: 3}
   minSpawnDistance: 7
   maxSpawnDistance: 18
+  maxNumOfEnemies: 50
   baseSpawnRate: 2
   minimumSpawnRate: 0.3
-  healthScalingPerMinute: 0.3
-  damageScalingPerMinute: 0.2
+  healthScalingPerMinute: 0.1
+  damageScalingPerMinute: 0.1
   waveInterval: 15
   enemiesPerWave: 10
   bossInterval: 60
@@ -319,9 +320,10 @@ MonoBehaviour:
   lateBossPrefab: {fileID: 1342680609566150503, guid: 1c47273ed2dfb194ebb78339dae0d732,
     type: 3}
   lateBossStartTime: 300
-  healthMultiplier: 1
-  damageMultiplier: 1
-  spawnRateMultiplier: 1
+  healthMultiplier: 2
+  damageMultiplier: 2
+  spawnRateMultiplier: 2
+  maxActiveEnemies: 150
 --- !u!4 &884405447
 Transform:
   m_ObjectHideFlags: 0
@@ -764,6 +766,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4836089404285021616, guid: 43c65f05b0944ca4989f5d82bf30c364,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836089404285021616, guid: 43c65f05b0944ca4989f5d82bf30c364,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836089404285021616, guid: 43c65f05b0944ca4989f5d82bf30c364,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836089404285021616, guid: 43c65f05b0944ca4989f5d82bf30c364,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 5584082965413775714, guid: 43c65f05b0944ca4989f5d82bf30c364,
         type: 3}
       propertyPath: m_Name

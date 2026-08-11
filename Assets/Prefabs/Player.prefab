@@ -42,7 +42,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -260,9 +260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AutoShooter
   bulletPrefab: {fileID: 1757300319166857895, guid: 9bb6b23d2b8836e46966c5424a825252,
     type: 3}
-  fireRate: 1
+  fireRate: 2
   range: 5
-  bulletSpeedMultiplier: 1
+  bulletSpeedMultiplier: 2
   bulletDamageBonus: 0
   bulletSizeMultiplier: 0.5
 --- !u!114 &7893108907358918279
@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandOfHellAbility
   data: {fileID: 11400000, guid: 1eb2a768ee4d10542a22813f3c613e48, type: 2}
-  requiredLevel: 3
+  requiredLevel: 10
   isUnlocked: 1
 --- !u!114 &3864572976406275097
 MonoBehaviour:
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeteorStormAbility
   data: {fileID: 11400000, guid: 1095048a17cc09e4ca3fb35ef6831284, type: 2}
-  requiredLevel: 4
+  requiredLevel: 20
   isUnlocked: 1
   meteorCount: 75
   spawnRadius: 7

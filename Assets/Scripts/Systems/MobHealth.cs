@@ -11,6 +11,8 @@ public class MobHealth : MonoBehaviour
     public float currentHealth;
     public GameObject expCrystalPrefab;
     public float heartHealAmount = 1f;
+    public float lifeDuration = 300f;
+
 
     public System.Action OnMobDeath;
 
@@ -20,6 +22,7 @@ public class MobHealth : MonoBehaviour
     private AudioClip[] hitSounds;
     private bool isDead;
     Animator animator;
+    private float timeWithoutDamage;
 
     void Start()
     {
@@ -39,9 +42,23 @@ public class MobHealth : MonoBehaviour
         }
     }
 
+    void Update()
+{
+    if (isDead || lifeDuration <= 0f)
+        return;
+
+    timeWithoutDamage += Time.deltaTime;
+
+    if (timeWithoutDamage >= lifeDuration)
+    {
+        Destroy(gameObject);
+    }
+}
+
     public void TakeDamage(float damage)
     {
         if (isDead) return;
+        timeWithoutDamage = 0f;
 
         // 15% chance for a critical hit (deals 2x damage)
         bool isCrit = Random.value < 0.15f;
@@ -63,6 +80,7 @@ public class MobHealth : MonoBehaviour
         {
             animator?.SetTrigger("OnDamage");
         }
+
     }
 
     private static AudioClip[] LoadHitSounds(string path)

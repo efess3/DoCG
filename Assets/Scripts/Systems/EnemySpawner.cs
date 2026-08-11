@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     public float minSpawnDistance = 25f;
     [Tooltip("Maksymalny dystans pojawiania się przeciwnika od gracza")]
     public float maxSpawnDistance = 30f;
+    public int maxNumOfEnemies = 50;
 
     [Header("Time Scaling")]
     public float baseSpawnRate = 2f;
@@ -60,12 +61,17 @@ public class EnemySpawner : MonoBehaviour
     public float damageMultiplier = 1f;
     [Tooltip("Mnożnik czasu między spawnami (<1 = szybciej, np. 0.75)")]
     public float spawnRateMultiplier = 1f;
+    [Header("Limits")]
+    [Min(1)]
+    public int maxActiveEnemies = 100;
 
+    private readonly HashSet<GameObject> activeEnemies = new();
     private Transform player;
     private float timer;
     private float waveTimer;
     private float bossTimer;
     private int bossWavesPassed = 0;
+    private int numOfEnemies = 0;
 
     void Start()
     {
@@ -86,6 +92,7 @@ public class EnemySpawner : MonoBehaviour
         if (timer >= currentSpawnRate)
         {
             SpawnEntity(GetRandomEnemyPrefab());
+            numOfEnemies++;
             timer = 0;
         }
 
@@ -105,7 +112,7 @@ public class EnemySpawner : MonoBehaviour
 
             for (int i = 0; i < currentBossCount; i++)
             {
-                SpawnEntity(bossToSpawn);
+                SpawnEntity(bossToSpawn, false);
             }
 
             bossWavesPassed++;
@@ -150,15 +157,25 @@ public class EnemySpawner : MonoBehaviour
         return enemyTypes[0].enemyPrefab;
     }
 
-    void SpawnEntity(GameObject prefabToSpawn)
+    void SpawnEntity(GameObject prefabToSpawn, bool countTowardsLimit = true)
     {
-        if (prefabToSpawn == null) return;
+        activeEnemies.RemoveWhere(enemy => enemy == null);
+
+        if (prefabToSpawn == null)
+            return;
+
+        if (countTowardsLimit && activeEnemies.Count >= maxActiveEnemies)
+            return;
 
         Vector2 direction = Random.insideUnitCircle.normalized;
         float spawnDist = Random.Range(minSpawnDistance, maxSpawnDistance);
         Vector2 spawnPos = (Vector2)player.position + direction * spawnDist;
 
         GameObject spawned = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+
+        if (countTowardsLimit)
+            activeEnemies.Add(spawned);
+
         ApplyScaling(spawned);
     }
 
