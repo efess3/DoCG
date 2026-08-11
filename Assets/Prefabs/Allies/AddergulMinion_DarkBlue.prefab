@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6214500318462001003}
   - component: {fileID: 6214500318462001004}
   - component: {fileID: 6214500318462001005}
-  m_Layer: 20
+  m_Layer: 8
   m_Name: AddergulMinion_DarkBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,9 +79,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 2
+  m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1700190676, guid: 1689fb09af6086a45bacd896b6922b08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -78,9 +78,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -44025399
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: -1552141439
+  m_SortingLayer: 3
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2007476829, guid: 27de3665e562d41c793c71c783b79750, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -105,8 +105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
   delayBeforeExplosion: 3
-  damage: 10
-  explosionRadius: 3
   explosionEffectPrefab: {fileID: 2085211345380566436, guid: 94ec5c843d6a2bb91906a5aa361db189,
     type: 3}
   spriteRenderer: {fileID: 7250619922633311533}

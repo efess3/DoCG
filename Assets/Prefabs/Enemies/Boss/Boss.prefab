@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4360169952574670838}
   - component: {fileID: 5884088990809609386}
   - component: {fileID: 2641364490846704726}
-  m_Layer: 21
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -85,9 +85,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 548025857
+  m_SortingLayer: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1779426727, guid: 8e7df9313eb0cc74d827dc3d375ee116, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 4855237749919498767}
   - component: {fileID: 3875818608878264823}
   - component: {fileID: 1942272329645214668}
-  m_Layer: 21
+  m_Layer: 7
   m_Name: Caster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -44025399
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1989449853, guid: 5ae2cb66a3f54fc49af47e2bb29d1758, type: 3}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 2797169582669404894}
   - component: {fileID: 1891326405104197871}
   - component: {fileID: 7503336240601959486}
-  m_Layer: 21
+  m_Layer: 7
   m_Name: Caster (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -44025399
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1989449853, guid: 5ae2cb66a3f54fc49af47e2bb29d1758, type: 3}
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 6315152259712817963}
   - component: {fileID: 3080059650991201935}
   - component: {fileID: 4674478872581912503}
-  m_Layer: 21
+  m_Layer: 7
   m_Name: Caster (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +516,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -44025399
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1989449853, guid: 5ae2cb66a3f54fc49af47e2bb29d1758, type: 3}

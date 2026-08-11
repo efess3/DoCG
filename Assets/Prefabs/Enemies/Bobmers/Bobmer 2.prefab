@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5390101400541549894}
   - component: {fileID: -4319485418881480690}
   - component: {fileID: 8784933665923526415}
-  m_Layer: 21
+  m_Layer: 7
   m_Name: Bobmer 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -83,9 +83,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 548025857
+  m_SortingLayer: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1493502330, guid: b1b13d392f64809469c1d77c34645818, type: 3}
   m_Color: {r: 0.9811321, g: 0.97471285, b: 0.71733713, a: 1}

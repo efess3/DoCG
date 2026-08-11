@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8615015835271214624}
   - component: {fileID: -5390101400541549894}
   - component: {fileID: -4319485418881480690}
-  m_Layer: 21
+  m_Layer: 7
   m_Name: Pigeon 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -82,9 +82,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 548025857
+  m_SortingLayer: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 956071235, guid: 2995c3110f940ec49a6fd56b61cdddff, type: 3}
   m_Color: {r: 0.5943396, g: 0.5915361, b: 0.5915361, a: 1}
