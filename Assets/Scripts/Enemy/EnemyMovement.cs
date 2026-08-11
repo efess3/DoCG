@@ -19,7 +19,6 @@ public class EnemyMovement : MonoBehaviour
             Health playerHealth = other.GetComponent<Health>();
             if (playerHealth != null)
             {
-                Debug.Log("damage taken");
                 playerHealth.TakeDamage(Mathf.RoundToInt(contactDamage));
             }
         }

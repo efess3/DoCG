@@ -15,25 +15,25 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - Map
-  - Player
   - Enemy
+  - Player
+  - Object
   - Bullet
   - Effect
   - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -48,8 +48,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemy
+    uniqueID: 548025857
+    locked: 0
   - name: Player
     uniqueID: 2425651459
+    locked: 0
+  - name: Objects
+    uniqueID: 2742825857
     locked: 0
   - name: Effect
     uniqueID: 4250941897
