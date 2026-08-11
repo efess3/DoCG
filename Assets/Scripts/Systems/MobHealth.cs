@@ -88,6 +88,7 @@ public class MobHealth : MonoBehaviour
 
         if (expCrystalPrefab != null)
         {
+            MapManager mapManager = FindFirstObjectByType<MapManager>();
 
             for (int i = 0; i < crystalDropCount; i++)
             {
@@ -95,10 +96,18 @@ public class MobHealth : MonoBehaviour
 
                 if (crystalDropCount > 1)
                 {
-                    dropPos += new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0);
+                    dropPos += new Vector3(
+                        Random.Range(-1.5f, 1.5f),
+                        Random.Range(-1.5f, 1.5f),
+                        0f
+                    );
                 }
 
-                Instantiate(expCrystalPrefab, dropPos, Quaternion.identity);
+                Transform chunkParent = mapManager != null
+                    ? mapManager.GetChunkParent(dropPos)
+                    : null;
+
+                Instantiate(expCrystalPrefab, dropPos, Quaternion.identity, chunkParent);
             }
         }
 

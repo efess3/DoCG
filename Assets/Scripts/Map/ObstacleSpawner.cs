@@ -15,7 +15,6 @@ public class ObstacleSpawner : MonoBehaviour
     [Tooltip("Promień 'radaru' sprawdzającego, czy nie nakładamy się na inny collider")]
     public float checkObstacleRadius = 1.5f;
 
-    // MODYFIKACJA: Dodaliśmy parametr Transform chunkParent
     public void OnChunkSpawned(Vector2 chunkCenter, float chunkSize, Transform chunkParent)
     {
         if (obstaclePrefabs == null || obstaclePrefabs.Length == 0) return;
@@ -30,15 +29,12 @@ public class ObstacleSpawner : MonoBehaviour
             
             GameObject prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
             
-            // MODYFIKACJA: Przekazujemy chunkParent do funkcji instancjonującej
             Instabs(prefab, pos, chunkParent);
         }
     }
 
-    // MODYFIKACJA: Funkcja przyjmuje teraz rodzica i przypisuje obiekt do chunka
     private void Instabs(GameObject prefab, Vector2 pos, Transform chunkParent)
     {
-        // Ostatni parametr definiuje rodzica w hierarchii Unity
         Instantiate(prefab, pos, Quaternion.identity, chunkParent);
     }
 

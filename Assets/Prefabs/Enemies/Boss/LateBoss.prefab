@@ -212,10 +212,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MobHealth
   maxHealth: 300
   currentHealth: 0
-  expCrystalPrefab: {fileID: 3397198608789313487, guid: 3c4712803653fbb44b91f7c245ecca07,
+  expCrystalPrefab: {fileID: 3397198608789313487, guid: 3d8af18c0463a864b8984b4a54b5dfbd,
     type: 3}
   heartHealAmount: 1
-  crystalDropCount: 50
+  crystalDropCount: 5
 --- !u!1 &2218158064312304185
 GameObject:
   m_ObjectHideFlags: 0

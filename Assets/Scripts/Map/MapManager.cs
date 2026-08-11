@@ -83,4 +83,16 @@ public class MapManager : MonoBehaviour
             activeChunks.Remove(coord);
         }
     }
+
+    public Transform GetChunkParent(Vector3 worldPosition)
+    {
+        Vector2Int coord = new Vector2Int(
+            Mathf.RoundToInt(worldPosition.x / chunkSize),
+            Mathf.RoundToInt(worldPosition.y / chunkSize)
+        );
+
+        return activeChunks.TryGetValue(coord, out GameObject chunk)
+            ? chunk.transform
+            : null;
+    }
 }
