@@ -6,7 +6,7 @@ public class UICanvasAutoScaler : MonoBehaviour
 {
     [Header("Settings")]
     public Vector2 referenceResolution = new Vector2(1920, 1080);
-    [Range(0, 1)] public float matchWidthOrHeight = 0.5f;
+    [Range(0, 1)] public float matchWidthOrHeight = 1f;
 
     private void Awake()
     {

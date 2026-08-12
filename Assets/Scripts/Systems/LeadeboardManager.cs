@@ -34,7 +34,13 @@ public class LeaderboardManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        filePath = Path.Combine(Application.persistentDataPath, "leaderboard.json");
+
+        Directory.CreateDirectory(Application.persistentDataPath);
+
+        filePath = Path.Combine(
+            Application.persistentDataPath,
+            "leaderboard.json"
+        );
     }
 
     public void AddEntry(int level, int kills, float duration, string startTime)
@@ -53,16 +59,20 @@ public class LeaderboardManager : MonoBehaviour
 
     public LeaderboardData LoadScores()
     {
-        if (File.Exists(filePath))
-        {
-            string json = File.ReadAllText(filePath);
-            return JsonUtility.FromJson<LeaderboardData>(json);
-        }
-        return new LeaderboardData();
-    }
+        Directory.CreateDirectory(Application.persistentDataPath);
 
+        if (!File.Exists(filePath))
+            return new LeaderboardData();
+
+        string json = File.ReadAllText(filePath);
+        LeaderboardData data = JsonUtility.FromJson<LeaderboardData>(json);
+
+        return data ?? new LeaderboardData();
+    }
     private void SaveScores(LeaderboardData data)
     {
+        Directory.CreateDirectory(Application.persistentDataPath);
+
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(filePath, json);
     }
