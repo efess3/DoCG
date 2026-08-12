@@ -702,7 +702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1772940884893544218, guid: 8be421d793c55e04a9a0d05baab40fa7,
+  m_Sprite: {fileID: -658224691102204412, guid: 561087f95e175cc4aa45750827162022,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3027,7 +3027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9776dcfa66ea87e45bdcd38b8a27ecf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsPopupManager
-  settingsPanel: {fileID: 2118654852641252523}
+  settingsPanel: {fileID: 4564320642701723155}
 --- !u!1 &5564989462087684786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,8 +3226,8 @@ RectTransform:
   - {fileID: 3190783635798665267}
   - {fileID: 6799204627202808101}
   - {fileID: 9176895006129531946}
+  - {fileID: 755579433474985551}
   - {fileID: 8456953569188944936}
-  - {fileID: 2904007372713290999}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4753,7 +4753,7 @@ Transform:
   - {fileID: 5246403559158145671}
   m_Father: {fileID: 8456953569188944936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &163279376015896760
+--- !u!1001 &2338869684876464640
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4765,16 +4765,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7124892292840015077}
+      objectReference: {fileID: 7243442817433989683}
     - target: {fileID: 1881002215123462036, guid: d5684cd386fd86244880579e122c07b0,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseSettings
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1881002215123462036, guid: d5684cd386fd86244880579e122c07b0,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SettingsPopupManager, Assembly-CSharp
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2243616042134131731, guid: d5684cd386fd86244880579e122c07b0,
         type: 3}
@@ -4824,7 +4824,7 @@ PrefabInstance:
     - target: {fileID: 3028968630976240719, guid: d5684cd386fd86244880579e122c07b0,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -0.0000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 3028968630976240719, guid: d5684cd386fd86244880579e122c07b0,
         type: 3}
@@ -4869,7 +4869,7 @@ PrefabInstance:
     - target: {fileID: 3028968630976240719, guid: d5684cd386fd86244880579e122c07b0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3028968630976240719, guid: d5684cd386fd86244880579e122c07b0,
         type: 3}
@@ -4896,75 +4896,29 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReturnToMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 6190798127293995996, guid: d5684cd386fd86244880579e122c07b0,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.5943396
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190798127293995996, guid: d5684cd386fd86244880579e122c07b0,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.5943396
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190798127293995996, guid: d5684cd386fd86244880579e122c07b0,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.5943396
-      objectReference: {fileID: 0}
-    - target: {fileID: 7376837162650786820, guid: d5684cd386fd86244880579e122c07b0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6678477821981831351, guid: d5684cd386fd86244880579e122c07b0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6636065427845083938}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5684cd386fd86244880579e122c07b0, type: 3}
---- !u!1 &2118654852641252523 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2243616042134131731, guid: d5684cd386fd86244880579e122c07b0,
-    type: 3}
-  m_PrefabInstance: {fileID: 163279376015896760}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2904007372713290999 stripped
+--- !u!224 &755579433474985551 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3028968630976240719, guid: d5684cd386fd86244880579e122c07b0,
     type: 3}
-  m_PrefabInstance: {fileID: 163279376015896760}
+  m_PrefabInstance: {fileID: 2338869684876464640}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6839469800337309711 stripped
+--- !u!1 &4564320642701723155 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6678477821981831351, guid: d5684cd386fd86244880579e122c07b0,
+  m_CorrespondingSourceObject: {fileID: 2243616042134131731, guid: d5684cd386fd86244880579e122c07b0,
     type: 3}
-  m_PrefabInstance: {fileID: 163279376015896760}
+  m_PrefabInstance: {fileID: 2338869684876464640}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6636065427845083938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &7243442817433989683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4967669724109086771, guid: d5684cd386fd86244880579e122c07b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2338869684876464640}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6839469800337309711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd1215762f7ee741957ed1a3d3395a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonEffects
-  hoverScale: 1.05
-  clickScale: 0.95
-  animationDuration: 0.15
-  useColorHighlight: 1
-  highlightColor: {r: 1.2, g: 1.2, b: 1.2, a: 1}
-  glowOverlay: {fileID: 0}
-  highlightText: 1
-  textHighlightColor: {r: 1, g: 1, b: 1, a: 1}
-  hoverSound: {fileID: 0}
-  clickSound: {fileID: 0}
 --- !u!1001 &3193349587977096527
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aefcbda2a2e393448a0f9a1c2df592d3
+guid: 848f0cd4708707a48b2459fae22d2ce0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4389372150353148450
-    second: SettingsMenu-nobg 1_0
+      213: -367055598117983400
+    second: settingsPanel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SettingsMenu-nobg 1_0
+      name: settingsPanel_0
       rect:
         serializedVersion: 2
-        x: 340
-        y: 72
-        width: 343
-        height: 103
+        x: 0
+        y: 0
+        width: 1024
+        height: 1536
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 22abac007be2aec30800000000000000
-      internalID: 4389372150353148450
+      spriteID: 85beb55d0e4f7eaf0800000000000000
+      internalID: -367055598117983400
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 398adf5414435eb4a8f2b5a1482a6fed
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SettingsMenu-nobg 1_0: 4389372150353148450
+      settingsPanel_0: -367055598117983400
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

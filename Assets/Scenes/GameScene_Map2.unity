@@ -698,6 +698,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InGameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6929281867601868330, guid: 43c65f05b0944ca4989f5d82bf30c364,
+        type: 3}
+      propertyPath: GodMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9134855117851863617, guid: 43c65f05b0944ca4989f5d82bf30c364,
         type: 3}
       propertyPath: m_Pivot.x
