@@ -222,9 +222,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AutoShooter
   bulletPrefab: {fileID: 1757300319166857895, guid: 9bb6b23d2b8836e46966c5424a825252,
     type: 3}
-  fireRate: 2
+  fireRate: 1
   range: 5
-  bulletSpeedMultiplier: 2
+  bulletSpeedMultiplier: 1
   bulletDamageBonus: 0
   bulletSizeMultiplier: 0.5
 --- !u!114 &7893108907358918279
@@ -356,9 +356,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba702713b5e1b64bbaa33a9a227de48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoAimController
-  crosshairTexture: {fileID: 2800000, guid: ce726f79b7690f849b59be1f6e1c108b, type: 3}
-  hotspotOffset: {x: 16, y: 16}
-  autoCenterHotspot: 1
+  crosshairTexture: {fileID: 2800000, guid: da69ab0ec381ac949b07d9cbfc01d743, type: 3}
+  hotspotOffset: {x: 0, y: 0}
+  autoCenterHotspot: 0
 --- !u!114 &3154023825986682073
 MonoBehaviour:
   m_ObjectHideFlags: 0

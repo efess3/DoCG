@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SettingsPopupManager : MonoBehaviour
 {
@@ -67,7 +68,8 @@ public class SettingsPopupManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) &&
+        SceneManager.GetActiveScene().name != "MenuScene")
         {
             ToggleSettings();
         }

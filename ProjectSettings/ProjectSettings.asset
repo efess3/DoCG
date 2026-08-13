@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: AZbest
   productName: S.W.A.R.M.
-  defaultCursor: {fileID: 2800000, guid: cb5d430941f264948a88c08a495ca9eb, type: 3}
+  defaultCursor: {fileID: 2800000, guid: da69ab0ec381ac949b07d9cbfc01d743, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
