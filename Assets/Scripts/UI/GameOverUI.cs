@@ -6,6 +6,7 @@ public class GameOverUI : MonoBehaviour
     [Header("Game Over UI References")]
     public TextMeshProUGUI finalTimeText;
     public TextMeshProUGUI finalKillsText;
+    public TextMeshProUGUI finalLvlText;
 
     void OnEnable()
     {
@@ -25,6 +26,12 @@ public class GameOverUI : MonoBehaviour
         if (finalKillsText != null)
         {
             finalKillsText.text = GameManager.instance.killCount.ToString();
+        }
+
+        if (finalLvlText != null)
+        {
+            PlayerLevel playerLevel = FindFirstObjectByType<PlayerLevel>();
+            finalLvlText.text = playerLevel != null ? playerLevel.level.ToString() : "1";
         }
     }
 }

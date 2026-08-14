@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3067567411682101987}
   - component: {fileID: 2271726643057328815}
-  - component: {fileID: 4074412325301748030}
+  - component: {fileID: 7214180387894487547}
   m_Layer: 0
   m_Name: map3_terrain_11
   m_TagString: Untagged
@@ -93,8 +93,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &4074412325301748030
-BoxCollider2D:
+--- !u!70 &7214180387894487547
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,15 +127,6 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0069354475, y: -0.35139287}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.42, y: 1.73}
-    newSize: {x: 1.42, y: 1.73}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.990006, y: 0.7867876}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.011932797, y: -0.45737204}
+  m_Size: {x: 1.3163909, y: 0.81528777}
+  m_Direction: 1

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7144053987277102156}
   - component: {fileID: 4823727037439121113}
-  - component: {fileID: 3772431747424565961}
+  - component: {fileID: 798318853829953611}
   m_Layer: 0
   m_Name: decorative_41
   m_TagString: Untagged
@@ -92,8 +92,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!58 &3772431747424565961
-CircleCollider2D:
+--- !u!70 &798318853829953611
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,5 +126,6 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.023647547, y: -0.08473623}
-  m_Radius: 0.2595967
+  m_Offset: {x: -0.032766808, y: -0.113012455}
+  m_Size: {x: 0.53446877, y: 0.3882847}
+  m_Direction: 1

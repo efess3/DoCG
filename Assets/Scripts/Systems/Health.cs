@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     
     [Header("Settings")]
     public bool isPlayer = false;
+
     [Header("I-Frames (Nieśmiertelność)")]
     public float invincibilityDuration = 0.5f;
     private float invincibilityTimer;
@@ -26,10 +27,8 @@ public class Health : MonoBehaviour
 
         if (isPlayer && HealthSystem.Instance != null)
         {
-
             HealthSystem.Instance.maxHitPoint = maxHealth;
             HealthSystem.Instance.hitPoint = currentHealth;
-            
             HealthSystem.Instance.UpdateGraphics();
         }
     }
@@ -65,7 +64,7 @@ public class Health : MonoBehaviour
         }
         else if (isPlayer)
         {
-            if(animator != null) animator.SetTrigger("GetHit");
+            if (animator != null) animator.SetTrigger("GetHit");
             
             if (CameraFollow.Instance != null)
             {
@@ -124,21 +123,30 @@ public class Health : MonoBehaviour
     {
         isDead = true;
 
+        // FIXED: Disable ALL attached colliders (physics + trigger)
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        foreach (Collider2D col in colliders)
+        {
+            col.enabled = false;
+        }
+
         if (isPlayer)
         {
-            GetComponent<Collider2D>().enabled = false;
-            animator.SetTrigger("Death");
+            if (animator != null) animator.SetTrigger("Death");
             Invoke(nameof(TriggerGameOver), 1f);
         }
         else
         {
-            animator.SetTrigger("Death");
+            if (animator != null) animator.SetTrigger("Death");
             Destroy(gameObject, 1f);
         }
     }
 
     void TriggerGameOver()
     {
-        GameManager.instance.GameOver();
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.GameOver();
+        }
     }
 }

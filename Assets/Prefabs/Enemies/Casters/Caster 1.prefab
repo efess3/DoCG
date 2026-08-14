@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3480867706253840574}
   - component: {fileID: 7890186405979097546}
   - component: {fileID: 1113526001760979575}
+  - component: {fileID: 8522038968604759081}
   - component: {fileID: 8615015835271214624}
   - component: {fileID: -5390101400541549894}
   - component: {fileID: -4319485418881480690}
@@ -158,7 +159,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.20100677, y: 0}
+  m_Offset: {x: 0.20100677, y: -0.013785958}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -168,8 +169,45 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.6279862, y: 2.31}
+  m_Size: {x: 1.6279862, y: 2.282428}
   m_EdgeRadius: 0
+--- !u!70 &8522038968604759081
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7852002134476750867}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.1874885, y: 0.15715852}
+  m_Size: {x: 1.3462229, y: 1.9405413}
+  m_Direction: 0
 --- !u!114 &8615015835271214624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   speed: 0.5
   contactDamage: 0
+  damageInterval: 0.5
 --- !u!95 &-5390101400541549894
 Animator:
   serializedVersion: 7

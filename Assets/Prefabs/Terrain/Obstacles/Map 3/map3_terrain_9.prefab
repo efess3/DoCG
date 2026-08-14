@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5596235157252367166}
   - component: {fileID: 6709663613451664088}
-  - component: {fileID: 4729778341472051522}
+  - component: {fileID: 4185162118106455782}
+  - component: {fileID: 1586427128137975756}
   m_Layer: 0
   m_Name: map3_terrain_9
   m_TagString: Untagged
@@ -93,8 +94,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &4729778341472051522
-BoxCollider2D:
+--- !u!70 &4185162118106455782
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,15 +128,43 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.005676627, y: -0.11353254}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.78, y: 1.12}
-    newSize: {x: 0.78, y: 1.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.35425293, y: 0.7850791}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0036621988, y: -0.21516693}
+  m_Size: {x: 0.4357553, y: 0.67013466}
+  m_Direction: 0
+--- !u!70 &1586427128137975756
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2407721403580528172}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.0012205633, y: -0.32593504}
+  m_Size: {x: 0.74646497, y: 0.46813518}
+  m_Direction: 1

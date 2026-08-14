@@ -2,49 +2,50 @@ using UnityEngine;
 
 /*
  Prosta AI:
- przeciwnik cały czas podąża za graczem
+ Przeciwnik podąża za graczem z wykorzystaniem fizyki (Rigidbody2D)
 */
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 2f;
     public float contactDamage = 1f;
+    public float damageInterval = 0.5f; // Time in seconds between damage ticks
 
     private Transform player;
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Health playerHealth = other.GetComponent<Health>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(Mathf.RoundToInt(contactDamage));
-            }
-        }
-    }
+    private Rigidbody2D rb;
+    private float nextDamageTime;
 
     void Start()
     {
-        // znajdujemy gracza w scenie
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        GetComponent<Animator>().SetFloat("Speed", speed);
+        rb = GetComponent<Rigidbody2D>();
+
+        // Znajdujemy gracza w scenie
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+        }
+
+        Animator anim = GetComponent<Animator>();
+        if (anim != null)
+        {
+            anim.SetFloat("Speed", speed);
+        }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (GameManager.instance != null && !GameManager.instance.isGameActive) return;
-
         if (player == null) return;
 
+        // Kierunek do gracza
+        Vector2 direction = ((Vector2)player.position - rb.position).normalized;
 
-        // kierunek do gracza
-        Vector2 direction = (player.position - transform.position).normalized;
+        // Ruch w stronę gracza używając fizyki (nie przenika przez ściany)
+        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
 
-        // ruch w stronę gracza
-        transform.position += (Vector3)direction * speed * Time.deltaTime;
-
-        // obrót (obija sprite w osi X w zależności od kierunku)
+        // Obrót w osi X
         if (direction.x > 0)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
@@ -53,5 +54,17 @@ public class EnemyMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+    Health playerHealth = other.GetComponentInParent<Health>();
+
+    if (playerHealth != null && playerHealth.isPlayer &&
+        Time.time >= nextDamageTime)
+    {
+        playerHealth.TakeDamage(Mathf.RoundToInt(contactDamage));
+        nextDamageTime = Time.time + damageInterval;
+    }
     }
 }

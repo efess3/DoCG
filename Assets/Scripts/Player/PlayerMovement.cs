@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -30,37 +31,43 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleInput()
     {
-        // global block (game + death)
+        // Global block (game active check)
         if (GameManager.instance != null && !GameManager.instance.isGameActive)
         {
             movement = Vector2.zero;
             return;
         }
 
+        // Death check
         if (playerHealth != null && playerHealth.currentHealth <= 0)
         {
             movement = Vector2.zero;
             return;
         }
 
-        // movement lock
+        // Movement lock (e.g., during skills/knockback)
         if (!canMove)
         {
             movement = Vector2.zero;
-            animator.SetBool("isRunning", false);
+            if (animator != null) animator.SetBool("isRunning", false);
             return;
         }
 
-        // INPUT
+        // Input gathering
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement = movement.normalized;
 
-        animator.SetBool("isRunning", movement.magnitude > 0);
+        if (animator != null)
+        {
+            animator.SetBool("isRunning", movement.sqrMagnitude > 0.001f);
+        }
     }
 
     void HandleAnimationAndFlip()
     {
+        if (spriteRenderer == null) return;
+
         if (movement.x > 0)
             spriteRenderer.flipX = false;
         else if (movement.x < 0)
@@ -69,17 +76,21 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!canMove)
+        // Stop velocity immediately if movement is disabled, dead, or game is paused
+        if (!canMove || 
+           (playerHealth != null && playerHealth.currentHealth <= 0) || 
+           (GameManager.instance != null && !GameManager.instance.isGameActive))
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
 
+        // Physics movement
         rb.linearVelocity = movement * moveSpeed;
     }
 
     // =========================
-    // PUBLIC API (dla skilli)
+    // PUBLIC API (for skills/upgrades)
     // =========================
 
     public void LockMovement(float duration)
@@ -91,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator LockRoutine(float duration)
     {
         canMove = false;
-
         rb.linearVelocity = Vector2.zero;
         movement = Vector2.zero;
 

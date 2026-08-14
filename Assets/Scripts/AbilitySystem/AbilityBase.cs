@@ -26,6 +26,7 @@ public abstract class AbilityBase : MonoBehaviour
     protected virtual void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        lastUseTime = -GetCurrentCooldown();
         RefreshUnlockState();
     }
 
