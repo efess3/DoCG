@@ -125,7 +125,10 @@ public class MobHealth : MonoBehaviour
                     ? mapManager.GetChunkParent(dropPos)
                     : null;
 
-                Instantiate(expCrystalPrefab, dropPos, Quaternion.identity, chunkParent);
+                GameObject crystal = Instantiate(expCrystalPrefab, dropPos, Quaternion.identity);
+
+                if (chunkParent != null)
+                    crystal.transform.SetParent(chunkParent, true);
             }
         }
 

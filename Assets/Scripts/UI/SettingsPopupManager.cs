@@ -15,7 +15,6 @@ public class SettingsPopupManager : MonoBehaviour
     [SerializeField] private GameObject settingsPanel;
 
     [Header("State")]
-    private bool isPaused = false;
     private bool isMenuScene = false;
     private TextMeshProUGUI pauseStatsText;
 
@@ -159,7 +158,6 @@ public class SettingsPopupManager : MonoBehaviour
     private void PauseGame()
     {
         Time.timeScale = 0f;
-        isPaused = true;
         // Optional: Lock/Unlock cursor if needed
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -167,8 +165,6 @@ public class SettingsPopupManager : MonoBehaviour
 
     private void ResumeGame()
     {
-        isPaused = false;
-
         bool shouldKeepPaused = false;
         if (UpgradeManager.instance != null && UpgradeManager.instance.upgradePanel != null && UpgradeManager.instance.upgradePanel.activeSelf)
         {
@@ -312,7 +308,7 @@ public class SettingsPopupManager : MonoBehaviour
 
         targetText.fontSize = 21f;
         targetText.alignment = TextAlignmentOptions.TopLeft;
-        targetText.enableWordWrapping = false;
+        targetText.textWrappingMode = TextWrappingModes.NoWrap;
         targetText.overflowMode = TextOverflowModes.Overflow;
         targetText.color = Color.white;
         targetText.raycastTarget = false;
