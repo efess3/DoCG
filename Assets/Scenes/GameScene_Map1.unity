@@ -334,8 +334,8 @@ MonoBehaviour:
   maxNumOfEnemies: 50
   baseSpawnRate: 2
   minimumSpawnRate: 0.3
-  healthScalingPerMinute: 0.1
-  damageScalingPerMinute: 0.1
+  healthScalingPerMinute: 0.05
+  damageScalingPerMinute: 0.05
   waveInterval: 15
   enemiesPerWave: 10
   bossInterval: 60

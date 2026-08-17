@@ -247,7 +247,7 @@ MonoBehaviour:
   expCrystalPrefab: {fileID: 3397198608789313487, guid: 3d8af18c0463a864b8984b4a54b5dfbd,
     type: 3}
   heartHealAmount: 1
-  lifeDuration: 300
+  lifeDuration: 120
   crystalDropCount: 1
 --- !u!114 &8907144517663892289
 MonoBehaviour:
