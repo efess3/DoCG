@@ -4,7 +4,10 @@ using UnityEngine.UI;
 
 public class LeaderboardUI : MonoBehaviour
 {
-    public LeaderboardEntryUI entryPrefab;
+    public LeaderboardEntryUI panel_map1;
+    public LeaderboardEntryUI panel_map2;
+    public LeaderboardEntryUI panel_map3;
+    public int selectedMapID = 1;
     public int maxEntries = 20; // Increased default to allow scrolling more entries
 
     private bool scrollViewCreated = false;
@@ -82,22 +85,75 @@ public class LeaderboardUI : MonoBehaviour
         scrollRect.horizontal = false;
         scrollRect.vertical = true;
         scrollRect.scrollSensitivity = 25f;
-        scrollRect.movementType = ScrollRect.MovementType.Elastic;
+        scrollRect.movementType = ScrollRect.MovementType.Clamped;
+        scrollRect.inertia = false;
     }
 
     private void OnEnable()
     {
-        // usuń stare wpisy
+        RefreshLeaderboard();
+    }
+
+    public void SelectMap(int mapID)
+    {
+        selectedMapID = mapID;
+        Debug.Log($"Wybrano mapę: {mapID}");
+        RefreshLeaderboard();
+    }
+    
+    public void SelectMapFromDropdown(int dropdownIndex)
+    {
+        SelectMap(dropdownIndex+1);
+    }
+
+    public void RefreshLeaderboard()
+    {
+        // Usuń poprzednio wyświetlone rekordy
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
         }
-        // dodaj nowe wpisy
-        LeaderboardManager.LeaderboardData data = LeaderboardManager.instance.LoadScores();
-        var entries = data.entries.OrderByDescending(e => e.survivedTimespan).Take(maxEntries);
+
+        if (LeaderboardManager.instance == null)
+        {
+            Debug.LogError("Brakuje LeaderboardManager w scenie.");
+            return;
+        }
+
+        var data = LeaderboardManager.instance.LoadScores();
+
+        var entries = data.entries
+            .Where(entry => entry.mapID == selectedMapID)
+            .OrderByDescending(entry => entry.survivedTimespan)
+            .Take(maxEntries);
+
+        LeaderboardEntryUI selectedPrefab = GetPrefabForSelectedMap();
+
+        if (selectedPrefab == null)
+        {
+            return;
+        }
+
         foreach (var entry in entries)
         {
-            Instantiate(entryPrefab, transform).Setup(entry);
+            Instantiate(selectedPrefab, transform).Setup(entry);
         }
     }
+
+    private LeaderboardEntryUI GetPrefabForSelectedMap()
+    {
+        switch (selectedMapID)
+        {
+            case 1:
+                return panel_map1;
+            case 2:
+                return panel_map2;
+            case 3:
+                return panel_map3;
+            default:
+                Debug.LogError($"Nie ma prefabu dla mapy: {selectedMapID}");
+                return null;
+        }
+    }
+    
 }

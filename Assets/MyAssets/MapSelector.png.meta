@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8be421d793c55e04a9a0d05baab40fa7
+guid: eb91f50892d5d9c4ca1a8a6a4ff3e74b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1772940884893544218
-    second: upgradeMenu-nobg_0
+      213: -8095127844020020648
+    second: MapSelector_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: upgradeMenu-nobg_0
+      name: MapSelector_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 35
-        width: 1462
-        height: 951
+        x: 296
+        y: 544
+        width: 949
+        height: 238
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1fa8d36750ca9810800000000000000
-      internalID: 1772940884893544218
+      spriteID: 85a10dd9d1458af80800000000000000
+      internalID: -8095127844020020648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapSelector_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 286
+        width: 434
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96263183205dcf34ab0fd30638fd2b52
+      internalID: 1394921886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapSelector_2
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 289
+        width: 431
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c86e362d7d7854e9b61f146343d620
+      internalID: 734230418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapSelector_3
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 290
+        width: 431
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11377952776a14b4293e027703ada955
+      internalID: -1898296896
       vertices: []
       indices: 
       edges: []
@@ -125,7 +191,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5032e0a4b8f18674f9c9cad57f0583c2
+    spriteID: 53f90275c9a82fa42881182268ca8aac
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +201,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      upgradeMenu-nobg_0: 1772940884893544218
+      MapSelector_0: -8095127844020020648
+      MapSelector_1: 1394921886
+      MapSelector_2: 734230418
+      MapSelector_3: -1898296896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

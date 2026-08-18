@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0080660b8cfe7c4a8c1d8dc98ee8c48
+guid: 1b9fc97e1371f1f4a8168f7e348be310
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -627967850741632033
-    second: map_sellector_panel_0
+      213: -4748895879048476642
+    second: mapLabels_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: map_sellector_panel_0
+      name: mapLabels_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 15
+        y: 293
+        width: 994
+        height: 137
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,140 +115,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd3fd2e11920947f0800000000000000
-      internalID: -627967850741632033
+      spriteID: e18cff5db58881eb0800000000000000
+      internalID: -4748895879048476642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: map_sellector_panel_1
+      name: mapLabels_1
       rect:
         serializedVersion: 2
-        x: 123
-        y: 101
-        width: 399
-        height: 680
+        x: 14
+        y: 150
+        width: 996
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 918e4a4418918ac429099320625a8e4d
-      internalID: -1383244408
+      spriteID: d8fa42be1ea16374fbac11094fc01c23
+      internalID: -2097295521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: map_sellector_panel_2
+      name: mapLabels_2
       rect:
         serializedVersion: 2
-        x: 567
-        y: 105
-        width: 394
-        height: 674
+        x: 15
+        y: 4
+        width: 994
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69a418856870b02459b317227cbcc635
-      internalID: -1475733874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: map_sellector_panel_3
-      rect:
-        serializedVersion: 2
-        x: 1008
-        y: 103
-        width: 401
-        height: 679
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa7d0d0ec1f63c044a70aa2e75fc93e7
-      internalID: -956828595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: map_sellector_panel_4
-      rect:
-        serializedVersion: 2
-        x: 1022
-        y: 120
-        width: 376
-        height: 156
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6afcf55c5d25794187fd5fd35fc63ff
-      internalID: 1016423321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: map_sellector_panel_5
-      rect:
-        serializedVersion: 2
-        x: 580
-        y: 120
-        width: 370
-        height: 157
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b79e5daf357803428d97a5b8330b316
-      internalID: 446392629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: map_sellector_panel_6
-      rect:
-        serializedVersion: 2
-        x: 133
-        y: 118
-        width: 372
-        height: 158
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05271413cf41a9e47904580021fa78f1
-      internalID: -139673603
+      spriteID: f561c7e8c77e4ed4cb82c9a00b1d7f46
+      internalID: -1723066141
       vertices: []
       indices: 
       edges: []
@@ -257,7 +169,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f9ee6ee6daa9fe049a4712a6220fab39
+    spriteID: e102ae8bbcf1bea4d8464635afd88bb5
     internalID: 0
     vertices: []
     indices: 
@@ -267,13 +179,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      map_sellector_panel_0: -627967850741632033
-      map_sellector_panel_1: -1383244408
-      map_sellector_panel_2: -1475733874
-      map_sellector_panel_3: -956828595
-      map_sellector_panel_4: 1016423321
-      map_sellector_panel_5: 446392629
-      map_sellector_panel_6: -139673603
+      mapLabels_0: -4748895879048476642
+      mapLabels_1: -2097295521
+      mapLabels_2: -1723066141
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6d7f61a524dc77640aea42d3802ad46f
+guid: 5b3131dfeb2d31e4ca60872370d2aead
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7573724263551040348
-    second: upgradeMenu-nobg 1_0
+      213: 5090406755631993150
+    second: achievementsPanel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: upgradeMenu-nobg 1_0
+      name: achievementsPanel_0
       rect:
         serializedVersion: 2
-        x: 543
-        y: 70
-        width: 449
-        height: 120
+        x: 0
+        y: 0
+        width: 1036
+        height: 1518
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a4884cd8e9b4e690800000000000000
-      internalID: -7573724263551040348
+      spriteID: e3191bf59f1c4a640800000000000000
+      internalID: 5090406755631993150
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 466314dd9c877184ca970c0e2dc8397a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      upgradeMenu-nobg 1_0: -7573724263551040348
+      achievementsPanel_0: 5090406755631993150
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
