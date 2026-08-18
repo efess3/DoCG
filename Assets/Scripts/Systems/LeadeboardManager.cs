@@ -13,13 +13,15 @@ public class LeaderboardManager : MonoBehaviour
         public float survivedTimespan;
         public int level;
         public int mobsKilledCount;
+        public int mapID;
 
-        public LeaderboardEntry(string startDateTime, float survivedTimespan, int level, int mobsKilledCount)
+        public LeaderboardEntry(string startDateTime, float survivedTimespan, int level, int mobsKilledCount, int mapID)
         {
             this.startDateTime = startDateTime;
             this.survivedTimespan = survivedTimespan;
             this.level = level;
             this.mobsKilledCount = mobsKilledCount;
+            this.mapID = mapID;
         }
     }
 
@@ -43,11 +45,11 @@ public class LeaderboardManager : MonoBehaviour
         );
     }
 
-    public void AddEntry(int level, int kills, float duration, string startTime)
+    public void AddEntry(int level, int kills, float duration, string startTime, int mapID)
     {
         LeaderboardData data = LoadScores();
 
-        LeaderboardEntry newEntry = new LeaderboardEntry(startTime, duration, level, kills);
+        LeaderboardEntry newEntry = new LeaderboardEntry(startTime, duration, level, kills, mapID);
         data.entries.Add(newEntry);
 
         // Opcjonalnie: sortowanie po czasie przeżycia (malejąco)
@@ -66,7 +68,7 @@ public class LeaderboardManager : MonoBehaviour
 
         string json = File.ReadAllText(filePath);
         LeaderboardData data = JsonUtility.FromJson<LeaderboardData>(json);
-
+        
         return data ?? new LeaderboardData();
     }
     private void SaveScores(LeaderboardData data)

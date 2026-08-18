@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject GameOverPanel;
 
     private string sessionStartTime;
+    private string mapName;
+    private int mapID;
 
     void Awake()
     {
@@ -54,7 +57,15 @@ public class GameManager : MonoBehaviour
                 if (pl != null) playerLevel = pl.level;
             }
 
-            LeaderboardManager.instance.AddEntry(playerLevel, killCount, gameTime, sessionStartTime);
+            Scene map = SceneManager.GetActiveScene();
+            string mapNumber = map.name.Replace("GameScene_Map", "");
+
+            if (!int.TryParse(mapNumber, out mapID))
+            {
+                Debug.LogError($"Nie można odczytać ID mapy ze sceny: {map.name}");
+                mapID = 0;
+            }
+            LeaderboardManager.instance.AddEntry(playerLevel, killCount, gameTime, sessionStartTime, mapID);
         }
 
         GameOverPanel.SetActive(true);
